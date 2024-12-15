@@ -11,6 +11,21 @@ Usage:
 - Upload an audio file and specify the Demucs model to use for separation.
 """
 
+import warnings
+import logging
+import os
+
+# Suppress specific warnings
+warnings.filterwarnings("ignore", category=UserWarning, message="Coremltools is not installed.")
+warnings.filterwarnings("ignore", category=UserWarning, message="tflite-runtime is not installed.")
+warnings.filterwarnings("ignore", category=DeprecationWarning, message="The name tf.losses.sparse_softmax_cross_entropy is deprecated.")
+
+# Suppress specific logging warnings
+logging.getLogger("root").setLevel(logging.ERROR)
+logging.getLogger("tensorflow").setLevel(logging.ERROR)
+
+# Set TensorFlow logging level to suppress informational messages
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # ══════════════════════════
 # Imports
@@ -36,7 +51,6 @@ def gradio_pipeline(
 
     # Parameters for `separate_audio`
     model="htdemucs_ft",
-    two_stems=None,
     mp3=True,
     mp3_rate=320,
     float32=False,
@@ -54,13 +68,19 @@ def gradio_pipeline(
     maximum_frequency=None,
     multiple_pitch_bends=False,
     melodia_trick=True,
-    debug_file=None,
     sonification_samplerate=44100,
     midi_tempo=120,
 ):
     """
     Full pipeline function to process audio files by separating them into stems and converting the "other" stem to MIDI.
     """
+    
+    # Validate frequency values
+    def validate_frequency(value):
+        return None if value == 0 else value
+    
+    minimum_frequency = validate_frequency(minimum_frequency)
+    maximum_frequency = validate_frequency(maximum_frequency)
 
     # Input Song Name
     song_name = Path(input_file).stem
@@ -68,12 +88,13 @@ def gradio_pipeline(
     # Output path for audio stems
     output_path_stems = "./audio_processing/output_stems"
 
+    # ══════════════════════════
     # Step 1: Separate Audio Stems using Demucs Model
+    # ══════════════════════════
     results = separate_audio(
         input_file,
         output_path=output_path_stems,
         model=model,
-        two_stems=two_stems,
         mp3=mp3,
         mp3_rate=mp3_rate,
         float32=float32,
@@ -89,8 +110,10 @@ def gradio_pipeline(
 
     # Output path for MIDI
     output_path_midi = f"./audio_processing/output_midi/{song_name}"
-
+    
+    # ══════════════════════════
     # Step 2: Convert "other" stem to MIDI
+    # ══════════════════════════
     midi_file_path = audio_to_midi(
         audio_path=other_stem_path,
         output_directory=output_path_midi,
@@ -105,7 +128,6 @@ def gradio_pipeline(
         maximum_frequency=maximum_frequency,
         multiple_pitch_bends=multiple_pitch_bends,
         melodia_trick=melodia_trick,
-        debug_file=debug_file,
         sonification_samplerate=sonification_samplerate,
         midi_tempo=midi_tempo,
     )
@@ -116,39 +138,68 @@ def gradio_pipeline(
 # ══════════════════════════
 # Gradio Interface
 # ══════════════════════════
+with gr.Blocks(theme="shivi/calm_seafoam") as interface:
+    with gr.Row():
+        with gr.Column(scale=1):
+            gr.Markdown("### Audio Input")
+            audio_input = gr.Audio(type="filepath", label="Upload Audio File", sources="upload")
+            process_button = gr.Button("Process Audio")
 
-inputs = [
-    gr.Audio(
-        type="filepath",
-        label="Upload Audio File"
-    ),
+            gr.Markdown("### [STEP 1] Audio Stem Separation Parameters")
+            model = gr.Textbox(value="htdemucs_ft", label='Select Demucs Model', placeholder="model", max_lines=1)
+            mp3 = gr.Checkbox(label="Save as MP3?", value=True)
+            mp3_rate = gr.Slider(minimum=60, maximum=600, step=20, value=320, label="MP3 Bitrate (kbps)")
+            float32 = gr.Checkbox(label="Save as 32-bit Float Output?", value=False)
+            int24 = gr.Checkbox(label="Save as 24-bit Integer Output?", value=False)
 
-    gr.Textbox(
-        value="htdemucs_ft",
-        label="Demucs Model"
-    ),
-]
+        with gr.Column(scale=1):
+            gr.Markdown("### [STEP 2] Audio to MIDI Conversion Parameters")
+            save_midi = gr.Checkbox(label="Save MIDI File?", value=True)
+            sonify_midi = gr.Checkbox(label="Sonify MIDI? (Generate Audio from MIDI)", value=False)
+            save_model_outputs = gr.Checkbox(label="Save Model Output?", value=False)
+            save_notes = gr.Checkbox(label="Save Notes?", value=False)
+            onset_threshold = gr.Slider(minimum=0.0, maximum=1.0, step=0.01, value=0.5, label="Onset Threshold")
+            frame_threshold = gr.Slider(minimum=0.0, maximum=1.0, step=0.01, value=0.3, label="Frame Threshold")
+            minimum_note_length = gr.Slider(minimum=10, maximum=500, step=10, value=127.7, label="Minimum Note Length (ms)")
+            minimum_frequency = gr.Number(label="Minimum Frequency (Hz)", value=None)
+            maximum_frequency = gr.Number(label="Maximum Frequency (Hz)", value=None)
+            multiple_pitch_bends = gr.Checkbox(label="Allow Multiple Pitch Bends?", value=False)
+            melodia_trick = gr.Checkbox(label="Apply Melodia Trick?", value=True)
+            sonification_samplerate = gr.Number(label="Sonification Samplerate (Hz)", value=44100)
+            midi_tempo = gr.Number(label="MIDI Tempo (BPM)", value=120)
 
-outputs = [
-    gr.File(
-        type="filepath",
-        label="Separated Audio (Other)"
-    ),
+        with gr.Column(scale=1):
+            gr.Markdown("### Audio Outputs")
+            output_instrumental_stem = gr.Audio(label="Separated Instrumental Stem Preview")
+            output_instrumental_midi = gr.Audio(label="MIDI Instrumental Stem Preview")
 
-    gr.File(
-        type="filepath",
-        label="Separated Audio (Other)"
-    ),
-]
-
-# ══════════════════════════
-# Launch Gradio Interface
-# ══════════════════════════
-
-interface = gr.Interface(
-    fn=gradio_pipeline,
-    inputs=inputs,
-    outputs=outputs
-)
+    # ══════════════════════════
+    # Launch Gradio Interface
+    # ══════════════════════════
+    process_button.click(
+        gradio_pipeline,
+        inputs=[
+            audio_input,
+            model,
+            mp3,
+            mp3_rate,
+            float32,
+            int24,
+            save_midi,
+            sonify_midi,
+            save_model_outputs,
+            save_notes,
+            onset_threshold,
+            frame_threshold,
+            minimum_note_length,
+            minimum_frequency,
+            maximum_frequency,
+            multiple_pitch_bends,
+            melodia_trick,
+            sonification_samplerate,
+            midi_tempo,
+        ],
+        outputs=[output_instrumental_stem, output_instrumental_midi],
+    )
 
 interface.launch()
