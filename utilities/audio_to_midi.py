@@ -10,15 +10,12 @@ Usage:
 - Call the `audio_to_midi` function with the path to the input audio file and the desired output directory.
 - Customize the parameters of the `audio_to_midi` function as needed to suit your requirements.
 """
-
 # Standard Library Imports
 from pathlib import Path
-
 
 # Third-Party Imports
 from basic_pitch.inference import predict_and_save, Model
 from basic_pitch import ICASSP_2022_MODEL_PATH
-
 
 # Local Imports
 from .print_utilities import print_title, print_line
