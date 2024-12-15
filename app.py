@@ -34,18 +34,15 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 # Standard Library Imports
 from pathlib import Path
 
-
 # Third-party imports
 import gradio as gr
-
 
 # Local imports
 from utilities import separate_audio, audio_to_midi, print_line
 
 # ══════════════════════════
-# Functionality Pipeline
+# Gradio Pipeline
 # ══════════════════════════
-
 def gradio_pipeline(
     input_file,
 
@@ -74,7 +71,7 @@ def gradio_pipeline(
     """
     Full pipeline function to process audio files by separating them into stems and converting the "other" stem to MIDI.
     """
-    
+
     # Validate frequency values
     def validate_frequency(value):
         return None if value == 0 else value
@@ -170,8 +167,8 @@ with gr.Blocks(theme="shivi/calm_seafoam") as interface:
 
         with gr.Column(scale=1):
             gr.Markdown("### Audio Outputs")
-            output_instrumental_stem = gr.Audio(label="Separated Instrumental Stem Preview")
-            output_instrumental_midi = gr.Audio(label="MIDI Instrumental Stem Preview")
+            output_instrumental_stem = gr.Audio(label="Separated Instrumental Stem Preview", type="filepath")
+            output_instrumental_midi = gr.Audio(label="MIDI Instrumental Stem Preview", type="filepath")
 
     # ══════════════════════════
     # Launch Gradio Interface
