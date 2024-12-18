@@ -43,9 +43,6 @@ from utilities import separate_audio, audio_to_midi, print_line
 # ══════════════════════════
 # Gradio Pipeline
 # ══════════════════════════
-<<<<<<< Updated upstream
-def gradio_pipeline(
-=======
 
 def seperate_files(
     input_file,
@@ -97,7 +94,6 @@ def seperate_files(
 
 
 def output_midi(
->>>>>>> Stashed changes
     input_file,
 
     # Parameters for `separate_audio`
@@ -218,12 +214,7 @@ with gr.Blocks(theme="shivi/calm_seafoam") as interface_2:
 
         with gr.Column(scale=1):
             gr.Markdown("### Audio Outputs")
-<<<<<<< Updated upstream
-            output_instrumental_stem = gr.Audio(label="Separated Instrumental Stem Preview", type="filepath")
-            output_instrumental_midi = gr.Audio(label="MIDI Instrumental Stem Preview", type="filepath")
-=======
             midi = gr.Audio(label="Midi")
->>>>>>> Stashed changes
 
     # ══════════════════════════
     # Launch Gradio Interface
