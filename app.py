@@ -215,6 +215,20 @@ with gr.Blocks(theme="shivi/calm_seafoam") as interface_2:
         with gr.Column(scale=1):
             gr.Markdown("### Audio Outputs")
             midi = gr.Audio(label="Midi")
+            
+# ══════════════════════════
+# Gradio Interface 3
+# ══════════════════════════
+with gr.Blocks(theme="shivi/calm_seafoam") as lyrics_interface:
+    with gr.Row():
+        with gr.Column(scale=1):
+            gr.Markdown("### Audio Input")
+            audio_input = gr.Audio(type="filepath", label="Upload Audio File", sources="upload")
+            do_vocalize = gr.Button("Process Audio")
+        
+        with gr.Column(scale=1):
+            gr.Markdown("### Audio Outputs")
+            output_instrumental_main = gr.Textbox(label="Lyrics", placeholder="Lyrics will be displayed here", type="auto", lines=10)
 
     # ══════════════════════════
     # Launch Gradio Interface
@@ -257,7 +271,7 @@ with gr.Blocks(theme="shivi/calm_seafoam") as interface_2:
         outputs=[midi],
     )
 # Tabbed Interface
-tabbed_interface = gr.TabbedInterface([interface, interface_2], ["Seperate Audio", "Audio To MIDI"])
+tabbed_interface = gr.TabbedInterface([interface, interface_2, lyrics_interface], ["Seperate Audio", "Audio To MIDI", "Extract Lyrics"])
 
 tabbed_interface.launch()
 
