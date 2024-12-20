@@ -38,7 +38,7 @@ from pathlib import Path
 import gradio as gr
 
 # Local imports
-from utilities import separate_audio, audio_to_midi, print_line
+from utilities import separate_audio, audio_to_midi, print_line, extract_lyrics
 
 # ══════════════════════════
 # Gradio Pipeline
@@ -159,6 +159,38 @@ def output_midi(
     return str(midi_file_path)
 
 
+def extract_audio(input_file):
+    """
+    
+    """
+    print("*"*50)
+    print(f"Input File: {input_file}")
+    print("*"*50)
+
+    # ══════════════════════════
+    # Step 1: Separate Audio Stems using Demucs Model
+    lyrics = extract_lyrics.extract_audio_lyrics(input_file)
+    # take the list of strings and join them into one string
+    lyrics = "\n".join(lyrics)
+    # Return the "other" stem path for Gradio output
+    return str(lyrics)
+
+
+def translate_lyrics(lyrics, language):
+    """
+    
+    """
+    print("*"*50)
+    print(f"Lyrics: {lyrics}")
+    print("*"*50)
+
+    # ══════════════════════════
+    # Step 1: Separate Audio Stems using Demucs Model
+    t = " ".join(extract_lyrics.translate_lyrics(lyrics.split("\n"), language))
+    # Return the "other" stem path for Gradio output
+    return str(t)
+
+
 # 1. Seperate audio into stems
 # 2. Convert other stem to MIDI
 
@@ -223,16 +255,39 @@ with gr.Blocks(theme="shivi/calm_seafoam") as lyrics_interface:
     with gr.Row():
         with gr.Column(scale=1):
             gr.Markdown("### Audio Input")
-            audio_input = gr.Audio(type="filepath", label="Upload Audio File", sources="upload")
-            do_vocalize = gr.Button("Process Audio")
+            midi_input = gr.Audio(type="filepath", label="Upload Audio File", sources="upload")
+            get_lyrics = gr.Button("Extract Lyrics")
         
         with gr.Column(scale=1):
             gr.Markdown("### Audio Outputs")
-            output_instrumental_main = gr.Textbox(label="Lyrics", placeholder="Lyrics will be displayed here", type="auto", lines=10)
+            lyrics = gr.Textbox(label="Lyrics")
+            
+            gr.Markdown("### Translated Lyrics")
+            do_translate = gr.Button("Translate Lyrics")
+            language = gr.Textbox(label="Language Code", placeholder="en")
+            translated_lyrics = gr.Textbox(label="Lyrics")
+            
 
     # ══════════════════════════
     # Launch Gradio Interface
     # ══════════════════════════
+    get_lyrics.click(
+        extract_audio,
+        inputs=[
+            midi_input,
+        ],
+        outputs=[lyrics],
+    )
+    
+    do_translate.click(
+        translate_lyrics,
+        inputs=[
+            lyrics,
+            language,
+        ],
+        outputs=[translated_lyrics],
+    )
+    
     process_button.click(
         seperate_files,
         inputs=[
