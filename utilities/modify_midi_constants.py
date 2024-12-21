@@ -39,7 +39,8 @@ ACCEPTABLE_PARAMETERS = {
         "description": "Mapping of instrument indices to instrument names.",
         "constraints": (
         "Keys must be integer (channel indices); values must be an available instrument name. "
-        f"IMPORTANT (ONLY USE INSTRUMENTS IN THIS LIST): {', '.join(VALID_INSTRUMENTS)}."
+        "IMPORTANT: ONLY USE INSTRUMENTS IN THIS LIST PROVIDED."
+        "You DO NOT HAVE PERMISSION to use other instruments outside the provided list."
     ),
         "complex": True
     },

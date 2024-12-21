@@ -97,7 +97,7 @@ def separate_audio(
         float32 (bool, optional): Whether to output float32 WAV files.
         int24 (bool, optional): Whether to output int24 WAV files.
     """
-    print_title("[STEP 1] Separating Audio with Demucs", text_color="bright_white")
+    print_title("Separating Audio with Demucs", text_color="bright_white")
 
     inp = Path(input_file)
     outp = Path(output_path)

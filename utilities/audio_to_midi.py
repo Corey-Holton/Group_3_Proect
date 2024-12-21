@@ -44,7 +44,7 @@ def audio_to_midi(
     Convert audio files to MIDI using the Basic Pitch model.
     """
 
-    print_title("[STEP 2] Converting Audio to MIDI", text_color="bright_white")
+    print_title("Converting Audio to MIDI", text_color="bright_white")
 
     # Convert the input paths and output directory to Path objects
     audio_path = Path(audio_path)
