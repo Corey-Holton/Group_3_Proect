@@ -15,319 +15,262 @@ import warnings
 import logging
 import os
 
-# Suppress specific warnings
+# ════════════════════════════════════════════════════════════
+# Suppress Warnings and Logging
+# ════════════════════════════════════════════════════════════
 warnings.filterwarnings("ignore", category=UserWarning, message="Coremltools is not installed.")
 warnings.filterwarnings("ignore", category=UserWarning, message="tflite-runtime is not installed.")
 warnings.filterwarnings("ignore", category=DeprecationWarning, message="The name tf.losses.sparse_softmax_cross_entropy is deprecated.")
 
-# Suppress specific logging warnings
 logging.getLogger("root").setLevel(logging.ERROR)
 logging.getLogger("tensorflow").setLevel(logging.ERROR)
-
-# Set TensorFlow logging level to suppress informational messages
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
-# ══════════════════════════
+# ════════════════════════════════════════════════════════════
 # Imports
-# ══════════════════════════
+# ════════════════════════════════════════════════════════════
 
 # Standard Library Imports
 from pathlib import Path
 
-# Third-party imports
+# Third-party Imports
 import gradio as gr
 
-# Local imports
-from utilities import separate_audio, audio_to_midi, print_line, extract_lyrics
+# Local Imports
+from utilities import separate_audio, audio_to_midi, print_line, extract_lyrics, modify_midi_prompt
 
-# ══════════════════════════
-# Gradio Pipeline
-# ══════════════════════════
+# ════════════════════════════════════════════════════════════
+# Utility Functions
+# ════════════════════════════════════════════════════════════
+def validate_frequency(value):
+    """Validate frequency to ensure it is not zero."""
+    return None if value == 0 else value
 
-def seperate_files(
-    input_file,
-    # Parameters for `separate_audio`
-    model="htdemucs_ft",
-    mp3=True,
-    mp3_rate=320,
-    float32=False,
-    int24=False,
-):
-    """
-    
-    """
-    print("*"*50)
-    print(f"Input File: {input_file}")
-    print(f"Model: {model}")
-    print(f"MP3: {mp3}")
-    print(f"MP3 Rate: {mp3_rate}")
-    print(f"Float32: {float32}")
-    print(f"Int24: {int24}")
-    print("*"*50)
+def process_audio_stems(input_file, model="htdemucs_ft", save_as_mp3=True, mp3_bitrate=320, use_float32=False, use_int24=False):
+    """Separate audio into stems using the specified model."""
+    output_directory = Path("./audio_processing/output_stems")
 
-    # Output path for audio stems
-    output_path_stems = "./audio_processing/output_stems"
-
-    # ══════════════════════════
-    # Step 1: Separate Audio Stems using Demucs Model
-    # ══════════════════════════
     results = separate_audio(
         input_file,
-        output_path=output_path_stems,
+        output_path=output_directory,
         model=model,
-        mp3=mp3,
-        mp3_rate=mp3_rate,
-        float32=float32,
-        int24=int24,
+        mp3=save_as_mp3,
+        mp3_rate=mp3_bitrate,
+        float32=use_float32,
+        int24=use_int24,
     )
 
-    # Check if results are returned
     if results is None:
-        return print_line("[ERROR] \n\tNo results returned from `separate_audio`.", text_color="red")
+        return print_line("[ERROR] No results returned from `separate_audio`.", text_color="red")
 
-    # Unpack audio stems paths from results
-    other_stem_path, voice_stem_path, bass_stem_path, drums_stem_path = results
+    return [str(path) for path in results]
 
-    # Return the "other" stem path for Gradio output
-    return str(other_stem_path), str(voice_stem_path), str(bass_stem_path), str(drums_stem_path)
-
-
-
-def output_midi(
+def convert_audio_to_midi(
     input_file,
-
-    # Parameters for `separate_audio`
-    model="htdemucs_ft",
-    mp3=True,
-    mp3_rate=320,
-    float32=False,
-    int24=False,
-
-    # Parameters for `audio_to_midi`
     save_midi=True,
-    sonify_midi=False,
+    generate_audio_from_midi=False,
     save_model_outputs=False,
     onset_threshold=0.5,
     frame_threshold=0.3,
-    minimum_note_length=127.70,
-    minimum_frequency=None,
-    maximum_frequency=None,
-    multiple_pitch_bends=False,
-    melodia_trick=True,
-    sonification_samplerate=44100,
+    min_note_length=127.7,
+    min_frequency=None,
+    max_frequency=None,
+    allow_multiple_pitch_bends=False,
+    apply_melodia_trick=True,
+    samplerate=44100,
     midi_tempo=120,
 ):
-    """
-    Full pipeline function to process audio files by separating them into stems and converting the "other" stem to MIDI.
-    """
+    """Convert an audio file to MIDI format with specified parameters."""
+    min_frequency = validate_frequency(min_frequency)
+    max_frequency = validate_frequency(max_frequency)
 
-    # Validate frequency values
-    def validate_frequency(value):
-        return None if value == 0 else value
-    
-    minimum_frequency = validate_frequency(minimum_frequency)
-    maximum_frequency = validate_frequency(maximum_frequency)
+    # song_name = None
+    output_directory = "./audio_processing/output_midi"
 
-    # Input Song Name
-    song_name = Path(input_file).stem
-
-    # Output path for audio stems
-    output_path_midi = "./audio_processing/output_midi"
-        
-    # ══════════════════════════
-    # Step 2: Convert "other" stem to MIDI
-    # ══════════════════════════
-    midi_file_path = audio_to_midi(
+    midi_path = audio_to_midi(
         audio_path=input_file,
-        output_directory=output_path_midi,
+        output_directory=output_directory,
         save_midi=save_midi,
-        sonify_midi=sonify_midi,
+        sonify_midi=generate_audio_from_midi,
         save_model_outputs=save_model_outputs,
         save_notes=True,
         onset_threshold=onset_threshold,
         frame_threshold=frame_threshold,
-        minimum_note_length=minimum_note_length,
-        minimum_frequency=minimum_frequency,
-        maximum_frequency=maximum_frequency,
-        multiple_pitch_bends=multiple_pitch_bends,
-        melodia_trick=melodia_trick,
-        sonification_samplerate=sonification_samplerate,
+        minimum_note_length=min_note_length,
+        minimum_frequency=min_frequency,
+        maximum_frequency=max_frequency,
+        multiple_pitch_bends=allow_multiple_pitch_bends,
+        melodia_trick=apply_melodia_trick,
+        sonification_samplerate=samplerate,
         midi_tempo=midi_tempo,
     )
+    return str(midi_path)
 
-    # Return both files for Gradio output
-    return str(midi_file_path)
-
-
-def extract_audio(input_file):
-    """
-    
-    """
-    print("*"*50)
+def extract_audio_lyrics(input_file):
+    """Extract lyrics from an audio file."""
+    print("*" * 50)
     print(f"Input File: {input_file}")
-    print("*"*50)
+    print("*" * 50)
 
-    # ══════════════════════════
-    # Step 1: Separate Audio Stems using Demucs Model
     lyrics = extract_lyrics.extract_audio_lyrics(input_file)
-    # take the list of strings and join them into one string
-    lyrics = "\n".join(lyrics)
-    # Return the "other" stem path for Gradio output
-    return str(lyrics)
+    return "\n".join(lyrics)
 
-
-def translate_lyrics(lyrics, language):
-    """
-    
-    """
-    print("*"*50)
+def translate_audio_lyrics(lyrics, language_code):
+    """Translate extracted lyrics to the specified language."""
+    print("*" * 50)
     print(f"Lyrics: {lyrics}")
-    print("*"*50)
+    print("*" * 50)
 
-    # ══════════════════════════
-    # Step 1: Separate Audio Stems using Demucs Model
-    t = " ".join(extract_lyrics.translate_lyrics(lyrics.split("\n"), language))
-    # Return the "other" stem path for Gradio output
-    return str(t)
+    translated = " ".join(extract_lyrics.translate_lyrics(lyrics.split("\n"), language_code))
+    return str(translated)
+
+# ════════════════════════════════════════════════════════════
+# Gradio Interface 1: Audio Separation
+# ════════════════════════════════════════════════════════════
+def create_audio_separation_interface():
+    with gr.Blocks() as interface:
+        with gr.Row():
+            with gr.Column(scale=1):
+                gr.Markdown("### Audio Input")
+                audio_input = gr.Audio(type="filepath", label="Upload Audio File", sources="upload")
+                process_button = gr.Button("Separate Audio")
+
+            with gr.Column(scale=1):
+                gr.Markdown("### Parameters")
+                model = gr.Textbox(value="htdemucs_ft", label="Demucs Model", placeholder="htdemucs_ft")
+                save_as_mp3 = gr.Checkbox(label="Save as MP3?", value=True)
+                mp3_bitrate = gr.Slider(minimum=60, maximum=600, step=20, value=320, label="MP3 Bitrate (kbps)")
+                use_float32 = gr.Checkbox(label="32-bit Float Output?", value=False)
+                use_int24 = gr.Checkbox(label="24-bit Integer Output?", value=False)
+
+        with gr.Row():
+            with gr.Column(scale=1):
+                gr.Markdown("### Audio Outputs")
+                instrumental_output = gr.Audio(label="Instrumental")
+                vocal_output = gr.Audio(label="Vocals")
+                bass_output = gr.Audio(label="Bass")
+                drum_output = gr.Audio(label="Drums")
+
+        process_button.click(
+            process_audio_stems,
+            inputs=[audio_input, model, save_as_mp3, mp3_bitrate, use_float32, use_int24],
+            outputs=[instrumental_output, vocal_output, bass_output, drum_output],
+        )
+    return interface
+
+# ════════════════════════════════════════════════════════════
+# Gradio Interface 2: Audio to MIDI Conversion
+# ════════════════════════════════════════════════════════════
+def create_audio_to_midi_interface():
+    with gr.Blocks() as interface:
+        with gr.Row():
+            with gr.Column(scale=1):
+                gr.Markdown("### Audio Input")
+                audio_input = gr.Audio(type="filepath", label="Upload Audio File", sources="upload")
+                process_button = gr.Button("Convert to MIDI")
+
+                gr.Markdown("### MIDI Output")
+                midi_output = gr.Audio(label="MIDI")
+
+            with gr.Column(scale=1):
+                gr.Markdown("### Parameters")
+                save_midi = gr.Checkbox(label="Save MIDI File?", value=True)
+                generate_audio_from_midi = gr.Checkbox(label="Sonify MIDI?", value=False)
+                save_model_outputs = gr.Checkbox(label="Save Model Outputs?", value=False)
+                # save_notes = gr.Checkbox(label="Save Notes?", value=False)
+                onset_threshold = gr.Slider(minimum=0.0, maximum=1.0, step=0.01, value=0.5, label="Onset Threshold")
+                frame_threshold = gr.Slider(minimum=0.0, maximum=1.0, step=0.01, value=0.3, label="Frame Threshold")
+                min_note_length = gr.Slider(minimum=10, maximum=500, step=10, value=127.7, label="Minimum Note Length (ms)")
+                min_frequency = gr.Number(label="Minimum Frequency (Hz)", value=None)
+                max_frequency = gr.Number(label="Maximum Frequency (Hz)", value=None)
+                allow_multiple_pitch_bends = gr.Checkbox(label="Allow Multiple Pitch Bends?", value=False)
+                apply_melodia_trick = gr.Checkbox(label="Apply Melodia Trick?", value=True)
+                samplerate = gr.Number(label="Samplerate (Hz)", value=44100)
+                midi_tempo = gr.Number(label="MIDI Tempo (BPM)", value=120)
+
+        process_button.click(
+            convert_audio_to_midi,
+            inputs=[
+                audio_input, save_midi, generate_audio_from_midi, save_model_outputs, onset_threshold,
+                frame_threshold, min_note_length, min_frequency, max_frequency, allow_multiple_pitch_bends,
+                apply_melodia_trick, samplerate, midi_tempo
+            ],
+            outputs=[midi_output],
+        )
+    return interface
+
+# ════════════════════════════════════════════════════════════
+# Gradio Interface 3: Modify MIDI File
+# ════════════════════════════════════════════════════════════
+# Will have an MIDI input, A text input for the prompt, and a MIDI output
+def create_modify_midi_interface():
+    with gr.Blocks() as interface:
+        with gr.Row():
+            with gr.Column(scale=1):
+                gr.Markdown("### MIDI Input")
+                midi_input = gr.Audio(type="filepath", label="Upload MIDI File", sources="upload")
+                process_button = gr.Button("Modify MIDI")
+
+            with gr.Column(scale=1):
+                gr.Markdown("### Parameters")
+                prompt = gr.Textbox(label="Prompt", placeholder="Enter a prompt here.")
+
+                gr.Markdown("### MIDI Output")
+                modified_midi_output = gr.Audio(label="Modified MIDI")
+
+        process_button.click(
+            modify_midi_prompt,
+            inputs=[midi_input, prompt],
+            outputs=[modified_midi_output],
+        )
+    return interface
 
 
-# 1. Seperate audio into stems
-# 2. Convert other stem to MIDI
+# ════════════════════════════════════════════════════════════
+# Gradio Interface 4: Extract and Translate Lyrics
+# ════════════════════════════════════════════════════════════
+def create_lyrics_interface():
+    with gr.Blocks() as interface:
+        with gr.Row():
+            with gr.Column(scale=1):
+                gr.Markdown("### Audio Input")
+                audio_input = gr.Audio(type="filepath", label="Upload Audio File", sources="upload")
+                extract_button = gr.Button("Extract Lyrics")
 
-# ══════════════════════════
-# Gradio Interface 1
-# ══════════════════════════
-with gr.Blocks(theme="shivi/calm_seafoam") as interface:
-    with gr.Row():
-        with gr.Column(scale=1):
-            gr.Markdown("### Audio Input")
-            audio_input = gr.Audio(type="filepath", label="Upload Audio File", sources="upload")
-            process_button = gr.Button("Process Audio")
-        
-        with gr.Column(scale=1):
-            gr.Markdown("### Audio Parameters")
-            model = gr.Textbox(value="htdemucs_ft", label='Select Demucs Model', placeholder="htdemucs_ft", max_lines=1)
-            mp3 = gr.Checkbox(label="Save as MP3?", value=True)
-            mp3_rate = gr.Slider(minimum=60, maximum=600, step=20, value=320, label="MP3 Bitrate (kbps)")
-            float32 = gr.Checkbox(label="Save as 32-bit Float Output?", value=False)
-            int24 = gr.Checkbox(label="Save as 24-bit Integer Output?", value=False)
-    with gr.Row():
-        with gr.Column(scale=1):
-            gr.Markdown("### Audio Outputs")
-            output_instrumental_main = gr.Audio(label="Main (Other)")
-            output_instrumental_voice = gr.Audio(label="Voice")
-            output_instrumental_bass = gr.Audio(label="Bass")
-            output_instrumental_drums = gr.Audio(label="Drums")
-        
+            with gr.Column(scale=1):
+                gr.Markdown("### Lyrics Output")
+                lyrics_output = gr.Textbox(label="Lyrics")
 
-# ══════════════════════════
-# Gradio Interface 2
-# ══════════════════════════   
-with gr.Blocks(theme="shivi/calm_seafoam") as interface_2:
-    with gr.Row():
-        with gr.Column(scale=1):
-            gr.Markdown("### Audio Input")
-            audio_input_2 = gr.Audio(type="filepath", label="Upload Audio File", sources="upload")
-            gr.Markdown("### Parameters")
-            save_midi = gr.Checkbox(label="Save MIDI File?", value=True)
-            sonify_midi = gr.Checkbox(label="Sonify MIDI? (Generate Audio from MIDI)", value=False)
-            save_model_outputs = gr.Checkbox(label="Save Model Output?", value=False)
-            # save_notes = gr.Checkbox(label="Save Notes?", value=False)
-            onset_threshold = gr.Slider(minimum=0.0, maximum=1.0, step=0.01, value=0.5, label="Onset Threshold")
-            frame_threshold = gr.Slider(minimum=0.0, maximum=1.0, step=0.01, value=0.3, label="Frame Threshold")
-            minimum_note_length = gr.Slider(minimum=10, maximum=500, step=10, value=127.7, label="Minimum Note Length (ms)")
-            minimum_frequency = gr.Number(label="Minimum Frequency (Hz)", value=None)
-            maximum_frequency = gr.Number(label="Maximum Frequency (Hz)", value=None)
-            multiple_pitch_bends = gr.Checkbox(label="Allow Multiple Pitch Bends?", value=False)
-            melodia_trick = gr.Checkbox(label="Apply Melodia Trick?", value=True)
-            sonification_samplerate = gr.Number(label="Sonification Samplerate (Hz)", value=44100)
-            midi_tempo = gr.Number(label="MIDI Tempo (BPM)", value=120)
-            button = gr.Button("Process Audio")
+                gr.Markdown("### Translate Lyrics")
+                language_code = gr.Textbox(label="Language Code", placeholder="en")
+                translated_output = gr.Textbox(label="Translated Lyrics")
+                translate_button = gr.Button("Translate")
 
-        with gr.Column(scale=1):
-            gr.Markdown("### Audio Outputs")
-            midi = gr.Audio(label="Midi")
-            
-# ══════════════════════════
-# Gradio Interface 3
-# ══════════════════════════
-with gr.Blocks(theme="shivi/calm_seafoam") as lyrics_interface:
-    with gr.Row():
-        with gr.Column(scale=1):
-            gr.Markdown("### Audio Input")
-            midi_input = gr.Audio(type="filepath", label="Upload Audio File", sources="upload")
-            get_lyrics = gr.Button("Extract Lyrics")
-        
-        with gr.Column(scale=1):
-            gr.Markdown("### Audio Outputs")
-            lyrics = gr.Textbox(label="Lyrics")
-            
-            gr.Markdown("### Translated Lyrics")
-            do_translate = gr.Button("Translate Lyrics")
-            language = gr.Textbox(label="Language Code", placeholder="en")
-            translated_lyrics = gr.Textbox(label="Lyrics")
-            
+        extract_button.click(
+            extract_audio_lyrics,
+            inputs=[audio_input],
+            outputs=[lyrics_output],
+        )
 
-    # ══════════════════════════
-    # Launch Gradio Interface
-    # ══════════════════════════
-    get_lyrics.click(
-        extract_audio,
-        inputs=[
-            midi_input,
-        ],
-        outputs=[lyrics],
-    )
-    
-    do_translate.click(
-        translate_lyrics,
-        inputs=[
-            lyrics,
-            language,
-        ],
-        outputs=[translated_lyrics],
-    )
-    
-    process_button.click(
-        seperate_files,
-        inputs=[
-            audio_input,
-            model,
-            mp3,
-            mp3_rate,
-            float32,
-            int24,
-        ],
-        outputs=[output_instrumental_main, output_instrumental_voice, output_instrumental_bass, output_instrumental_drums],
-    )
-    
-    button.click(
-        output_midi,
-        inputs=[
-            audio_input_2,
-            model,
-            mp3,
-            mp3_rate,
-            float32,
-            int24,
-            save_midi,
-            sonify_midi,
-            save_model_outputs,
-            onset_threshold,
-            frame_threshold,
-            minimum_note_length,
-            minimum_frequency,
-            maximum_frequency,
-            multiple_pitch_bends,
-            melodia_trick,
-            sonification_samplerate,
-            midi_tempo,
-        ],
-        outputs=[midi],
-    )
-# Tabbed Interface
-tabbed_interface = gr.TabbedInterface([interface, interface_2, lyrics_interface], ["Seperate Audio", "Audio To MIDI", "Extract Lyrics"])
+        translate_button.click(
+            translate_audio_lyrics,
+            inputs=[lyrics_output, language_code],
+            outputs=[translated_output],
+        )
+    return interface
+
+# ════════════════════════════════════════════════════════════
+# Main Interface Setup
+# ════════════════════════════════════════════════════════════
+audio_separation_interface = create_audio_separation_interface()
+audio_to_midi_interface = create_audio_to_midi_interface()
+modify_midi_interface = create_modify_midi_interface()
+lyrics_interface = create_lyrics_interface()
+
+tabbed_interface = gr.TabbedInterface(
+    [audio_separation_interface, audio_to_midi_interface, modify_midi_interface, lyrics_interface],
+    tab_names=["Audio Separation", "Audio to MIDI", "Modify MIDI", "Lyrics Extraction"],
+    theme="shivi/calm_seafoam",
+)
 
 tabbed_interface.launch()
-
-
