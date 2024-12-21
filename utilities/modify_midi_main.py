@@ -2,6 +2,28 @@ from pathlib import Path
 from collections import Counter
 import pretty_midi
 import random
+from .modify_midi_constants import VALID_INSTRUMENTS
+
+
+def modify_instruments(midi_data, instruments):
+    """
+    Modify the instruments in a MIDI file.
+
+    Args:
+        midi_data (pretty_midi.PrettyMIDI): MIDI data object.
+        instruments (dict): Mapping of instrument indices to names.
+
+    Returns:
+        None
+    """
+    for idx, instrument in instruments.items():
+        if instrument not in VALID_INSTRUMENTS:
+            raise ValueError(f"Invalid instrument name: '{instrument}'. Must be one of: {VALID_INSTRUMENTS}")
+        
+        if idx < len(midi_data.instruments):
+            midi_data.instruments[idx].name = instrument
+            midi_data.instruments[idx].program = pretty_midi.instrument_name_to_program(instrument)
+
 
 def detect_scale(midi_data):
     """
@@ -115,7 +137,7 @@ def change_tempo(midi_data, target_tempo):
         original_tempo = 120
 
     # Calculate tempo ratio
-    tempo_ratio = target_tempo / original_tempo
+    tempo_ratio = original_tempo / target_tempo
 
     # Scale the timing of all notes
     for instrument in midi_data.instruments:
@@ -322,22 +344,6 @@ def add_volume_effect(midi_data, value, time):
     for instrument in midi_data.instruments:
         instrument.control_changes.append(pretty_midi.ControlChange(number=7, value=value, time=time))
 
-def modify_instruments(midi_data, instruments):
-    """
-    Modify the instruments in a MIDI file.
-
-    Args:
-        midi_data (pretty_midi.PrettyMIDI): MIDI data object.
-        instruments (dict): Mapping of instrument indices to names.
-
-    Returns:
-        None
-    """
-    for idx, instrument in instruments.items():
-        if idx < len(midi_data.instruments):
-            midi_data.instruments[idx].name = instrument
-            midi_data.instruments[idx].program = pretty_midi.instrument_name_to_program(instrument)
-
 
 def modify_midi(input_midi_file, output_midi_file, **kwargs):
     """
@@ -401,70 +407,5 @@ def modify_midi(input_midi_file, output_midi_file, **kwargs):
     # Save the modified MIDI file
     midi_data.write(output_midi_file)
 
-
-def print_available_modifications():
-    """
-    Prints the available keyword arguments for modify_midi, their types,
-    expected values, and constraints.
-    """
-    parameter_details = {
-        "scale": {
-            "type": "str",
-            "description": "Target scale (e.g., 'C_major', 'A_minor').",
-            "constraints": "Must follow 'Root_Type' format; valid roots: C, D, E, F, G, A, B; valid types: major, minor.",
-        },
-        "instruments": {
-            "type": "dict",
-            "description": "Mapping of instrument indices to names.",
-            "constraints": "Keys must be integers (channel indices); values must be valid instrument names.",
-        },
-        "tempo": {
-            "type": "float",
-            "description": "Target tempo in beats per minute.",
-            "constraints": "Must be a positive number.",
-        },
-        "transpose": {
-            "type": "int",
-            "description": "Number of semitones to transpose.",
-            "constraints": "Range: -48 to 48.",
-        },
-        "duration_factor": {
-            "type": "float",
-            "description": "Factor to scale note durations.",
-            "constraints": "Must be a positive number.",
-        },
-        "swing": {
-            "type": "bool",
-            "description": "Add swing to notes.",
-            "constraints": "Set to True to enable.",
-        },
-        "velocity_factor": {
-            "type": "float",
-            "description": "Factor to scale note velocities.",
-            "constraints": "Must be a positive number.",
-        },
-        "arpeggiate": {
-            "type": "bool",
-            "description": "Apply arpeggiation to chords.",
-            "constraints": "Set to True to enable.",
-        },
-        "harmony": {
-            "type": "bool",
-            "description": "Add harmonic notes.",
-            "constraints": "Set to True to enable.",
-        },
-        "humanize": {
-            "type": "bool",
-            "description": "Add randomness for a humanized feel.",
-            "constraints": "Set to True to enable.",
-        },
-        "volume_effect": {
-            "type": "dict",
-            "description": "Volume effect parameters.",
-            "constraints": "Must contain 'value' (int, 0-127) and 'time' (float, within MIDI duration).",
-        },
-    }
-
-    print("Available Modifications for modify_midi:")
-    for param, details in parameter_details.items():
-        print(f"- {param}:\n    Type: {details['type']}\n    Description: {details['description']}\n    Constraints: {details['constraints']}\n")
+if __name__ == "__main__":
+    print("This script is a utility module and cannot be executed directly.")
