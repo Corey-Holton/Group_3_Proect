@@ -70,7 +70,7 @@ def execute_query(text_query):
         dict: The parsed response from the model.
     """
     try:
-        gemini_response = llm.invoke(f"{PROMPT_TEMPLATE}\n\nUser request: {text_query}")
+        gemini_response = llm.invoke(f"{PROMPT_TEMPLATE}\n\nUser request: {text_query}. Reminder: Only select instruments from the list of available instruments.")
 
         parsed_response = parser.parse(gemini_response.content)
 
