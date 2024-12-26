@@ -63,7 +63,7 @@ def detect_scale(midi_data):
             best_match = f"{pretty_midi.note_number_to_name(root)}_minor"
 
     # Handle ambiguous cases by adding a threshold check
-    if abs(major_score - minor_score) < 5:  # Example threshold
+    if abs(major_score - minor_score) < 5: 
         print("Scale detection is ambiguous; scores are close.")
 
     return best_match
@@ -82,7 +82,7 @@ def change_scale(midi_data, target_scale):
     """
     # Validate target scale
     if "_" not in target_scale or len(target_scale.split("_")) != 2:
-        raise ValueError("Target scale must be in the format 'Root_Type', e.g., 'C_major'.")
+        raise ValueError("Target scale must be in the format 'Root_Type', e.g., 'C#-1_major'.")
 
     # Parse target scale
     root_note, scale_type = target_scale.split("_")
@@ -151,8 +151,10 @@ def change_tempo(midi_data, target_tempo):
     # Scale timing of meta events
     for lyric in midi_data.lyrics:
         lyric.time *= tempo_ratio
+
     for time_signature in midi_data.time_signature_changes:
         time_signature.time *= tempo_ratio
+        
     for key_signature in midi_data.key_signature_changes:
         key_signature.time *= tempo_ratio
 

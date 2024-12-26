@@ -1,5 +1,6 @@
 import pretty_midi
 from pathlib import Path
+from pprint import pprint
 
 from .modify_midi_utilities import (
     change_scale,
@@ -82,7 +83,7 @@ def modify_midi(input_midi_file, output_midi_path, **kwargs):
     midi_data.write(output_midi_path)
 
 
-def modify_midi_prompt(input_midi_file, text_prompt=None):
+def modify_midi_prompt(input_midi_file, song_dir_name=False, song_prefix_name=False, text_prompt=None):
     """
     Prompts the user for parameters to modify a MIDI file based on a text query.
 
@@ -96,7 +97,15 @@ def modify_midi_prompt(input_midi_file, text_prompt=None):
     """
     print_title("Modify MIDI File", text_color="bright_white")
 
-    output_midi_path=f"./audio_processing/output_midi_mods/{Path(input_midi_file).stem}_modified.mid"
+    if not song_dir_name:
+        print_line("[ERROR] \n\tSong directory name is required.", text_color="bright_red")
+        return
+
+    if not song_prefix_name:
+        print_line("[ERROR] \n\tSong prefix name is required.", text_color="bright_red")
+        return
+
+    output_midi_path = f"./audio_processing/output_midi_mods/{song_dir_name}/{song_prefix_name}_{Path(input_midi_file).stem}.mid"
 
     # Validate input MIDI file
     input_path = Path(input_midi_file)
@@ -122,7 +131,9 @@ def modify_midi_prompt(input_midi_file, text_prompt=None):
         return
 
     # Confirm query parameters
-    # print_line(f"[INFO] \n\tParsed Parameters: \n\t\t{query_params}", text_color="bright_blue")
+    print(f"[INFO] \n\tParsed Parameters:")
+    pprint(query_params)
+    print_line("", text_color="bright_blue")
 
     # Modify MIDI file using provided parameters
     try:

@@ -14,6 +14,7 @@ Usage:
 import warnings
 import logging
 import os
+import random
 
 # ════════════════════════════════════════════════════════════
 # Suppress Warnings and Logging
@@ -67,6 +68,7 @@ def process_audio_stems(input_file, model="htdemucs_ft", save_as_mp3=True, mp3_b
 
 def convert_audio_to_midi(
     input_file,
+    song_dir_name=None,
     save_midi=True,
     generate_audio_from_midi=False,
     save_model_outputs=False,
@@ -90,10 +92,11 @@ def convert_audio_to_midi(
     midi_path = audio_to_midi(
         audio_path=input_file,
         output_directory=output_directory,
+        song_dir_name=song_dir_name,
         save_midi=save_midi,
         sonify_midi=generate_audio_from_midi,
         save_model_outputs=save_model_outputs,
-        save_notes=True,
+        save_notes=False,
         onset_threshold=onset_threshold,
         frame_threshold=frame_threshold,
         minimum_note_length=min_note_length,
@@ -167,6 +170,7 @@ def create_audio_to_midi_interface():
             with gr.Column(scale=1):
                 gr.Markdown("### Audio Input")
                 audio_input = gr.Audio(type="filepath", label="Upload Audio File", sources="upload")
+                song_directory = gr.Textbox(label="Song Directory Name", placeholder="Enter a song directory name.", value=f"song_{random.randint(1000, 9999)}")
                 process_button = gr.Button("Convert to MIDI")
 
                 gr.Markdown("### MIDI Output")
@@ -191,7 +195,7 @@ def create_audio_to_midi_interface():
         process_button.click(
             convert_audio_to_midi,
             inputs=[
-                audio_input, save_midi, generate_audio_from_midi, save_model_outputs, onset_threshold,
+                audio_input, song_directory, save_midi, generate_audio_from_midi, save_model_outputs, onset_threshold,
                 frame_threshold, min_note_length, min_frequency, max_frequency, allow_multiple_pitch_bends,
                 apply_melodia_trick, samplerate, midi_tempo
             ],
@@ -202,13 +206,14 @@ def create_audio_to_midi_interface():
 # ════════════════════════════════════════════════════════════
 # Gradio Interface 3: Modify MIDI File
 # ════════════════════════════════════════════════════════════
-# Will have an MIDI input, A text input for the prompt, and a MIDI output
 def create_modify_midi_interface():
     with gr.Blocks() as interface:
         with gr.Row():
             with gr.Column(scale=1):
                 gr.Markdown("### MIDI Input")
                 midi_input = gr.Audio(type="filepath", label="Upload MIDI File", sources="upload")
+                song_dir_name = gr.Textbox(label="Song Directory Name", placeholder="Enter a song directory name.", value=f"song_{random.randint(1000, 9999)}")
+                song_prefix_name = gr.Textbox(label="Song Prefix Name", placeholder="Enter a song prefix name.", value=f'{random.randint(1000, 9999)}')
                 process_button = gr.Button("Modify MIDI")
 
             with gr.Column(scale=1):
@@ -220,7 +225,7 @@ def create_modify_midi_interface():
 
         process_button.click(
             modify_midi_prompt,
-            inputs=[midi_input, prompt],
+            inputs=[midi_input, song_dir_name, song_prefix_name, prompt],
             outputs=[modified_midi_output],
         )
     return interface

@@ -24,6 +24,7 @@ from .print_utilities import print_title, print_line
 def audio_to_midi(
         audio_path,
         output_directory="./audio_processing/output_midi",
+        song_dir_name=None,
         save_midi=True,
         sonify_midi=False,
         save_model_outputs=False,
@@ -48,7 +49,9 @@ def audio_to_midi(
 
     # Convert the input paths and output directory to Path objects
     audio_path = Path(audio_path)
-    output_directory = Path(output_directory)
+
+    # If a song directory name is provided, create a subdirectory for the song in the output directory
+    output_directory = Path(f"{output_directory}/{song_dir_name}") if song_dir_name else Path(output_directory)
 
     # Create the output directory if it does not exist
     if not output_directory.exists():
