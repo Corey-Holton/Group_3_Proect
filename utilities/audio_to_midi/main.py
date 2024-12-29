@@ -4,9 +4,6 @@ from pathlib import Path
 from basic_pitch.inference import predict_and_save, Model
 
 # Local Imports
-from .constants import (
-
-)
 from .utilities import _create_directory
 from ..print_utilities import print_title, print_message
 
