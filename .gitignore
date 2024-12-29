@@ -165,4 +165,15 @@ cython_debug/
 
 *.DS_Store
 
-sound_font_files
+# Ignore everything inside the following folders
+# output_midi/*
+# output_midi_mods/*
+# output_stems/*
+# sound_font_files/**
+
+# Keep the folder and the .gitkeep file
+# !output_midi/.gitkeep
+# !output_midi_mods/.gitkeep
+# !output_stems/.gitkeep
+# !sound_font_files/.gitkeep
+

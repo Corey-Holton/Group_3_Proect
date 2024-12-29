@@ -138,12 +138,6 @@ def modify_midi_prompt(input_midi_file, song_dir_name=False, song_prefix_name=Fa
         print_message("Failed to process query.", text_color="bright_red", indent_level=1, include_border=True)
         return
 
-    # Confirm query parameters
-    print_message("[INFO]", text_color="bright_blue")
-    print_message("AI Output:", text_color="bright_blue", indent_level=1)
-    pprint(query_params)
-    print_message("", text_color="bright_blue", include_border=True)
-
     # Modify MIDI file using provided parameters
     try:
         # Ensure instruments keys are integers
