@@ -52,7 +52,8 @@ CONSTRAINTS = f"""
 PROMPT_TEMPLATE = f"""
 {PREFIX}
 
-ENSURE OUTPUT FORMAT IS AS FOLLOWS:
+ENSURE OUTPUT FORMAT IS STRICTLY VALID JSON:
+ENSURE OUTPUT INSTRUMENTS ARE IN THE LIST OF VALID INSTRUMENTS ONLY (MUST BE IDENTITCAL TO THE PROVIDED LIST):
 {INSTRUCTIONS}
 
 IMPORTANT CONSTRAINTS:
@@ -72,7 +73,11 @@ def execute_query(text_query):
     try:
         gemini_response = llm.invoke(f"{PROMPT_TEMPLATE}\n\nUser request: {text_query}. Reminder: Only select instruments from the list of available instruments.")
 
+        print(f"Response: {gemini_response.content}")
+
         parsed_response = parser.parse(gemini_response.content)
+
+        print(f"Parsed Response: {parsed_response}")
 
         return parsed_response
     except Exception as e:

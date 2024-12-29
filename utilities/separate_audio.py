@@ -31,7 +31,7 @@ import sys
 import torch
 
 # Local Imports
-from .print_utilities import print_title, print_line
+from .print_utilities import print_title, print_message
 
 
 # Constants
@@ -105,7 +105,9 @@ def separate_audio(
     # Create the output directory if it does not exist
     if not outp.exists():
         outp.mkdir(parents=True, exist_ok=True)
-        print_line(f"[DIR] \n\tCreated output directory: \n\t\t{outp}", text_color="yellow")
+        print_message("[DIR]", text_color="bright_yellow")
+        print_message("Created output directory:", text_color="bright_yellow", indent_level=1)
+        print_message(f"`{outp}`", text_color="bright_yellow", indent_level=2, include_border=True)
 
     device = torch.device(
         f"cuda:{torch.cuda.current_device()}" if torch.cuda.is_available() else "cpu")
@@ -123,14 +125,21 @@ def separate_audio(
 
     # Check if the file exists and has a valid extension
     if not inp.exists() or inp.suffix.lower().lstrip(".") not in EXTENSIONS:
-        print_line(f"[ERROR] \n\tNo valid audio file at {input_file}", text_color="bright_red")
+        print_message("[ERROR]", text_color="bright_red")
+        print_message("No valid audio file found at:", text_color="bright_red", indent_level=1)
+        print_message(f"`{input_file}`", text_color="bright_red", indent_level=2, include_border=True)
         return
 
     # Print the list of files that will be processed
-    print_line(f"[INFO] \n\tSeparating the audio file `{inp.stem}{inp.suffix}`", text_color="bright_blue")
+    print_message("[INFO]", text_color="bright_blue")
+    print_message("Separating stems from audio file:", text_color="bright_blue", indent_level=1)
+    print_message(f"`{inp.stem}{inp.suffix}`", text_color="bright_blue", indent_level=2, include_border=True)
 
     # Print the full command being executed
-    print_line(f"[CMD] \n\t`{' '.join(cmd)}`", text_color="bright_cyan")
+    print_message("[CMD]", text_color="bright_cyan")
+    print_message("Executing command:", text_color="bright_cyan", indent_level=1)
+    print_message(f"`{' '.join(cmd)}`", text_color="bright_cyan", indent_level=2, include_border=True)
+
 
     # Execute the separation command using subprocess
     p = sp.Popen(cmd + [str(inp)], stdout=sp.PIPE, stderr=sp.PIPE)
@@ -143,13 +152,18 @@ def separate_audio(
 
     # Check the return code to see if the command ran successfully
     if p.returncode != 0:
-        print_line(f"[ERROR] \n\tCommand failed, something went wrong.", text_color="bright_red")
-
-    print_line(" ")
+        print_message("[ERROR]", text_color="bright_red")
+        print_message("Command failed, something went wrong.", text_color="bright_red", indent_level=1, include_border=True)
+    print_message("", include_border=True)
 
     stems = ["other", "vocals", "bass", "drums"]
     stem_paths = [Path(f"{outp}/{model}/{inp.stem}/{stem}{inp.suffix}") for stem in stems ]
     
-    print_line(f"[SUCCESS] \n\tSeparated audio files saved in: \n\t\t{stem_paths[0]} \n\t\t{stem_paths[1]} \n\t\t{stem_paths[2]} \n\t\t{stem_paths[3]}", text_color="bright_green")
+    print_message("[SUCCESS]", text_color="bright_green")
+    print_message("Separated audio files saved in:", text_color="bright_green", indent_level=1)
+    print_message(f"`{stem_paths[0]}`", text_color="bright_green", indent_level=2)
+    print_message(f"`{stem_paths[1]}`", text_color="bright_green", indent_level=2)
+    print_message(f"`{stem_paths[2]}`", text_color="bright_green", indent_level=2)
+    print_message(f"`{stem_paths[3]}`", text_color="bright_green", indent_level=2, include_border=True)
 
     return tuple(stem_paths)

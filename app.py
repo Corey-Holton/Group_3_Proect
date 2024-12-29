@@ -38,7 +38,15 @@ from pathlib import Path
 import gradio as gr
 
 # Local Imports
-from utilities import separate_audio, audio_to_midi, print_line, modify_midi_prompt, extract_lyrics, translate_lyrics, get_available_languages
+from utilities import (
+    separate_audio, 
+    audio_to_midi, 
+    print_message, 
+    modify_midi_prompt, 
+    extract_lyrics, 
+    translate_lyrics, 
+    get_available_languages
+)
 
 # ════════════════════════════════════════════════════════════
 # Utility Functions
@@ -62,7 +70,9 @@ def process_audio_stems(input_file, model="htdemucs_ft", save_as_mp3=True, mp3_b
     )
 
     if results is None:
-        return print_line("[ERROR] No results returned from `separate_audio`.", text_color="red")
+        print_message("[ERROR]", text_color="red")
+        print_message("No results returned from `separate_audio`.", text_color="red", indent_level=1, include_border=True)
+        return
 
     return [str(path) for path in results]
 
@@ -112,12 +122,16 @@ def convert_audio_to_midi(
 def audio_extract_lyrics(input_file):
     """Extract lyrics from an audio file and return them as a single string."""
     lyrics = extract_lyrics(input_file)
+
+    print_message("[SUCCESS]", text_color="bright_green", include_border=True)
     return "\n".join(lyrics)
 
 def audio_translate_lyrics(lyrics, language_code):
     """Translate extracted lyrics to the specified language."""
     lyrics_list = lyrics.split("\n")
     translated = translate_lyrics(lyrics_list, language_code)
+
+    print_message("[SUCCESS]", text_color="bright_green", include_border=True)
     return "\n".join(translated)
 
 # ════════════════════════════════════════════════════════════
