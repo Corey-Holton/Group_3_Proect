@@ -26,37 +26,26 @@ from .utilities import (
     _execute_command, 
 )
 
-from .constants import (
-    DEFAULT_MODEL,
-    DEFAULT_MP3_RATE,
-)
-
 
 def _audio_stem_separation(
+    # ! Reference: See `gradio_handlers.py` for how these parameters integrate with Gradio
+    # ! Private function: Used internally for audio-to-MIDI conversion
+    # ! Do not modify parameter names or order
     input_file,
     output_path,
-    model=DEFAULT_MODEL,
-    two_stems=None,
-    mp3=True,
-    mp3_rate=DEFAULT_MP3_RATE,
-    float32=False,
-    int24=False,
+    model,
+    two_stems,
+    mp3,
+    mp3_rate,
+    float32,
+    int24,
 ):
     """
-    Separate an audio file into stems using the Demucs model.
-
-    Args:
-        input_file (str): Path to the input audio file.
-        output_path (str): Path to the output directory.
-        model (str): Model name to use for separation.
-        two_stems (str, optional): Specify stems for separation.
-        mp3 (bool, optional): Whether to output MP3 files.
-        mp3_rate (int, optional): Bitrate for MP3 output.
-        float32 (bool, optional): Whether to output float32 WAV files.
-        int24 (bool, optional): Whether to output int24 WAV files.
+    Internal function for audio stem separation using Demucs.
+    Parameters are explained in the `process_audio_stem_separation` function.
 
     Returns:
-        tuple: Paths to the separated audio stems. (other, vocals, bass, drums)
+    - tuple: Paths to the separated audio stems. (other, vocals, bass, drums)
     """
     try:
         print_title("Separating Audio with Demucs")

@@ -5,63 +5,43 @@ from basic_pitch.inference import predict_and_save, Model
 
 # Local Imports
 from .constants import (
-    DEFAULT_MODEL_PATH,
-    DEFAULT_ONSET_THRESHOLD,
-    DEFAULT_FRAME_THRESHOLD,
-    DEFAULT_MIN_NOTE_LENGTH,
-    DEFAULT_SAMPLERATE,
-    DEFAULT_MIDI_TEMPO,
+
 )
 from .utilities import _create_directory
 from ..print_utilities import print_title, print_message
 
 
 def _audio_to_midi(
-    audio_path,
-    output_directory,
-    song_dir_name=None,
-    save_midi=True,
-    sonify_midi=False,
-    save_model_outputs=False,
-    save_notes=False,
-    model_or_model_path=Model(DEFAULT_MODEL_PATH),
-    onset_threshold=DEFAULT_ONSET_THRESHOLD,
-    frame_threshold=DEFAULT_FRAME_THRESHOLD,
-    minimum_note_length=DEFAULT_MIN_NOTE_LENGTH,
-    minimum_frequency=None,
-    maximum_frequency=None,
-    multiple_pitch_bends=False,
-    melodia_trick=True,
-    debug_file=None,
-    sonification_samplerate=DEFAULT_SAMPLERATE,
-    midi_tempo=DEFAULT_MIDI_TEMPO,
+    # ! Reference: See `gradio_handlers.py` for how these parameters integrate with Gradio
+    # ! Private function: Used internally for audio-to-MIDI conversion
+    # ! Do not modify parameter names or order
+    audio_path,               # Path to the input audio file
+    output_directory,         # Directory to save MIDI output
+    song_dir_name,            # Subdirectory for saving outputs
+    save_midi,                # Whether to save the MIDI file
+    sonify_midi,              # Generate audio from MIDI
+    save_model_outputs,       # Save intermediate outputs
+    save_notes,               # Save note-based data
+    model_or_model_path,      # Model used for conversion
+    onset_threshold,          # Onset detection threshold
+    frame_threshold,          # Frame activation threshold
+    minimum_note_length,      # Minimum note length in ms
+    minimum_frequency,        # Minimum frequency for note detection
+    maximum_frequency,        # Maximum frequency for note detection
+    multiple_pitch_bends,     # Allow multiple pitch bends in MIDI
+    melodia_trick,            # Apply Melodia trick for smoother results
+    debug_file,               # Optional debug file
+    sonification_samplerate,  # Sampling rate for MIDI sonification
+    midi_tempo,               # Tempo for the generated MIDI
 ):
     """
-    Convert audio files to MIDI using the Basic Pitch model.
-
-    Args:
-        audio_path (str): Path to the audio file.
-        output_directory (str): Path to the output directory.
-        song_dir_name (str): Name of the song directory.
-        save_midi (bool): Whether to save the MIDI file.
-        sonify_midi (bool): Whether to sonify the MIDI file.
-        save_model_outputs (bool): Whether to save the model outputs.
-        save_notes (bool): Whether to save the notes.
-        model_or_model_path (Model or str): Model or path to the model.
-        onset_threshold (float): Onset threshold.
-        frame_threshold (float): Frame threshold.
-        minimum_note_length (float): Minimum note length.
-        minimum_frequency (float): Minimum frequency.
-        maximum_frequency (float): Maximum frequency.
-        multiple_pitch_bends (bool): Whether to allow multiple pitch bends.
-        melodia_trick (bool): Whether to apply the Melodia trick.
-        debug_file (str): Path to the debug file.
-        sonification_samplerate (int): Sonification samplerate.
-        midi_tempo (int): MIDI tempo.
+    Internal function for audio-to-MIDI conversion.
+    Parameters are explained in the `process_audio_to_midi_conversion` function.
 
     Returns:
-        pathlib.Path: Path to the MIDI file.
+    - str: Path to the generated MIDI file.
     """
+
     print_title("Converting Audio to MIDI with Basic-Pitch")
 
     # Convert the input paths and output directory to Path objects
@@ -82,6 +62,8 @@ def _audio_to_midi(
 
     # Predict and save MIDI
     predict_and_save(
+        # ! Reference: See `gradio_handlers.py` for how these parameters integrate with Gradio
+        # ! Do not modify parameter names or order
         audio_path_list=[audio_path],
         output_directory=output_directory,
         save_midi=save_midi,
