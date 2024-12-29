@@ -1,45 +1,54 @@
 from faster_whisper import WhisperModel
+from deep_translator import GoogleTranslator
 import torch
 
-from deep_translator import GoogleTranslator
+# Determine device and compute type based on availability.
+DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+COMPUTE_TYPE = "int8_float16" if DEVICE == "cuda" else "int8"
+MODEL_SIZE = "large-v3"
 
-device = "cuda" if torch.cuda.is_available() else "cpu"
-compute_type = "int8_float16" if device == "cuda" else "int8"
-model_size = "large-v3"
+# Initialize Whisper model globally to avoid reloading it multiple times.
+MODEL = WhisperModel(MODEL_SIZE, device=DEVICE, compute_type=COMPUTE_TYPE)
 
-# model = WhisperModel(model_size, device=device, compute_type=compute_type)
 
-# audio_file = "../../Resources/audio_files/big_krit.mp3"
-# segments, info = model.transcribe(audio_file, beam_size=1)
+def extract_lyrics(audio_file):
+    """
+    Extract lyrics from an audio file using the Whisper model.
 
-def extract_audio_lyrics(audio_file):
-    model = WhisperModel(model_size, device=device, compute_type=compute_type)
-    segments, info = model.transcribe(audio_file, beam_size=1)
+    :param audio_file: Path to the audio file.
+    :return: List of lyrics strings.
+    """
+    print(f"Device: {DEVICE}, Compute type: {COMPUTE_TYPE}, Model size: {MODEL_SIZE}")
+
+    # Transcribe audio file.
+    segments, info = MODEL.transcribe(audio_file, beam_size=1)
     
-    print("Detected language '%s' with probability %f" % (info.language, info.language_probability))
-    print(segments)
+    print(f"Detected language: {info.language} (Probability: {info.language_probability:.2f})")
 
-    lyrics = []
-    for segment in segments:
-        lyrics.append(str(segment.text))
-        print(f'added text to lyrics')
-        
+    # Collect and return lyrics.
+    lyrics = [segment.text for segment in segments]
     return lyrics
+
 
 def translate_lyrics(lyrics, target_language):
     """
-    Translates a list of lyrics (strings) to the target language.
-    
-    :param lyrics: List of strings (lines of lyrics) in the original language.
-    :param target_language: The target language code (e.g. 'en' for English, 'es' for Spanish).
-    :return: List of strings with translated lyrics.
+    Translate extracted lyrics into the target language.
+
+    :param lyrics: List of strings representing lyrics.
+    :param target_language: Target language code (e.g., 'en' for English).
+    :return: List of translated lyrics strings.
     """
-    return [GoogleTranslator(target=target_language).translate(line) for line in lyrics]
+    translator = GoogleTranslator(target=target_language)
+    return [translator.translate(line) for line in lyrics]
 
-# Example usage:
-# original_lyrics = ["Bonjour, comment ça va?", "J'aime la musique"]
-# translated_to_english = translate_lyrics(original_lyrics, 'en')
-# print(translated_to_english)
 
+def get_available_languages():
+    """
+    Retrieve available language codes and names for translation.
     
-    
+    :return: dictionary of language names and codes.
+    """
+    # Get languages as a dictionary from GoogleTranslator
+    g_translator = GoogleTranslator()
+    language_dict = g_translator.get_supported_languages(as_dict=True)
+    return language_dict

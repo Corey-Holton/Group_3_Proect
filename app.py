@@ -38,7 +38,7 @@ from pathlib import Path
 import gradio as gr
 
 # Local Imports
-from utilities import separate_audio, audio_to_midi, print_line, extract_lyrics, modify_midi_prompt
+from utilities import separate_audio, audio_to_midi, print_line, modify_midi_prompt, extract_lyrics, translate_lyrics, get_available_languages
 
 # ════════════════════════════════════════════════════════════
 # Utility Functions
@@ -109,23 +109,16 @@ def convert_audio_to_midi(
     )
     return str(midi_path)
 
-def extract_audio_lyrics(input_file):
-    """Extract lyrics from an audio file."""
-    print("*" * 50)
-    print(f"Input File: {input_file}")
-    print("*" * 50)
-
-    lyrics = extract_lyrics.extract_audio_lyrics(input_file)
+def audio_extract_lyrics(input_file):
+    """Extract lyrics from an audio file and return them as a single string."""
+    lyrics = extract_lyrics(input_file)
     return "\n".join(lyrics)
 
-def translate_audio_lyrics(lyrics, language_code):
+def audio_translate_lyrics(lyrics, language_code):
     """Translate extracted lyrics to the specified language."""
-    print("*" * 50)
-    print(f"Lyrics: {lyrics}")
-    print("*" * 50)
-
-    translated = " ".join(extract_lyrics.translate_lyrics(lyrics.split("\n"), language_code))
-    return str(translated)
+    lyrics_list = lyrics.split("\n")
+    translated = translate_lyrics(lyrics_list, language_code)
+    return "\n".join(translated)
 
 # ════════════════════════════════════════════════════════════
 # Gradio Interface 1: Audio Separation
@@ -247,18 +240,18 @@ def create_lyrics_interface():
                 lyrics_output = gr.Textbox(label="Lyrics")
 
                 gr.Markdown("### Translate Lyrics")
-                language_code = gr.Textbox(label="Language Code", placeholder="en")
+                language_code = gr.Dropdown(choices=get_available_languages(), label="Language", interactive=True)
                 translated_output = gr.Textbox(label="Translated Lyrics")
                 translate_button = gr.Button("Translate")
 
         extract_button.click(
-            extract_audio_lyrics,
+            audio_extract_lyrics,
             inputs=[audio_input],
             outputs=[lyrics_output],
         )
 
         translate_button.click(
-            translate_audio_lyrics,
+            audio_translate_lyrics,
             inputs=[lyrics_output, language_code],
             outputs=[translated_output],
         )
