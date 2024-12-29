@@ -29,13 +29,12 @@ from .utilities import (
 from .constants import (
     DEFAULT_MODEL,
     DEFAULT_MP3_RATE,
-    DEFAULT_OUTPUT_DIR,
 )
 
 
 def _audio_stem_separation(
     input_file,
-    output_path=DEFAULT_OUTPUT_DIR,
+    output_path,
     model=DEFAULT_MODEL,
     two_stems=None,
     mp3=True,

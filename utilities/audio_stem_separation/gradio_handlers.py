@@ -19,7 +19,18 @@ def process_audio_stem_separation(
     use_int24=False,
 ):
     """
-    Process audio stems using Demucs.
+    Process audio stems using Demucs. 
+
+    Args:
+        input_file (str): Path to the input audio file.
+        model (str): Model name to use for separation.
+        save_as_mp3 (bool): Whether to save the stems as MP3 files.
+        mp3_bitrate (int): Bitrate for MP3 output.
+        use_float32 (bool): Whether to output float32 WAV files.
+        use_int24 (bool): Whether to output int24 WAV files.
+
+    Returns:
+        list: Paths of newly saved audio stems.
     """
     try:
         # Output directory for stems

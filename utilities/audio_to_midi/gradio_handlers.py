@@ -30,7 +30,7 @@ def process_audio_to_midi_conversion(
     """
     Convert an audio file to MIDI format with specified parameters.
     """
-    # Validate frequency values
+    # Validate frequency values (since 0 is not a valid frequency)
     min_frequency = _validate_frequency(min_frequency)
     max_frequency = _validate_frequency(max_frequency)
 
@@ -53,3 +53,6 @@ def process_audio_to_midi_conversion(
         midi_tempo=midi_tempo,
     )
     return str(midi_path)
+
+if __name__ == "__main__":
+    print("This script is designed to be used as a Gradio interface for audio-to-MIDI conversion.")
