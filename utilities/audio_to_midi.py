@@ -18,7 +18,7 @@ from basic_pitch.inference import predict_and_save, Model
 from basic_pitch import ICASSP_2022_MODEL_PATH
 
 # Local Imports
-from .print_utilities import print_title, print_line
+from .print_utilities import print_title, print_message
 
 # Function to convert audio to MIDI using the Basic Pitch model
 def audio_to_midi(
@@ -45,7 +45,7 @@ def audio_to_midi(
     Convert audio files to MIDI using the Basic Pitch model.
     """
 
-    print_title("Converting Audio to MIDI", text_color="bright_white")
+    print_title("Converting Audio to MIDI with Basic-Pitch", text_color="bright_white")
 
     # Convert the input paths and output directory to Path objects
     audio_path = Path(audio_path)
@@ -56,9 +56,13 @@ def audio_to_midi(
     # Create the output directory if it does not exist
     if not output_directory.exists():
         output_directory.mkdir(parents=True, exist_ok=True)
-        print_line(f"[DIR] \n\tCreated output directory: \n\t\t{output_directory}", text_color="yellow")
+        print_message("[DIR]", text_color="bright_yellow")
+        print_message("Created output directory:", text_color="bright_yellow", indent_level=1)
+        print_message(f"`{output_directory}`", text_color="bright_yellow", indent_level=2, include_border=True)
 
-    print_line(f"[INFO] \n\tConverting audio file to MIDI: \n\t\t`{str(audio_path).split('/')[-1]}`", text_color="bright_blue")
+    print_message("[INFO]", text_color="bright_blue")
+    print_message("Converting audio file to MIDI:", text_color="bright_blue", indent_level=1)
+    print_message(f"`{audio_path.name}`", text_color="bright_blue", indent_level=2, include_border=True)
 
     # Call the predict_and_save function from the Basic Pitch model
     predict_and_save(
@@ -80,10 +84,12 @@ def audio_to_midi(
         sonification_samplerate=sonification_samplerate,
         midi_tempo=midi_tempo,
     )
-    print_line(" ")
+    print_message("", include_border=True)
 
     # Create the MIDI file path
     midi_file_path = Path(f"{output_directory}/{audio_path.stem}_basic_pitch.mid")
-    print_line(f"[SUCCESS] \n\tMIDI file saved in: \n\t\t{midi_file_path}", text_color="bright_green")
+    print_message("[SUCCESS]", text_color="bright_green")
+    print_message("MIDI file saved in:", text_color="bright_green", indent_level=1)
+    print_message(f"`{midi_file_path}`", text_color="bright_green", indent_level=2, include_border=True)
 
     return midi_file_path

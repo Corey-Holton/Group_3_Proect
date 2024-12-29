@@ -17,7 +17,7 @@ from .modify_midi_utilities import (
 )
 
 from .modify_midi_prompt_config import execute_query
-from .print_utilities import print_title, print_line
+from .print_utilities import print_title, print_message
 
 
 def modify_midi(input_midi_file, output_midi_path, **kwargs):
@@ -95,14 +95,16 @@ def modify_midi_prompt(input_midi_file, song_dir_name=False, song_prefix_name=Fa
     Returns:
         None
     """
-    print_title("Modify MIDI File", text_color="bright_white")
+    print_title("Modifing MIDI File", text_color="bright_white")
 
     if not song_dir_name:
-        print_line("[ERROR] \n\tSong directory name is required.", text_color="bright_red")
+        print_message("[ERROR]", text_color="bright_red")
+        print_message("Song directory name is required.", text_color="bright_red", indent_level=1, include_border=True)
         return
 
     if not song_prefix_name:
-        print_line("[ERROR] \n\tSong prefix name is required.", text_color="bright_red")
+        print_message("[ERROR]", text_color="bright_red")
+        print_message("Song prefix name is required.", text_color="bright_red", indent_level=1, include_border=True)
         return
 
     output_midi_path = f"./audio_processing/output_midi_mods/{song_dir_name}/{song_prefix_name}_{Path(input_midi_file).stem}.mid"
@@ -110,38 +112,51 @@ def modify_midi_prompt(input_midi_file, song_dir_name=False, song_prefix_name=Fa
     # Validate input MIDI file
     input_path = Path(input_midi_file)
     if not input_path.exists() or input_path.suffix.lower() != ".mid":
-        print_line(f"[ERROR] \n\tInvalid MIDI file: \n\t\t{input_midi_file}", text_color="bright_red")
+        print_message("[ERROR]", text_color="bright_red")
+        print_message("Invalid MIDI file.", text_color="bright_red", indent_level=1, include_border=True)
         return
 
     # Validate output path
     output_dir = Path(output_midi_path).parent
     if not output_dir.exists():
         output_dir.mkdir(parents=True, exist_ok=True)
-        print_line(f"[DIR] \n\tCreated output directory: \n\t\t{output_dir}", text_color="yellow")
+        print_message("[DIR]", text_color="bright_yellow")
+        print_message("Created output directory:", text_color="bright_yellow", indent_level=1)
+        print_message(f"`{output_dir}`", text_color="bright_yellow", indent_level=2, include_border=True)
 
     # Display user query
     if text_prompt:
-        print_line(f"[PROMPT] \n\tUser Input: \n\t\t{text_prompt}", text_color="bright_blue")
+        print_message("[PROMPT]", text_color="bright_cyan")
+        print_message("User Input:", text_color="bright_cyan", indent_level=1)
+        print_message(f"`{text_prompt}`", text_color="bright_cyan", indent_level=2, include_border=True)
 
     # Execute query using the text prompt
     try:
         query_params = execute_query(text_prompt)
     except Exception as e:
-        print_line(f"[ERROR] \n\tFailed to process query: \n\t\t{e}", text_color="bright_red")
+        print_message("[ERROR]", text_color="bright_red")
+        print_message("Failed to process query.", text_color="bright_red", indent_level=1, include_border=True)
         return
 
     # Confirm query parameters
-    print(f"[INFO] \n\tParsed Parameters:")
+    print_message("[INFO]", text_color="bright_blue")
+    print_message("AI Output:", text_color="bright_blue", indent_level=1)
     pprint(query_params)
-    print_line("", text_color="bright_blue")
+    print_message("", text_color="bright_blue", include_border=True)
 
     # Modify MIDI file using provided parameters
     try:
+        # Ensure instruments keys are integers
         query_params['instruments'] = {int(k): v for k, v in query_params['instruments'].items()}
         modify_midi(input_midi_file, output_midi_path, **query_params)
-        print_line(f"[SUCCESS] \n\tModified MIDI saved to: \n\t\t{output_midi_path}", text_color="bright_green")
+        print_message("[SUCCESS]", text_color="bright_green")
+        print_message("Modified MIDI saved to:", text_color="bright_green", indent_level=1)
+        print_message(f"`{output_midi_path}`", text_color="bright_green", indent_level=2, include_border=True)
+
     except Exception as e:
-        print_line(f"[ERROR] \n\tMIDI modification failed: \n\t\t{e}", text_color="bright_red")
+        print_message("[ERROR]", text_color="bright_red")
+        print_message("MIDI modification failed:", text_color="bright_red", indent_level=1)
+        print_message(f"`{e}`", text_color="bright_red", indent_level=2, include_border=True)
 
     return output_midi_path
 

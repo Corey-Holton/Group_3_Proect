@@ -1,4 +1,4 @@
-from .print_utilities import print_title, print_label, print_footer, print_line
+from .print_utilities import print_title, print_message
 from .separate_audio import separate_audio
 from .audio_to_midi import audio_to_midi
 from .modify_midi_main import modify_midi_prompt
