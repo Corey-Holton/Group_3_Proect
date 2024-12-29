@@ -11,3 +11,6 @@ DEFAULT_MIDI_TEMPO = 120
 
 # Default Output Directory
 DEFAULT_OUTPUT_DIR = "./audio_processing/output_midi"
+
+if __name__ == "__main__":
+    print("This script contains the constants used in the audio to MIDI conversion process.")
