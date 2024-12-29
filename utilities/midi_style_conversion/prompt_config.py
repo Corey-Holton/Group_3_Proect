@@ -1,17 +1,14 @@
-# Import the necessary libraries
-
-# LangChain Imports
+# Third-Party Imports
 from langchain.output_parsers import StructuredOutputParser, ResponseSchema
 from langchain_google_genai import ChatGoogleGenerativeAI
-
-# Environment Management
 from dotenv import load_dotenv
 import os
 from pprint import pprint
 
 # Local Imports
-from .modify_midi_constants import VALID_INSTRUMENTS, VALID_NOTES, ACCEPTABLE_PARAMETERS
-from .print_utilities import print_message
+from .constants import VALID_INSTRUMENTS, VALID_NOTES, ACCEPTABLE_PARAMETERS
+from ..print_utilities import print_message
+
 
 # Load environment variables
 load_dotenv()
@@ -75,15 +72,13 @@ def execute_query(text_query):
     try:
         gemini_response = llm.invoke(f"{PROMPT_TEMPLATE}\n\nUser request: {text_query}. Reminder: Only select instruments from the list of available instruments.")
 
-        print_message("[INFO]", text_color="bright_blue")
-        print_message("AI Output:", text_color="bright_blue", indent_level=1)
+        print_message("[AI OUTPUT]", text_color="bright_blue")
         print(gemini_response.content)
         print_message("", text_color="bright_blue", include_border=True)
 
         parsed_response = parser.parse(gemini_response.content)
 
         print_message("[PARSED RESPONSE]", text_color="bright_cyan")
-        print_message("Parsed Response:", text_color="bright_cyan", indent_level=1)
         pprint(parsed_response)
         print_message("", text_color="bright_cyan", include_border=True)
 

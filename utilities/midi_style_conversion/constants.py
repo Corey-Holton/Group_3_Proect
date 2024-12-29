@@ -1,3 +1,4 @@
+# Third-Party Imports
 import pretty_midi
 
 
@@ -30,7 +31,7 @@ def validate_note_list(note_list):
 VALID_INSTRUMENTS = [pretty_midi.program_to_instrument_name(program) for program in range(128)]
 
 
-VALID_NOTES = generate_note_list() # ! Unused for now
+VALID_NOTES = generate_note_list() 
 
 
 ACCEPTABLE_PARAMETERS = {

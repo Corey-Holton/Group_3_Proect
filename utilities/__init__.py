@@ -1,6 +1,5 @@
 from .print_utilities import print_title, print_message
-from .separate_audio import separate_audio
-from .audio_to_midi import audio_to_midi
-from .modify_midi_main import modify_midi_prompt
-from .modify_midi_prompt_config import execute_query
-from .extract_lyrics import extract_lyrics, translate_lyrics, get_available_languages
+from .audio_stem_separation import process_audio_stem_separation
+from .audio_to_midi import process_audio_to_midi_conversion
+from .lyrics_processing import process_audio_lyric_extraction, process_audio_lyric_translation, get_available_languages
+from .midi_style_conversion import process_midi_style_conversion
