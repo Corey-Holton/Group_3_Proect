@@ -1,7 +1,13 @@
+# Standard Library Imports
 from collections import Counter
-import pretty_midi
 import random
-from .modify_midi_constants import VALID_INSTRUMENTS
+
+# Third-Party Imports
+import pretty_midi
+
+# Local Imports
+from .constants import VALID_INSTRUMENTS
+
 
 def modify_instruments(midi_data, instruments):
     """

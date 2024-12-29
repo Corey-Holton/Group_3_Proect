@@ -31,7 +31,7 @@ import sys
 import torch
 
 # Local Imports
-from .print_utilities import print_title, print_message
+from ...print_utilities import print_title, print_message
 
 
 # Constants

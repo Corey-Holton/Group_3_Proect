@@ -1,0 +1,1 @@
+EXTENSIONS = {"mp3", "wav", "ogg", "flac"}

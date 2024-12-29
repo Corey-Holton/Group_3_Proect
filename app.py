@@ -16,6 +16,8 @@ import logging
 import os
 import random
 
+from utilities.audio_to_midi.originals import _original_audio_to_midi
+
 # ════════════════════════════════════════════════════════════
 # Suppress Warnings and Logging
 # ════════════════════════════════════════════════════════════
@@ -40,7 +42,6 @@ import gradio as gr
 # Local Imports
 from utilities import (
     separate_audio, 
-    audio_to_midi, 
     print_message, 
     modify_midi_prompt, 
     extract_lyrics, 
@@ -99,7 +100,7 @@ def convert_audio_to_midi(
     # song_name = None
     output_directory = "./audio_processing/output_midi"
 
-    midi_path = audio_to_midi(
+    midi_path = _original_audio_to_midi(
         audio_path=input_file,
         output_directory=output_directory,
         song_dir_name=song_dir_name,
