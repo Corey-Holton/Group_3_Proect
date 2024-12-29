@@ -48,6 +48,7 @@ CONSTRAINTS = f"""
    Available Types: major, minor.
 """
 
+# Prompt template
 PROMPT_TEMPLATE = f"""
 {PREFIX}
 
@@ -59,18 +60,20 @@ IMPORTANT CONSTRAINTS:
 {CONSTRAINTS}
 """
 
-def execute_query(text_query):
+
+def _execute_query(text_query):
     """ 
     Execute a query using the Gemini model and parse the response.
 
     Args:
         text_query (str): The user query to execute.
-        
+
     Returns:
         dict: The parsed response from the model.
     """
     try:
-        gemini_response = llm.invoke(f"{PROMPT_TEMPLATE}\n\nUser request: {text_query}. Reminder: Only select instruments from the list of available instruments.")
+        gemini_response = llm.invoke(
+            f"{PROMPT_TEMPLATE}\n\nUser request: {text_query}. Reminder: Only select instruments from the list of available instruments.")
 
         print_message("[AI OUTPUT]", text_color="bright_blue")
         print(gemini_response.content)
@@ -87,10 +90,6 @@ def execute_query(text_query):
         print(f"An error occurred: {e}")
         return None
 
+
 if __name__ == "__main__":
-    # Test the utility
-    example_query = "Make the song sound like a lofi slow hip hop beat."
-    response = execute_query(example_query)
-    if response:
-        print("Parsed Response:")
-        print(response)
+    print("This script is used to execute a query using the Gemini model and parse the response.")

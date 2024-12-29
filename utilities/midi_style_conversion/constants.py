@@ -1,6 +1,8 @@
 # Third-Party Imports
 import pretty_midi
 
+# Default Output Directory
+DEFAULT_OUTPUT_DIR = "./audio_processing/output_midi_mods/"
 
 def generate_note_list():
     """
@@ -21,6 +23,15 @@ def generate_note_list():
 
 
 def validate_note_list(note_list):
+    """ 
+    Validate the note list by converting each note to a MIDI note number.
+
+    Args:
+        note_list (List[str]): List of note names to validate.
+
+    Returns:
+        None
+    """
     for note in note_list:
         try:
             print(f"{note}: {pretty_midi.note_name_to_number(note)}")
@@ -28,12 +39,13 @@ def validate_note_list(note_list):
             print(f"Error with note {note}: {e}")
 
 
+# Constants: A list of valid instruments and notes that are available for use
 VALID_INSTRUMENTS = [pretty_midi.program_to_instrument_name(program) for program in range(128)]
 
-
+# Constants: A list of valid note syntaxes that are available for use
 VALID_NOTES = generate_note_list() 
 
-
+# Constants: Details of acceptable parameters for our functions in `utilities.py` that Google's AI model will use
 ACCEPTABLE_PARAMETERS = {
     "instruments": {
         "type": "dict[str, str]",
