@@ -115,6 +115,5 @@ ACCEPTABLE_PARAMETERS = {
 
 
 if __name__ == "__main__":
-    # Run to check if the note list is valid with `pretty_midi`
     print("Validating note list...")
     validate_note_list(VALID_NOTES)
