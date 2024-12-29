@@ -11,6 +11,8 @@ from .constants import (
 
 
 def process_audio_stem_separation(
+    # ! Parameters here are handled in the Gradio Interface.
+    # ! The order of parameters MUST match the Gradio interface to function correctly.
     input_file,
     model=DEFAULT_MODEL,
     save_as_mp3=True,
@@ -23,11 +25,13 @@ def process_audio_stem_separation(
 
     Args:
         input_file (str): Path to the input audio file.
+        output_path (str): Path to the output directory.
         model (str): Model name to use for separation.
-        save_as_mp3 (bool): Whether to save the stems as MP3 files.
-        mp3_bitrate (int): Bitrate for MP3 output.
-        use_float32 (bool): Whether to output float32 WAV files.
-        use_int24 (bool): Whether to output int24 WAV files.
+        two_stems (str, optional): Specify stems for separation.
+        mp3 (bool, optional): Whether to output MP3 files.
+        mp3_rate (int, optional): Bitrate for MP3 output.
+        float32 (bool, optional): Whether to output float32 WAV files.
+        int24 (bool, optional): Whether to output int24 WAV files.
 
     Returns:
         list: Paths of newly saved audio stems.
@@ -38,9 +42,12 @@ def process_audio_stem_separation(
 
         # Separate audio into stems
         results = _audio_stem_separation(
+            # Default parameters here that are not set by Gradio
+            # Can be modified for internal automation
             input_file,
             output_path=output_directory,
             model=model,
+            two_stems=None,
             mp3=save_as_mp3,
             mp3_rate=mp3_bitrate,
             float32=use_float32,
