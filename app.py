@@ -1,22 +1,7 @@
-"""
-This script sets up a Gradio interface to process audio files by separating them into stems using the Demucs model
-and converting the "other" stem to MIDI using the Basic Pitch model.
-
-Summary:
-- The main function `gradio_pipeline` takes an input audio file, separates it into stems, and converts the "other" stem to MIDI.
-- The separated audio files and the generated MIDI file are returned as outputs.
-
-Usage:
-- Run this script to launch the Gradio interface.
-- Upload an audio file and specify the Demucs model to use for separation.
-"""
-
 import warnings
 import logging
 import os
 import random
-
-from utilities.audio_to_midi.originals import _original_audio_to_midi
 
 # ════════════════════════════════════════════════════════════
 # Suppress Warnings and Logging
@@ -41,99 +26,13 @@ import gradio as gr
 
 # Local Imports
 from utilities import (
-    separate_audio, 
-    print_message, 
-    modify_midi_prompt, 
-    extract_lyrics, 
-    translate_lyrics, 
-    get_available_languages
+    process_audio_stem_separation,
+    process_audio_to_midi_conversion,
+    process_audio_lyric_extraction,
+    process_audio_lyric_translation,
+    get_available_languages,
+    process_midi_style_conversion,
 )
-
-# ════════════════════════════════════════════════════════════
-# Utility Functions
-# ════════════════════════════════════════════════════════════
-def validate_frequency(value):
-    """Validate frequency to ensure it is not zero."""
-    return None if value == 0 else value
-
-def process_audio_stems(input_file, model="htdemucs_ft", save_as_mp3=True, mp3_bitrate=320, use_float32=False, use_int24=False):
-    """Separate audio into stems using the specified model."""
-    output_directory = Path("./audio_processing/output_stems")
-
-    results = separate_audio(
-        input_file,
-        output_path=output_directory,
-        model=model,
-        mp3=save_as_mp3,
-        mp3_rate=mp3_bitrate,
-        float32=use_float32,
-        int24=use_int24,
-    )
-
-    if results is None:
-        print_message("[ERROR]", text_color="red")
-        print_message("No results returned from `separate_audio`.", text_color="red", indent_level=1, include_border=True)
-        return
-
-    return [str(path) for path in results]
-
-def convert_audio_to_midi(
-    input_file,
-    song_dir_name=None,
-    save_midi=True,
-    generate_audio_from_midi=False,
-    save_model_outputs=False,
-    onset_threshold=0.5,
-    frame_threshold=0.3,
-    min_note_length=127.7,
-    min_frequency=None,
-    max_frequency=None,
-    allow_multiple_pitch_bends=False,
-    apply_melodia_trick=True,
-    samplerate=44100,
-    midi_tempo=120,
-):
-    """Convert an audio file to MIDI format with specified parameters."""
-    min_frequency = validate_frequency(min_frequency)
-    max_frequency = validate_frequency(max_frequency)
-
-    # song_name = None
-    output_directory = "./audio_processing/output_midi"
-
-    midi_path = _original_audio_to_midi(
-        audio_path=input_file,
-        output_directory=output_directory,
-        song_dir_name=song_dir_name,
-        save_midi=save_midi,
-        sonify_midi=generate_audio_from_midi,
-        save_model_outputs=save_model_outputs,
-        save_notes=False,
-        onset_threshold=onset_threshold,
-        frame_threshold=frame_threshold,
-        minimum_note_length=min_note_length,
-        minimum_frequency=min_frequency,
-        maximum_frequency=max_frequency,
-        multiple_pitch_bends=allow_multiple_pitch_bends,
-        melodia_trick=apply_melodia_trick,
-        sonification_samplerate=samplerate,
-        midi_tempo=midi_tempo,
-    )
-    return str(midi_path)
-
-def audio_extract_lyrics(input_file):
-    """Extract lyrics from an audio file and return them as a single string."""
-    lyrics = extract_lyrics(input_file)
-
-    print_message("[SUCCESS]", text_color="bright_green", include_border=True)
-    return "\n".join(lyrics)
-
-def audio_translate_lyrics(lyrics, language_code):
-    """Translate extracted lyrics to the specified language."""
-    lyrics_list = lyrics.split("\n")
-    translated = translate_lyrics(lyrics_list, language_code)
-
-    print_message("[SUCCESS]", text_color="bright_green", include_border=True)
-    return "\n".join(translated)
 
 # ════════════════════════════════════════════════════════════
 # Gradio Interface 1: Audio Separation
@@ -163,7 +62,7 @@ def create_audio_separation_interface():
                 drum_output = gr.Audio(label="Drums")
 
         process_button.click(
-            process_audio_stems,
+            process_audio_stem_separation,
             inputs=[audio_input, model, save_as_mp3, mp3_bitrate, use_float32, use_int24],
             outputs=[instrumental_output, vocal_output, bass_output, drum_output],
         )
@@ -201,7 +100,7 @@ def create_audio_to_midi_interface():
                 midi_tempo = gr.Number(label="MIDI Tempo (BPM)", value=120)
 
         process_button.click(
-            convert_audio_to_midi,
+            process_audio_to_midi_conversion,
             inputs=[
                 audio_input, song_directory, save_midi, generate_audio_from_midi, save_model_outputs, onset_threshold,
                 frame_threshold, min_note_length, min_frequency, max_frequency, allow_multiple_pitch_bends,
@@ -232,7 +131,7 @@ def create_modify_midi_interface():
                 modified_midi_output = gr.Audio(label="Modified MIDI")
 
         process_button.click(
-            modify_midi_prompt,
+            process_midi_style_conversion,
             inputs=[midi_input, song_dir_name, song_prefix_name, prompt],
             outputs=[modified_midi_output],
         )
@@ -260,13 +159,13 @@ def create_lyrics_interface():
                 translate_button = gr.Button("Translate")
 
         extract_button.click(
-            audio_extract_lyrics,
+            process_audio_lyric_extraction,
             inputs=[audio_input],
             outputs=[lyrics_output],
         )
 
         translate_button.click(
-            audio_translate_lyrics,
+            process_audio_lyric_translation,
             inputs=[lyrics_output, language_code],
             outputs=[translated_output],
         )
