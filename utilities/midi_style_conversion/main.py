@@ -7,25 +7,25 @@ import pretty_midi
 
 # Local Imports
 from .utilities import (
-    change_scale,
-    change_tempo,
-    transpose_midi,
-    adjust_note_durations,
-    add_swing,
-    adjust_velocity,
-    add_arpeggiation,
-    add_harmony,
-    humanize_midi,
-    add_volume_effect,
-    modify_instruments,
+    _change_scale,
+    _change_tempo,
+    _transpose_midi,
+    _adjust_note_durations,
+    _add_swing,
+    _adjust_velocity,
+    _add_arpeggiation,
+    _add_harmony,
+    _humanize_midi,
+    _add_volume_effect,
+    _modify_instruments,
 )
-from .prompt_config import execute_query
-from ..print_utilities import print_title, print_message
 
 
-def modify_midi(input_midi_file, output_midi_path, **kwargs):
+def _midi_style_conversion(input_midi_file, output_midi_path, **kwargs):
     """
     Modifies a MIDI file based on provided parameters.
+    Uses our custom built functions in the `utilities.py` file.
+    The `kwargs` dictionary should contain the parameters to modify the MIDI file.
 
     Args:
         input_midi_file (str or pretty_midi.PrettyMIDI): Path to input MIDI file or a PrettyMIDI object.
@@ -54,33 +54,35 @@ def modify_midi(input_midi_file, output_midi_path, **kwargs):
 
     # Function mapping for modifications
     modification_map = {
-        "scale": change_scale,
-        "tempo": change_tempo,
-        "transpose": transpose_midi,
-        "duration_factor": adjust_note_durations,
-        "swing": add_swing,
-        "velocity_factor": adjust_velocity,
-        "arpeggiate": add_arpeggiation,
-        "harmony": add_harmony,
-        "humanize": humanize_midi,
-        "volume_effect": lambda midi, params: add_volume_effect(midi, params["value"], params["time"]),
+        "scale": _change_scale,
+        "tempo": _change_tempo,
+        "transpose": _transpose_midi,
+        "duration_factor": _adjust_note_durations,
+        "swing": _add_swing,
+        "velocity_factor": _adjust_velocity,
+        "arpeggiate": _add_arpeggiation,
+        "harmony": _add_harmony,
+        "humanize": _humanize_midi,
+        "volume_effect": lambda midi, params: _add_volume_effect(midi, params["value"], params["time"]),
     }
 
     # Apply modifications
     for key, func in modification_map.items():
         if key in kwargs and kwargs[key] is not None:
             if key == "volume_effect":
-                func(midi_data, kwargs[key])  # Special handling for dict-based parameter
+                # Special handling for dict-based parameter
+                func(midi_data, kwargs[key])
             elif key in ["duration_factor", "velocity_factor", "tempo", "transpose"]:
                 func(midi_data, kwargs[key])
             elif key in ["scale"]:
                 func(midi_data, kwargs[key])
             elif kwargs[key]:
-                func(midi_data)  # For boolean flags like swing, arpeggiate, etc.
+                # For boolean flags like swing, arpeggiate, etc.
+                func(midi_data)
 
     # Modify instruments if specified
     if "instruments" in kwargs and kwargs["instruments"]:
-        modify_instruments(midi_data, kwargs["instruments"])
+        _modify_instruments(midi_data, kwargs["instruments"])
 
     # Save the modified MIDI file
     midi_data.write(output_midi_path)

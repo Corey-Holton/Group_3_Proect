@@ -1,3 +1,16 @@
+"""
+This file was developed with the assistance of AI (e.g., ChatGPT) for code generation
+and refinement. Some sections of the code were specifically generated to address areas
+where additional expertise in MIDI processing was required. 
+
+The code has been reviewed, modified, and integrated by us to align with 
+our goals, ensuring accuracy and adherence to the desired functionality.
+
+Purpose:
+- Handles MIDI processing and related operations, including conversion, style modification, and transformations.
+"""
+
+
 # Standard Library Imports
 from collections import Counter
 import random
@@ -9,7 +22,7 @@ import pretty_midi
 from .constants import VALID_INSTRUMENTS
 
 
-def modify_instruments(midi_data, instruments):
+def _modify_instruments(midi_data, instruments):
     """
     Modify the instruments in a MIDI file.
 
@@ -29,7 +42,7 @@ def modify_instruments(midi_data, instruments):
             midi_data.instruments[idx].program = pretty_midi.instrument_name_to_program(instrument)
 
 
-def detect_scale(midi_data):
+def _detect_scale(midi_data):
     """
     Detect the most likely scale (major or minor) of the MIDI file.
 
@@ -75,7 +88,7 @@ def detect_scale(midi_data):
     return best_match
 
 
-def change_scale(midi_data, target_scale):
+def _change_scale(midi_data, target_scale):
     """
     Change the scale of a MIDI file.
 
@@ -115,7 +128,7 @@ def change_scale(midi_data, target_scale):
             note.pitch = note.pitch - original_pitch + nearest_pitch
 
 
-def change_tempo(midi_data, target_tempo):
+def _change_tempo(midi_data, target_tempo):
     """
     Adjust the tempo of a MIDI file.
 
@@ -169,7 +182,7 @@ def change_tempo(midi_data, target_tempo):
     midi_data.adjust_times([0, total_time], [0, total_time * tempo_ratio])
 
 
-def adjust_note_durations(midi_data, duration_factor):
+def _adjust_note_durations(midi_data, duration_factor):
     """
     Adjust the duration of notes in a MIDI file.
 
@@ -188,7 +201,7 @@ def adjust_note_durations(midi_data, duration_factor):
             note.end = note.start + (note.end - note.start) * duration_factor
 
 
-def add_swing(midi_data, swing_factor=0.2):
+def _add_swing(midi_data, swing_factor=0.2):
     """
     Add a swing feel to the MIDI file by delaying every second note slightly.
 
@@ -210,7 +223,7 @@ def add_swing(midi_data, swing_factor=0.2):
                 note.end += delay
 
 
-def adjust_velocity(midi_data, factor=1.2):
+def _adjust_velocity(midi_data, factor=1.2):
     """
     Adjust the velocity of all notes to change the dynamic intensity.
 
@@ -229,7 +242,7 @@ def adjust_velocity(midi_data, factor=1.2):
             note.velocity = min(max(int(note.velocity * factor), 0), 127)
 
 
-def add_arpeggiation(midi_data, interval=0.1):
+def _add_arpeggiation(midi_data, interval=0.1):
     """
     Convert chords into arpeggios by staggering the timing of notes.
 
@@ -257,7 +270,7 @@ def add_arpeggiation(midi_data, interval=0.1):
         instrument.notes = arpeggiated_notes
 
 
-def add_harmony(midi_data, interval=7):
+def _add_harmony(midi_data, interval=7):
     """
     Add harmonic notes to the melody.
 
@@ -283,7 +296,7 @@ def add_harmony(midi_data, interval=7):
         instrument.notes.extend(new_notes)
 
 
-def humanize_midi(midi_data, timing_variation=0.05, velocity_variation=10):
+def _humanize_midi(midi_data, timing_variation=0.05, velocity_variation=10):
     """
     Add randomness to note timing and velocity for a humanized feel.
 
@@ -307,7 +320,7 @@ def humanize_midi(midi_data, timing_variation=0.05, velocity_variation=10):
             note.velocity = min(max(note.velocity + random.randint(-velocity_variation, velocity_variation), 0), 127)
 
 
-def transpose_midi(midi_data, semitones):
+def _transpose_midi(midi_data, semitones):
     """
     Transpose all notes in the MIDI file by a given number of semitones.
 
@@ -327,7 +340,7 @@ def transpose_midi(midi_data, semitones):
             note.pitch = max(0, min(127, note.pitch + semitones))  # Ensure within MIDI range
 
 
-def add_volume_effect(midi_data, value, time):
+def _add_volume_effect(midi_data, value, time):
     """
     Add a volume control change to the MIDI file.
 
