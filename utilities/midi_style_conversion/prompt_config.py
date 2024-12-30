@@ -47,20 +47,13 @@ CONSTRAINTS = f"""
 2. The output format for instruments should be a dictionary where:
    - The keys are integers representing the instrument channel indices (e.g., 0, 1, 2, etc.).
    - The values are integers representing the MIDI program numbers (0-127).
-
-   Example:
-   {{
-       "0": 1,  # Bright Acoustic Piano
-       "1": 33,  # Electric Bass (finger)
-       ...
-   }}
 """
 
 # Prompt template
 PROMPT_TEMPLATE = f"""
 {PREFIX}
 
-ENSURE OUTPUT FORMAT IS STRICTLY VALID JSON:
+ENSURE OUTPUT FORMAT IS STRICTLY VALID JSON (DO NOT ADD COMMENTS):
 1. Instruments must use their MIDI program numbers (0-127) in the format described above.
 2. Other parameters should follow the instructions provided.
 {INSTRUCTIONS}
