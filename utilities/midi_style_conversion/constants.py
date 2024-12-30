@@ -42,20 +42,25 @@ def validate_note_list(note_list):
 # Constants: A list of valid instruments and notes that are available for use
 VALID_INSTRUMENTS = [pretty_midi.program_to_instrument_name(program) for program in range(128)]
 
+# Constants: A mapping of MIDI program instrument names to program numbers
+INSTRUMENT_TO_PROGRAM = {pretty_midi.program_to_instrument_name(program): program for program in range(128)}
+
+# Constants: A mapping of MIDI program numbers to instrument names
+PROGRAM_TO_INSTRUMENT = {v: k for k, v in INSTRUMENT_TO_PROGRAM.items()}
+
 # Constants: A list of valid note syntaxes that are available for use
 VALID_NOTES = generate_note_list() 
 
 # Constants: Details of acceptable parameters for our functions in `utilities.py` that Google's AI model will use
 ACCEPTABLE_PARAMETERS = {
     "instruments": {
-        "type": "dict[str, str]",
-        "description": "Mapping of instrument indices to instrument names.",
-        "constraints": (
-        "Keys must be integer (channel indices); values must be an available instrument name. "
-        "IMPORTANT: ONLY USE INSTRUMENTS IN THIS LIST PROVIDED."
-        "You DO NOT HAVE PERMISSION to use other instruments outside the provided list."
+    "type": "dict[int, int]",  # Map channel indices to program numbers
+    "description": "Mapping of channel indices to MIDI program numbers.",
+    "constraints": (
+        "Keys must be integer channel indices; values must be integers corresponding to valid MIDI program numbers "
+        f"(0-127). The mapping is: {INSTRUMENT_TO_PROGRAM}."
     ),
-        "complex": True
+    "complex": True
     },
     "scale": {
         "type": "str",

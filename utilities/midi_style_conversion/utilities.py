@@ -17,9 +17,11 @@ import random
 
 # Third-Party Imports
 import pretty_midi
+from pprint import pprint
 
 # Local Imports
-from .constants import VALID_INSTRUMENTS
+from .constants import INSTRUMENT_TO_PROGRAM, PROGRAM_TO_INSTRUMENT
+from ..print_utilities import print_message
 
 
 def _modify_instruments(midi_data, instruments):
@@ -28,18 +30,26 @@ def _modify_instruments(midi_data, instruments):
 
     Args:
         midi_data (pretty_midi.PrettyMIDI): MIDI data object.
-        instruments (dict): Mapping of instrument indices to names.
+        instruments (dict): Mapping of instrument indices to program numbers.
 
     Returns:
         None
     """
-    for idx, instrument in instruments.items():
-        if instrument not in VALID_INSTRUMENTS:
-            raise ValueError(f"Invalid instrument name: '{instrument}'. Must be one of: {VALID_INSTRUMENTS}")
-        
-        if idx < len(midi_data.instruments):
-            midi_data.instruments[idx].name = instrument
-            midi_data.instruments[idx].program = pretty_midi.instrument_name_to_program(instrument)
+    # Validate program numbers
+    invalid_programs = [program for program in instruments.values() if program not in INSTRUMENT_TO_PROGRAM.values()]
+    if invalid_programs:
+        raise ValueError(f"Invalid program numbers: {invalid_programs}. Must be in: {list(INSTRUMENT_TO_PROGRAM.values())}")
+
+    # Modify only valid instrument indices
+    print_message("[INSTRUMENTS]", text_color="bright_blue")
+    for idx, program_number in instruments.items():
+        if idx < len(midi_data.instruments):  # Ensure index is within range
+            midi_data.instruments[idx].name = pretty_midi.program_to_instrument_name(program_number)
+            midi_data.instruments[idx].program = program_number
+            print_message(f"Changed instrument #{idx + 1} - `{PROGRAM_TO_INSTRUMENT[program_number]}`.", indent_level=1, text_color="bright_blue")
+        else:
+            print_message(f"Skipping instrument #{idx + 1} - `{PROGRAM_TO_INSTRUMENT[program_number]}`", text_color="blue", indent_level=1)
+    print_message("", include_border=True)
 
 
 def _detect_scale(midi_data):
