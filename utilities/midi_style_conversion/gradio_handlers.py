@@ -6,6 +6,9 @@ from .prompt_config import _execute_query
 from .constants import DEFAULT_OUTPUT_DIR
 
 
+# ════════════════════════════════════════════════════════════
+# Gradio MIDI Style Conversion Handler
+# ════════════════════════════════════════════════════════════
 def process_midi_style_conversion(
     # Parameters here are handled in the Gradio Interface.
     # The order of parameters MUST match the Gradio interface to function correctly.

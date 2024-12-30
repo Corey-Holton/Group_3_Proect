@@ -17,10 +17,6 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 # ════════════════════════════════════════════════════════════
 # Imports
 # ════════════════════════════════════════════════════════════
-
-# Standard Library Imports
-from pathlib import Path
-
 # Third-party Imports
 import gradio as gr
 
@@ -171,6 +167,32 @@ def create_lyrics_interface():
         )
     return interface
 
+
+# ════════════════════════════════════════════════════════════
+# Gradio Interface 5: External Website Tab
+# ════════════════════════════════════════════════════════════
+def create_external_website_interface():
+    with gr.Blocks() as interface:
+        with gr.Row():
+            with gr.Column(scale=1):
+                gr.Markdown(
+                    "### Visit [SpessaSynth](https://spessasus.github.io/SpessaSynth/), [Midiano](https://app.midiano.com/), [html-midi-player](https://cifkao.github.io/html-midi-player/)",
+                    elem_id="spessasynth-header",
+                )
+
+                gr.HTML(
+                    """
+                    <iframe 
+                        src="https://spessasus.github.io/SpessaSynth/" 
+                        width="100%" 
+                        height="800px");">
+                    </iframe>
+                    """
+                )
+
+    return interface
+
+
 # ════════════════════════════════════════════════════════════
 # Main Interface Setup
 # ════════════════════════════════════════════════════════════
@@ -178,10 +200,23 @@ audio_separation_interface = create_audio_separation_interface()
 audio_to_midi_interface = create_audio_to_midi_interface()
 modify_midi_interface = create_modify_midi_interface()
 lyrics_interface = create_lyrics_interface()
+external_website_interface = create_external_website_interface()
 
 tabbed_interface = gr.TabbedInterface(
-    [audio_separation_interface, audio_to_midi_interface, modify_midi_interface, lyrics_interface],
-    tab_names=["Audio Separation", "Audio to MIDI", "Modify MIDI", "Lyrics Extraction"],
+    [
+        audio_separation_interface,
+        audio_to_midi_interface,
+        modify_midi_interface,
+        lyrics_interface,
+        external_website_interface,
+    ],
+    tab_names=[
+        "Audio Separation",
+        "Audio to MIDI",
+        "Modify MIDI",
+        "Lyrics Extraction",
+        "SpessaSynth Website",
+    ],
     theme="shivi/calm_seafoam",
 )
 
