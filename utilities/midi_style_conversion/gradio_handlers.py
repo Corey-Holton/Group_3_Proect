@@ -7,8 +7,8 @@ from .constants import DEFAULT_OUTPUT_DIR
 
 
 def process_midi_style_conversion(
-    # ! Parameters here are handled in the Gradio Interface.
-    # ! The order of parameters MUST match the Gradio interface to function correctly.
+    # Parameters here are handled in the Gradio Interface.
+    # The order of parameters MUST match the Gradio interface to function correctly.
     input_midi_file,
     song_dir_name=False,
     song_prefix_name=False,

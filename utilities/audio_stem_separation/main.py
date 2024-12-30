@@ -28,9 +28,9 @@ from .utilities import (
 
 
 def _audio_stem_separation(
-    # ! Reference: See `gradio_handlers.py` for how these parameters integrate with Gradio
-    # ! Private function: Used internally for audio-to-MIDI conversion
-    # ! Do not modify parameter names or order
+    # Reference: See `gradio_handlers.py` for how these parameters integrate with Gradio
+    # Private function: Used internally for audio-to-MIDI conversion
+    # Do not modify parameter names or order
     input_file,
     output_path,
     model,
