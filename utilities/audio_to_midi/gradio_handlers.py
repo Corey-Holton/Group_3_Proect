@@ -18,8 +18,8 @@ from .constants import (
 # Gradio Audio-to-MIDI Conversion Handler
 # ════════════════════════════════════════════════════════════
 def process_audio_to_midi_conversion(
-    # ! Parameters here are handled in the Gradio Interface.
-    # ! The order of parameters MUST match the Gradio interface to function correctly.
+    # Parameters here are handled in the Gradio Interface.
+    # The order of parameters MUST match the Gradio interface to function correctly.
     input_file,                 # Path to the input audio file (provided by Gradio).
     song_dir_name=None,         # Optional: Directory name for saving MIDI output.
     save_midi=True,             # Save the generated MIDI file (Gradio toggle).

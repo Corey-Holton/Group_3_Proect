@@ -9,9 +9,9 @@ from ..print_utilities import print_title, print_message
 
 
 def _audio_to_midi(
-    # ! Reference: See `gradio_handlers.py` for how these parameters integrate with Gradio
-    # ! Private function: Used internally for audio-to-MIDI conversion
-    # ! Do not modify parameter names or order
+    # Reference: See `gradio_handlers.py` for how these parameters integrate with Gradio
+    # Private function: Used internally for audio-to-MIDI conversion
+    # Do not modify parameter names or order
     audio_path,               # Path to the input audio file
     output_directory,         # Directory to save MIDI output
     song_dir_name,            # Subdirectory for saving outputs
@@ -59,8 +59,8 @@ def _audio_to_midi(
 
     # Predict and save MIDI
     predict_and_save(
-        # ! Reference: See `gradio_handlers.py` for how these parameters integrate with Gradio
-        # ! Do not modify parameter names or order
+        # Reference: See `gradio_handlers.py` for how these parameters integrate with Gradio
+        # Do not modify parameter names or order
         audio_path_list=[audio_path],
         output_directory=output_directory,
         save_midi=save_midi,

@@ -6,8 +6,8 @@ from ..print_utilities import print_message
 # Gradio Extract Lyrics Handler
 # ════════════════════════════════════════════════════════════
 def process_audio_lyric_extraction(
-    # ! Parameters here are handled in the Gradio Interface.
-    # ! The order of parameters MUST match the Gradio interface to function correctly.
+    # Parameters here are handled in the Gradio Interface.
+    # The order of parameters MUST match the Gradio interface to function correctly.
     input_file
 ):
     """
@@ -34,8 +34,8 @@ def process_audio_lyric_extraction(
 # Gradio Translate Lyrics Handler
 # ════════════════════════════════════════════════════════════
 def process_audio_lyric_translation(
-    # ! Parameters here are handled in the Gradio Interface.
-    # ! The order of parameters MUST match the Gradio interface to function correctly.
+    # Parameters here are handled in the Gradio Interface.
+    # The order of parameters MUST match the Gradio interface to function correctly.
     lyrics,
     language_code
 ):
