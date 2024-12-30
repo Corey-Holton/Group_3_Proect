@@ -6,7 +6,7 @@ import os
 from pprint import pprint
 
 # Local Imports
-from .constants import VALID_INSTRUMENTS, VALID_NOTES, ACCEPTABLE_PARAMETERS
+from .constants import INSTRUMENT_TO_PROGRAM, VALID_NOTES, ACCEPTABLE_PARAMETERS
 from ..print_utilities import print_message
 
 
@@ -40,12 +40,20 @@ parser = StructuredOutputParser.from_response_schemas(schemas)
 PREFIX = "You are a music AI assistant. Based on the user's description, generate parameters to modify a MIDI file."
 INSTRUCTIONS = parser.get_format_instructions()
 CONSTRAINTS = f""" 
-1. Instruments MUST be chosen from the LIST of AVAILABLE INSTRUMENTS ONLY:
-   {', '.join(VALID_INSTRUMENTS)}.
+1. Instruments must be represented by their **MIDI program numbers (0-127)**. 
+   Each program number corresponds to a specific instrument name based on the following mapping:
+   {INSTRUMENT_TO_PROGRAM}.
 
-2. Scales must follow the '(Note)(Accidental)(Octave)_(Type)' format:
-   Available Notes and Accidentals: {', '.join(VALID_NOTES)}.
-   Available Types: major, minor.
+2. The output format for instruments should be a dictionary where:
+   - The keys are integers representing the instrument channel indices (e.g., 0, 1, 2, etc.).
+   - The values are integers representing the MIDI program numbers (0-127).
+
+   Example:
+   {{
+       "0": 1,  # Bright Acoustic Piano
+       "1": 33,  # Electric Bass (finger)
+       ...
+   }}
 """
 
 # Prompt template
@@ -53,7 +61,8 @@ PROMPT_TEMPLATE = f"""
 {PREFIX}
 
 ENSURE OUTPUT FORMAT IS STRICTLY VALID JSON:
-ENSURE OUTPUT INSTRUMENTS ARE IN THE LIST OF VALID INSTRUMENTS ONLY (MUST BE IDENTITCAL TO THE PROVIDED LIST):
+1. Instruments must use their MIDI program numbers (0-127) in the format described above.
+2. Other parameters should follow the instructions provided.
 {INSTRUCTIONS}
 
 IMPORTANT CONSTRAINTS:
@@ -81,6 +90,13 @@ def _execute_query(text_query):
 
         parsed_response = parser.parse(gemini_response.content)
 
+        invalid_programs = [
+            program for program in parsed_response.get("instruments", {}).values()
+            if program not in INSTRUMENT_TO_PROGRAM.values()
+        ]
+        if invalid_programs:
+            raise ValueError(f"AI generated invalid MIDI program numbers: {invalid_programs}")
+
         print_message("[PARSED RESPONSE]", text_color="bright_cyan")
         pprint(parsed_response)
         print_message("", text_color="bright_cyan", include_border=True)
@@ -93,3 +109,4 @@ def _execute_query(text_query):
 
 if __name__ == "__main__":
     print("This script is used to execute a query using the Gemini model and parse the response.")
+    print(PROMPT_TEMPLATE)
