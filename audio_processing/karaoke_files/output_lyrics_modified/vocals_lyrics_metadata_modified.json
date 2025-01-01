@@ -1,0 +1,2242 @@
+[
+    {
+        "verse_number": 1,
+        "text": " Is  there  light  beyond  the  storm?",
+        "start": 4.999999999999997,
+        "end": 10.44,
+        "words": [
+            {
+                "word": "test test",
+                "word_number": 1,
+                "start": 4.999999999999997,
+                "end": 6.14,
+                "probability": 0.7626953125
+            },
+            {
+                "word": " there",
+                "word_number": 2,
+                "start": 6.14,
+                "end": 6.64,
+                "probability": 0.970703125
+            },
+            {
+                "word": " storm?",
+                "word_number": 3,
+                "start": 6.64,
+                "end": 7.22,
+                "probability": 0.8427734375
+            },
+            {
+                "word": " light",
+                "word_number": 4,
+                "start": 7.22,
+                "end": 9.38,
+                "probability": 0.5390625
+            },
+            {
+                "word": " Is",
+                "word_number": 5,
+                "start": 9.38,
+                "end": 10.0,
+                "probability": 0.99169921875
+            },
+            {
+                "word": " beyond",
+                "word_number": 6,
+                "start": 10.0,
+                "end": 10.44,
+                "probability": 0.95654296875
+            }
+        ]
+    },
+    {
+        "verse_number": 2,
+        "text": " I've  heard  of  stars  beyond  the  gray  skies",
+        "start": 11.4,
+        "end": 17.58,
+        "words": [
+            {
+                "word": " the",
+                "word_number": 1,
+                "start": 11.4,
+                "end": 12.54,
+                "probability": 0.989990234375
+            },
+            {
+                "word": " of",
+                "word_number": 2,
+                "start": 12.54,
+                "end": 12.9,
+                "probability": 0.99755859375
+            },
+            {
+                "word": " heard",
+                "word_number": 3,
+                "start": 12.9,
+                "end": 13.2,
+                "probability": 0.99853515625
+            },
+            {
+                "word": " skies",
+                "word_number": 4,
+                "start": 13.2,
+                "end": 13.64,
+                "probability": 0.99072265625
+            },
+            {
+                "word": " stars",
+                "word_number": 5,
+                "start": 13.64,
+                "end": 15.92,
+                "probability": 0.92431640625
+            },
+            {
+                "word": " I've",
+                "word_number": 6,
+                "start": 15.92,
+                "end": 16.66,
+                "probability": 0.9990234375
+            },
+            {
+                "word": " beyond",
+                "word_number": 7,
+                "start": 16.66,
+                "end": 16.9,
+                "probability": 0.36767578125
+            },
+            {
+                "word": " gray",
+                "word_number": 8,
+                "start": 16.9,
+                "end": 17.58,
+                "probability": 0.99560546875
+            }
+        ]
+    },
+    {
+        "verse_number": 3,
+        "text": " I  couldn't  see  beyond  my  own  face",
+        "start": 18.44,
+        "end": 23.64,
+        "words": [
+            {
+                "word": " my",
+                "word_number": 1,
+                "start": 18.19,
+                "end": 18.76,
+                "probability": 0.38525390625
+            },
+            {
+                "word": " face",
+                "word_number": 2,
+                "start": 18.76,
+                "end": 19.6,
+                "probability": 0.997314453125
+            },
+            {
+                "word": " see",
+                "word_number": 3,
+                "start": 19.6,
+                "end": 20.06,
+                "probability": 0.998046875
+            },
+            {
+                "word": " couldn't",
+                "word_number": 4,
+                "start": 20.06,
+                "end": 22.22,
+                "probability": 0.93505859375
+            },
+            {
+                "word": " own",
+                "word_number": 5,
+                "start": 22.22,
+                "end": 22.62,
+                "probability": 0.99951171875
+            },
+            {
+                "word": " beyond",
+                "word_number": 6,
+                "start": 22.62,
+                "end": 23.08,
+                "probability": 0.9931640625
+            },
+            {
+                "word": " I",
+                "word_number": 7,
+                "start": 23.08,
+                "end": 23.64,
+                "probability": 0.9990234375
+            }
+        ]
+    },
+    {
+        "verse_number": 4,
+        "text": " And  the  day  the  mirror  became  a  blade",
+        "start": 23.64,
+        "end": 30.2,
+        "words": [
+            {
+                "word": " mirror",
+                "word_number": 1,
+                "start": 23.64,
+                "end": 25.58,
+                "probability": 0.16357421875
+            },
+            {
+                "word": " a",
+                "word_number": 2,
+                "start": 25.58,
+                "end": 25.7,
+                "probability": 0.9248046875
+            },
+            {
+                "word": " day",
+                "word_number": 3,
+                "start": 25.7,
+                "end": 26.02,
+                "probability": 0.99169921875
+            },
+            {
+                "word": " the",
+                "word_number": 4,
+                "start": 26.02,
+                "end": 26.48,
+                "probability": 0.9814453125
+            },
+            {
+                "word": " the",
+                "word_number": 5,
+                "start": 26.48,
+                "end": 26.9,
+                "probability": 0.99755859375
+            },
+            {
+                "word": " became",
+                "word_number": 6,
+                "start": 26.9,
+                "end": 29.16,
+                "probability": 0.919921875
+            },
+            {
+                "word": " blade",
+                "word_number": 7,
+                "start": 29.16,
+                "end": 29.8,
+                "probability": 0.9970703125
+            },
+            {
+                "word": " And",
+                "word_number": 8,
+                "start": 29.8,
+                "end": 30.2,
+                "probability": 0.8486328125
+            }
+        ]
+    },
+    {
+        "verse_number": 5,
+        "text": " And  all  that  anger  and  all  that  pain",
+        "start": 30.84,
+        "end": 36.86,
+        "words": [
+            {
+                "word": " all",
+                "word_number": 1,
+                "start": 30.84,
+                "end": 32.0,
+                "probability": 0.4951171875
+            },
+            {
+                "word": " all",
+                "word_number": 2,
+                "start": 32.0,
+                "end": 32.58,
+                "probability": 0.99951171875
+            },
+            {
+                "word": " pain",
+                "word_number": 3,
+                "start": 32.58,
+                "end": 32.94,
+                "probability": 0.9990234375
+            },
+            {
+                "word": " that",
+                "word_number": 4,
+                "start": 32.94,
+                "end": 33.96,
+                "probability": 0.99755859375
+            },
+            {
+                "word": " that",
+                "word_number": 5,
+                "start": 33.96,
+                "end": 35.62,
+                "probability": 0.87744140625
+            },
+            {
+                "word": " anger",
+                "word_number": 6,
+                "start": 35.62,
+                "end": 35.88,
+                "probability": 0.99951171875
+            },
+            {
+                "word": " and",
+                "word_number": 7,
+                "start": 35.88,
+                "end": 36.26,
+                "probability": 0.9990234375
+            },
+            {
+                "word": " And",
+                "word_number": 8,
+                "start": 36.26,
+                "end": 36.86,
+                "probability": 0.99951171875
+            }
+        ]
+    },
+    {
+        "verse_number": 6,
+        "text": " Sparked  the  power  of  who  I  became",
+        "start": 38.46,
+        "end": 43.1,
+        "words": [
+            {
+                "word": " the",
+                "word_number": 1,
+                "start": 38.46,
+                "end": 39.54,
+                "probability": 0.6805419921875
+            },
+            {
+                "word": " power",
+                "word_number": 2,
+                "start": 39.54,
+                "end": 39.68,
+                "probability": 0.99951171875
+            },
+            {
+                "word": " who",
+                "word_number": 3,
+                "start": 39.68,
+                "end": 40.48,
+                "probability": 0.99951171875
+            },
+            {
+                "word": " I",
+                "word_number": 4,
+                "start": 40.48,
+                "end": 41.6,
+                "probability": 0.9970703125
+            },
+            {
+                "word": " became",
+                "word_number": 5,
+                "start": 41.6,
+                "end": 41.9,
+                "probability": 0.99951171875
+            },
+            {
+                "word": " of",
+                "word_number": 6,
+                "start": 41.9,
+                "end": 42.44,
+                "probability": 0.99951171875
+            },
+            {
+                "word": " Sparked",
+                "word_number": 7,
+                "start": 42.44,
+                "end": 43.1,
+                "probability": 0.99951171875
+            }
+        ]
+    },
+    {
+        "verse_number": 7,
+        "text": " I  paid  and  blessed  so  I'd  be  beautiful",
+        "start": 45.82,
+        "end": 50.34,
+        "words": [
+            {
+                "word": " I'd",
+                "word_number": 1,
+                "start": 45.82,
+                "end": 46.9,
+                "probability": 0.9921875
+            },
+            {
+                "word": " be",
+                "word_number": 2,
+                "start": 46.9,
+                "end": 47.42,
+                "probability": 0.6767578125
+            },
+            {
+                "word": " beautiful",
+                "word_number": 3,
+                "start": 47.42,
+                "end": 47.74,
+                "probability": 0.9755859375
+            },
+            {
+                "word": " I",
+                "word_number": 4,
+                "start": 47.74,
+                "end": 48.24,
+                "probability": 0.95947265625
+            },
+            {
+                "word": " and",
+                "word_number": 5,
+                "start": 48.24,
+                "end": 48.62,
+                "probability": 0.93896484375
+            },
+            {
+                "word": " blessed",
+                "word_number": 6,
+                "start": 48.62,
+                "end": 49.16,
+                "probability": 1.0
+            },
+            {
+                "word": " so",
+                "word_number": 7,
+                "start": 49.16,
+                "end": 49.44,
+                "probability": 1.0
+            },
+            {
+                "word": " paid",
+                "word_number": 8,
+                "start": 49.44,
+                "end": 50.34,
+                "probability": 0.99951171875
+            }
+        ]
+    },
+    {
+        "verse_number": 8,
+        "text": " I  paid  and  blessed  so  I'd  be  beautiful",
+        "start": 51.96,
+        "end": 53.62,
+        "words": [
+            {
+                "word": " I'd",
+                "word_number": 1,
+                "start": 51.96,
+                "end": 53.04,
+                "probability": 0.52734375
+            },
+            {
+                "word": " be",
+                "word_number": 2,
+                "start": 53.04,
+                "end": 53.62,
+                "probability": 0.7060546875
+            },
+            {
+                "word": " blessed",
+                "word_number": 3,
+                "start": 53.62,
+                "end": 53.62,
+                "probability": 0.9638671875
+            },
+            {
+                "word": " beautiful",
+                "word_number": 4,
+                "start": 53.62,
+                "end": 53.62,
+                "probability": 0.9892578125
+            },
+            {
+                "word": " so",
+                "word_number": 5,
+                "start": 53.62,
+                "end": 53.62,
+                "probability": 0.97412109375
+            },
+            {
+                "word": " and",
+                "word_number": 6,
+                "start": 53.62,
+                "end": 53.62,
+                "probability": 0.99853515625
+            },
+            {
+                "word": " paid",
+                "word_number": 7,
+                "start": 53.62,
+                "end": 53.62,
+                "probability": 0.9951171875
+            },
+            {
+                "word": " I",
+                "word_number": 8,
+                "start": 53.62,
+                "end": 53.62,
+                "probability": 0.98046875
+            }
+        ]
+    },
+    {
+        "verse_number": 9,
+        "text": " I  found  my  power  in  chaos",
+        "start": 53.62,
+        "end": 56.3,
+        "words": [
+            {
+                "word": " my",
+                "word_number": 1,
+                "start": 53.62,
+                "end": 53.62,
+                "probability": 0.421875
+            },
+            {
+                "word": " power",
+                "word_number": 2,
+                "start": 53.62,
+                "end": 53.86,
+                "probability": 0.8994140625
+            },
+            {
+                "word": " in",
+                "word_number": 3,
+                "start": 53.86,
+                "end": 54.26,
+                "probability": 0.98974609375
+            },
+            {
+                "word": " chaos",
+                "word_number": 4,
+                "start": 54.26,
+                "end": 54.88,
+                "probability": 0.98974609375
+            },
+            {
+                "word": " found",
+                "word_number": 5,
+                "start": 54.88,
+                "end": 55.54,
+                "probability": 0.9833984375
+            },
+            {
+                "word": " I",
+                "word_number": 6,
+                "start": 55.54,
+                "end": 56.3,
+                "probability": 0.91015625
+            }
+        ]
+    },
+    {
+        "verse_number": 10,
+        "text": " But  all  that  magic  is  illusional",
+        "start": 59.019999999999996,
+        "end": 64.22,
+        "words": [
+            {
+                "word": " magic",
+                "word_number": 1,
+                "start": 59.019999999999996,
+                "end": 60.04,
+                "probability": 0.5703125
+            },
+            {
+                "word": " all",
+                "word_number": 2,
+                "start": 60.04,
+                "end": 60.42,
+                "probability": 0.9892578125
+            },
+            {
+                "word": " is",
+                "word_number": 3,
+                "start": 60.42,
+                "end": 60.84,
+                "probability": 0.9814453125
+            },
+            {
+                "word": " that",
+                "word_number": 4,
+                "start": 60.84,
+                "end": 61.58,
+                "probability": 0.99365234375
+            },
+            {
+                "word": " illusional",
+                "word_number": 5,
+                "start": 61.58,
+                "end": 62.1,
+                "probability": 0.9873046875
+            },
+            {
+                "word": " But",
+                "word_number": 6,
+                "start": 62.1,
+                "end": 64.22,
+                "probability": 0.8224283854166666
+            }
+        ]
+    },
+    {
+        "verse_number": 11,
+        "text": " It's  not  enough,  it's  not  enough",
+        "start": 65.68,
+        "end": 69.28,
+        "words": [
+            {
+                "word": " not",
+                "word_number": 1,
+                "start": 65.68,
+                "end": 66.7,
+                "probability": 0.93896484375
+            },
+            {
+                "word": " not",
+                "word_number": 2,
+                "start": 66.7,
+                "end": 67.0,
+                "probability": 0.998046875
+            },
+            {
+                "word": " enough",
+                "word_number": 3,
+                "start": 67.0,
+                "end": 67.66,
+                "probability": 0.99365234375
+            },
+            {
+                "word": " enough,",
+                "word_number": 4,
+                "start": 67.86,
+                "end": 68.32,
+                "probability": 0.961181640625
+            },
+            {
+                "word": " it's",
+                "word_number": 5,
+                "start": 68.32,
+                "end": 68.62,
+                "probability": 0.9990234375
+            },
+            {
+                "word": " It's",
+                "word_number": 6,
+                "start": 68.62,
+                "end": 69.28,
+                "probability": 0.9970703125
+            }
+        ]
+    },
+    {
+        "verse_number": 12,
+        "text": " I  gave  it  all  so  I'd  be  powerful",
+        "start": 72.18,
+        "end": 76.8,
+        "words": [
+            {
+                "word": " all",
+                "word_number": 1,
+                "start": 72.18,
+                "end": 73.2,
+                "probability": 0.95263671875
+            },
+            {
+                "word": " be",
+                "word_number": 2,
+                "start": 73.2,
+                "end": 73.6,
+                "probability": 0.9931640625
+            },
+            {
+                "word": " it",
+                "word_number": 3,
+                "start": 73.6,
+                "end": 74.06,
+                "probability": 0.998046875
+            },
+            {
+                "word": " gave",
+                "word_number": 4,
+                "start": 74.06,
+                "end": 74.28,
+                "probability": 0.9990234375
+            },
+            {
+                "word": " powerful",
+                "word_number": 5,
+                "start": 74.28,
+                "end": 74.76,
+                "probability": 0.9130859375
+            },
+            {
+                "word": " I'd",
+                "word_number": 6,
+                "start": 74.76,
+                "end": 75.48,
+                "probability": 0.979248046875
+            },
+            {
+                "word": " I",
+                "word_number": 7,
+                "start": 75.48,
+                "end": 75.62,
+                "probability": 0.9990234375
+            },
+            {
+                "word": " so",
+                "word_number": 8,
+                "start": 75.62,
+                "end": 76.8,
+                "probability": 0.98779296875
+            }
+        ]
+    },
+    {
+        "verse_number": 13,
+        "text": " I  learned  to  master  my  chaos",
+        "start": 78.74000000000001,
+        "end": 82.6,
+        "words": [
+            {
+                "word": " my",
+                "word_number": 1,
+                "start": 78.74000000000001,
+                "end": 79.76,
+                "probability": 0.98291015625
+            },
+            {
+                "word": " to",
+                "word_number": 2,
+                "start": 79.76,
+                "end": 80.26,
+                "probability": 0.900390625
+            },
+            {
+                "word": " master",
+                "word_number": 3,
+                "start": 80.26,
+                "end": 80.52,
+                "probability": 0.99853515625
+            },
+            {
+                "word": " chaos",
+                "word_number": 4,
+                "start": 80.52,
+                "end": 81.14,
+                "probability": 0.99658203125
+            },
+            {
+                "word": " I",
+                "word_number": 5,
+                "start": 81.14,
+                "end": 81.64,
+                "probability": 0.9990234375
+            },
+            {
+                "word": " learned",
+                "word_number": 6,
+                "start": 81.64,
+                "end": 82.6,
+                "probability": 0.99169921875
+            }
+        ]
+    },
+    {
+        "verse_number": 14,
+        "text": " But  all  the  magic  in  the  whole  wide  world",
+        "start": 85.14,
+        "end": 90.96,
+        "words": [
+            {
+                "word": " the",
+                "word_number": 1,
+                "start": 85.14,
+                "end": 86.3,
+                "probability": 0.65234375
+            },
+            {
+                "word": " wide",
+                "word_number": 2,
+                "start": 86.3,
+                "end": 86.78,
+                "probability": 0.982421875
+            },
+            {
+                "word": " world",
+                "word_number": 3,
+                "start": 86.78,
+                "end": 87.16,
+                "probability": 0.994140625
+            },
+            {
+                "word": " the",
+                "word_number": 4,
+                "start": 87.16,
+                "end": 87.88,
+                "probability": 0.984375
+            },
+            {
+                "word": " magic",
+                "word_number": 5,
+                "start": 87.88,
+                "end": 88.36,
+                "probability": 0.94140625
+            },
+            {
+                "word": " all",
+                "word_number": 6,
+                "start": 88.36,
+                "end": 88.76,
+                "probability": 0.99560546875
+            },
+            {
+                "word": " whole",
+                "word_number": 7,
+                "start": 88.76,
+                "end": 89.26,
+                "probability": 0.966796875
+            },
+            {
+                "word": " in",
+                "word_number": 8,
+                "start": 89.26,
+                "end": 90.18,
+                "probability": 0.99462890625
+            },
+            {
+                "word": " But",
+                "word_number": 9,
+                "start": 90.18,
+                "end": 90.96,
+                "probability": 0.99462890625
+            }
+        ]
+    },
+    {
+        "verse_number": 15,
+        "text": " Is  not  enough,  it's  not  enough",
+        "start": 92.0,
+        "end": 95.62,
+        "words": [
+            {
+                "word": " not",
+                "word_number": 1,
+                "start": 92.0,
+                "end": 92.9,
+                "probability": 0.6279296875
+            },
+            {
+                "word": " enough",
+                "word_number": 2,
+                "start": 92.9,
+                "end": 93.32,
+                "probability": 0.99755859375
+            },
+            {
+                "word": " enough,",
+                "word_number": 3,
+                "start": 93.32,
+                "end": 93.9,
+                "probability": 0.998046875
+            },
+            {
+                "word": " not",
+                "word_number": 4,
+                "start": 94.38,
+                "end": 94.66,
+                "probability": 0.979248046875
+            },
+            {
+                "word": " it's",
+                "word_number": 5,
+                "start": 94.66,
+                "end": 94.98,
+                "probability": 0.99951171875
+            },
+            {
+                "word": " Is",
+                "word_number": 6,
+                "start": 94.98,
+                "end": 95.62,
+                "probability": 0.9990234375
+            }
+        ]
+    },
+    {
+        "verse_number": 16,
+        "text": " It  can't  return  the  part  I  lost",
+        "start": 98.38000000000001,
+        "end": 102.92,
+        "words": [
+            {
+                "word": " return",
+                "word_number": 1,
+                "start": 98.38000000000001,
+                "end": 99.54,
+                "probability": 0.96240234375
+            },
+            {
+                "word": " part",
+                "word_number": 2,
+                "start": 99.54,
+                "end": 100.06,
+                "probability": 0.989990234375
+            },
+            {
+                "word": " lost",
+                "word_number": 3,
+                "start": 100.06,
+                "end": 100.48,
+                "probability": 0.99755859375
+            },
+            {
+                "word": " the",
+                "word_number": 4,
+                "start": 100.48,
+                "end": 101.08,
+                "probability": 0.9912109375
+            },
+            {
+                "word": " I",
+                "word_number": 5,
+                "start": 101.08,
+                "end": 101.36,
+                "probability": 0.99365234375
+            },
+            {
+                "word": " can't",
+                "word_number": 6,
+                "start": 101.36,
+                "end": 102.08,
+                "probability": 0.9912109375
+            },
+            {
+                "word": " It",
+                "word_number": 7,
+                "start": 102.08,
+                "end": 102.92,
+                "probability": 0.99267578125
+            }
+        ]
+    },
+    {
+        "verse_number": 17,
+        "text": " All  I  want  is",
+        "start": 110.58000000000001,
+        "end": 113.02,
+        "words": [
+            {
+                "word": " I",
+                "word_number": 1,
+                "start": 110.58000000000001,
+                "end": 111.22,
+                "probability": 0.947265625
+            },
+            {
+                "word": " is",
+                "word_number": 2,
+                "start": 111.22,
+                "end": 111.88,
+                "probability": 0.9990234375
+            },
+            {
+                "word": " All",
+                "word_number": 3,
+                "start": 111.88,
+                "end": 112.42,
+                "probability": 0.86767578125
+            },
+            {
+                "word": " want",
+                "word_number": 4,
+                "start": 112.42,
+                "end": 113.02,
+                "probability": 0.990234375
+            }
+        ]
+    },
+    {
+        "verse_number": 18,
+        "text": " Is  a  bit  of  love",
+        "start": 113.62,
+        "end": 115.42,
+        "words": [
+            {
+                "word": " of",
+                "word_number": 1,
+                "start": 113.62,
+                "end": 114.34,
+                "probability": 0.011810302734375
+            },
+            {
+                "word": " bit",
+                "word_number": 2,
+                "start": 114.34,
+                "end": 114.5,
+                "probability": 0.93115234375
+            },
+            {
+                "word": " love",
+                "word_number": 3,
+                "start": 114.5,
+                "end": 114.8,
+                "probability": 0.99462890625
+            },
+            {
+                "word": " a",
+                "word_number": 4,
+                "start": 114.8,
+                "end": 115.04,
+                "probability": 0.99755859375
+            },
+            {
+                "word": " Is",
+                "word_number": 5,
+                "start": 115.04,
+                "end": 115.42,
+                "probability": 0.98486328125
+            }
+        ]
+    },
+    {
+        "verse_number": 19,
+        "text": " To  be  wanted",
+        "start": 116.94,
+        "end": 119.22,
+        "words": [
+            {
+                "word": " be",
+                "word_number": 1,
+                "start": 116.94,
+                "end": 117.92,
+                "probability": 0.73974609375
+            },
+            {
+                "word": " wanted",
+                "word_number": 2,
+                "start": 117.92,
+                "end": 118.32,
+                "probability": 0.99560546875
+            },
+            {
+                "word": " To",
+                "word_number": 3,
+                "start": 118.32,
+                "end": 119.22,
+                "probability": 0.84716796875
+            }
+        ]
+    },
+    {
+        "verse_number": 20,
+        "text": " By  someone",
+        "start": 119.22,
+        "end": 121.82,
+        "words": [
+            {
+                "word": " someone",
+                "word_number": 1,
+                "start": 119.22,
+                "end": 120.78,
+                "probability": 0.70458984375
+            },
+            {
+                "word": " By",
+                "word_number": 2,
+                "start": 120.78,
+                "end": 121.82,
+                "probability": 0.98291015625
+            }
+        ]
+    },
+    {
+        "verse_number": 21,
+        "text": " But  my  world  is  cruel",
+        "start": 122.97999999999999,
+        "end": 125.46,
+        "words": [
+            {
+                "word": " my",
+                "word_number": 1,
+                "start": 122.97999999999999,
+                "end": 123.96,
+                "probability": 0.986328125
+            },
+            {
+                "word": " world",
+                "word_number": 2,
+                "start": 123.96,
+                "end": 124.32,
+                "probability": 0.9990234375
+            },
+            {
+                "word": " cruel",
+                "word_number": 3,
+                "start": 124.32,
+                "end": 124.8,
+                "probability": 0.99609375
+            },
+            {
+                "word": " But",
+                "word_number": 4,
+                "start": 124.8,
+                "end": 125.12,
+                "probability": 0.94677734375
+            },
+            {
+                "word": " is",
+                "word_number": 5,
+                "start": 125.12,
+                "end": 125.46,
+                "probability": 0.99169921875
+            }
+        ]
+    },
+    {
+        "verse_number": 22,
+        "text": " It's  unrelenting",
+        "start": 127.34000000000002,
+        "end": 129.3,
+        "words": [
+            {
+                "word": " unrelenting",
+                "word_number": 1,
+                "start": 127.34000000000002,
+                "end": 128.32000000000002,
+                "probability": 0.9931640625
+            },
+            {
+                "word": " It's",
+                "word_number": 2,
+                "start": 128.32000000000002,
+                "end": 129.3,
+                "probability": 0.9973958333333334
+            }
+        ]
+    },
+    {
+        "verse_number": 23,
+        "text": " If  you're  not  cruel  too",
+        "start": 129.3,
+        "end": 131.98,
+        "words": [
+            {
+                "word": " you're",
+                "word_number": 1,
+                "start": 129.3,
+                "end": 130.34,
+                "probability": 0.9248046875
+            },
+            {
+                "word": " not",
+                "word_number": 2,
+                "start": 130.34,
+                "end": 130.74,
+                "probability": 0.9990234375
+            },
+            {
+                "word": " cruel",
+                "word_number": 3,
+                "start": 130.74,
+                "end": 131.1,
+                "probability": 0.998046875
+            },
+            {
+                "word": " too",
+                "word_number": 4,
+                "start": 131.1,
+                "end": 131.56,
+                "probability": 0.9619140625
+            },
+            {
+                "word": " If",
+                "word_number": 5,
+                "start": 131.56,
+                "end": 131.98,
+                "probability": 0.95361328125
+            }
+        ]
+    },
+    {
+        "verse_number": 24,
+        "text": " You  won't  survive  it",
+        "start": 133.22,
+        "end": 136.02,
+        "words": [
+            {
+                "word": " won't",
+                "word_number": 1,
+                "start": 133.22,
+                "end": 134.2,
+                "probability": 0.56689453125
+            },
+            {
+                "word": " survive",
+                "word_number": 2,
+                "start": 134.2,
+                "end": 134.58,
+                "probability": 0.99951171875
+            },
+            {
+                "word": " it",
+                "word_number": 3,
+                "start": 134.58,
+                "end": 135.22,
+                "probability": 0.99951171875
+            },
+            {
+                "word": " You",
+                "word_number": 4,
+                "start": 135.22,
+                "end": 136.02,
+                "probability": 0.99755859375
+            }
+        ]
+    },
+    {
+        "verse_number": 25,
+        "text": " All  that  rejection",
+        "start": 137.0,
+        "end": 138.52,
+        "words": [
+            {
+                "word": " rejection",
+                "word_number": 1,
+                "start": 136.82999999999998,
+                "end": 137.32,
+                "probability": 0.9765625
+            },
+            {
+                "word": " that",
+                "word_number": 2,
+                "start": 137.32,
+                "end": 137.68,
+                "probability": 0.998046875
+            },
+            {
+                "word": " All",
+                "word_number": 3,
+                "start": 137.68,
+                "end": 138.52,
+                "probability": 0.99853515625
+            }
+        ]
+    },
+    {
+        "verse_number": 26,
+        "text": " And  all  that  pain",
+        "start": 139.84,
+        "end": 141.98,
+        "words": [
+            {
+                "word": " pain",
+                "word_number": 1,
+                "start": 139.84,
+                "end": 140.82,
+                "probability": 0.9833984375
+            },
+            {
+                "word": " all",
+                "word_number": 2,
+                "start": 140.82,
+                "end": 141.06,
+                "probability": 0.99951171875
+            },
+            {
+                "word": " that",
+                "word_number": 3,
+                "start": 141.06,
+                "end": 141.48,
+                "probability": 0.99853515625
+            },
+            {
+                "word": " And",
+                "word_number": 4,
+                "start": 141.48,
+                "end": 141.98,
+                "probability": 1.0
+            }
+        ]
+    },
+    {
+        "verse_number": 27,
+        "text": " It's  unrelenting",
+        "start": 141.98,
+        "end": 143.6,
+        "words": [
+            {
+                "word": " unrelenting",
+                "word_number": 1,
+                "start": 141.98,
+                "end": 143.6,
+                "probability": 0.41290283203125
+            },
+            {
+                "word": " It's",
+                "word_number": 2,
+                "start": 143.6,
+                "end": 143.6,
+                "probability": 0.9322916666666666
+            }
+        ]
+    },
+    {
+        "verse_number": 28,
+        "text": " Sparked  the  power",
+        "start": 143.62,
+        "end": 145.44,
+        "words": [
+            {
+                "word": " the",
+                "word_number": 1,
+                "start": 143.62,
+                "end": 144.8,
+                "probability": 0.7392578125
+            },
+            {
+                "word": " power",
+                "word_number": 2,
+                "start": 144.8,
+                "end": 144.82,
+                "probability": 0.99560546875
+            },
+            {
+                "word": " Sparked",
+                "word_number": 3,
+                "start": 144.82,
+                "end": 145.44,
+                "probability": 0.99462890625
+            }
+        ]
+    },
+    {
+        "verse_number": 29,
+        "text": " Of  who  I  became",
+        "start": 145.96,
+        "end": 148.4,
+        "words": [
+            {
+                "word": " became",
+                "word_number": 1,
+                "start": 145.87,
+                "end": 146.48,
+                "probability": 0.057403564453125
+            },
+            {
+                "word": " who",
+                "word_number": 2,
+                "start": 146.48,
+                "end": 147.12,
+                "probability": 0.9892578125
+            },
+            {
+                "word": " I",
+                "word_number": 3,
+                "start": 147.12,
+                "end": 147.62,
+                "probability": 0.98388671875
+            },
+            {
+                "word": " Of",
+                "word_number": 4,
+                "start": 147.62,
+                "end": 148.4,
+                "probability": 0.99365234375
+            }
+        ]
+    },
+    {
+        "verse_number": 30,
+        "text": " I  paid  and  blessed  so  I'd  be  beautiful",
+        "start": 150.84,
+        "end": 155.76,
+        "words": [
+            {
+                "word": " be",
+                "word_number": 1,
+                "start": 150.84,
+                "end": 152.06,
+                "probability": 0.9189453125
+            },
+            {
+                "word": " I'd",
+                "word_number": 2,
+                "start": 152.06,
+                "end": 152.48,
+                "probability": 0.0633544921875
+            },
+            {
+                "word": " beautiful",
+                "word_number": 3,
+                "start": 152.48,
+                "end": 152.92,
+                "probability": 0.89208984375
+            },
+            {
+                "word": " I",
+                "word_number": 4,
+                "start": 152.92,
+                "end": 153.44,
+                "probability": 0.7275390625
+            },
+            {
+                "word": " and",
+                "word_number": 5,
+                "start": 153.44,
+                "end": 153.76,
+                "probability": 0.4609375
+            },
+            {
+                "word": " blessed",
+                "word_number": 6,
+                "start": 153.76,
+                "end": 154.36,
+                "probability": 0.980712890625
+            },
+            {
+                "word": " so",
+                "word_number": 7,
+                "start": 154.36,
+                "end": 154.54,
+                "probability": 0.99609375
+            },
+            {
+                "word": " paid",
+                "word_number": 8,
+                "start": 154.54,
+                "end": 155.76,
+                "probability": 0.97607421875
+            }
+        ]
+    },
+    {
+        "verse_number": 31,
+        "text": " I  found  my  power  in  chaos",
+        "start": 157.48,
+        "end": 161.46,
+        "words": [
+            {
+                "word": " my",
+                "word_number": 1,
+                "start": 157.48,
+                "end": 158.7,
+                "probability": 0.9775390625
+            },
+            {
+                "word": " in",
+                "word_number": 2,
+                "start": 158.7,
+                "end": 159.12,
+                "probability": 0.978515625
+            },
+            {
+                "word": " power",
+                "word_number": 3,
+                "start": 159.12,
+                "end": 159.48,
+                "probability": 0.99853515625
+            },
+            {
+                "word": " found",
+                "word_number": 4,
+                "start": 159.48,
+                "end": 160.06,
+                "probability": 0.9921875
+            },
+            {
+                "word": " I",
+                "word_number": 5,
+                "start": 160.06,
+                "end": 160.68,
+                "probability": 0.99365234375
+            },
+            {
+                "word": " chaos",
+                "word_number": 6,
+                "start": 160.68,
+                "end": 161.46,
+                "probability": 0.9453125
+            }
+        ]
+    },
+    {
+        "verse_number": 32,
+        "text": " But  all  that  magic  is  illusional",
+        "start": 164.06,
+        "end": 169.34,
+        "words": [
+            {
+                "word": " magic",
+                "word_number": 1,
+                "start": 164.06,
+                "end": 165.28,
+                "probability": 0.97802734375
+            },
+            {
+                "word": " all",
+                "word_number": 2,
+                "start": 165.28,
+                "end": 165.66,
+                "probability": 0.99365234375
+            },
+            {
+                "word": " is",
+                "word_number": 3,
+                "start": 165.66,
+                "end": 166.06,
+                "probability": 0.98828125
+            },
+            {
+                "word": " that",
+                "word_number": 4,
+                "start": 166.06,
+                "end": 166.82,
+                "probability": 0.99658203125
+            },
+            {
+                "word": " But",
+                "word_number": 5,
+                "start": 166.82,
+                "end": 167.28,
+                "probability": 0.99169921875
+            },
+            {
+                "word": " illusional",
+                "word_number": 6,
+                "start": 167.28,
+                "end": 169.34,
+                "probability": 0.773681640625
+            }
+        ]
+    },
+    {
+        "verse_number": 33,
+        "text": " It's  not  enough",
+        "start": 170.74,
+        "end": 172.86,
+        "words": [
+            {
+                "word": " not",
+                "word_number": 1,
+                "start": 170.74,
+                "end": 171.96,
+                "probability": 0.944091796875
+            },
+            {
+                "word": " enough",
+                "word_number": 2,
+                "start": 171.96,
+                "end": 172.22,
+                "probability": 0.9990234375
+            },
+            {
+                "word": " It's",
+                "word_number": 3,
+                "start": 172.22,
+                "end": 172.86,
+                "probability": 0.99755859375
+            }
+        ]
+    },
+    {
+        "verse_number": 34,
+        "text": " It's  not  enough",
+        "start": 172.86,
+        "end": 174.64,
+        "words": [
+            {
+                "word": " enough",
+                "word_number": 1,
+                "start": 172.86,
+                "end": 173.6,
+                "probability": 0.837158203125
+            },
+            {
+                "word": " not",
+                "word_number": 2,
+                "start": 173.6,
+                "end": 173.9,
+                "probability": 0.9853515625
+            },
+            {
+                "word": " It's",
+                "word_number": 3,
+                "start": 173.9,
+                "end": 174.64,
+                "probability": 0.9921875
+            }
+        ]
+    },
+    {
+        "verse_number": 35,
+        "text": " It's  not  enough",
+        "start": 174.64,
+        "end": 176.14,
+        "words": [
+            {
+                "word": " not",
+                "word_number": 1,
+                "start": 174.64,
+                "end": 175.22,
+                "probability": 0.64404296875
+            },
+            {
+                "word": " enough",
+                "word_number": 2,
+                "start": 175.22,
+                "end": 175.56,
+                "probability": 0.99609375
+            },
+            {
+                "word": " It's",
+                "word_number": 3,
+                "start": 175.56,
+                "end": 176.14,
+                "probability": 0.9951171875
+            }
+        ]
+    },
+    {
+        "verse_number": 36,
+        "text": " It's  not  enough",
+        "start": 176.14,
+        "end": 177.78,
+        "words": [
+            {
+                "word": " not",
+                "word_number": 1,
+                "start": 176.14,
+                "end": 176.86,
+                "probability": 0.75732421875
+            },
+            {
+                "word": " enough",
+                "word_number": 2,
+                "start": 176.86,
+                "end": 177.22,
+                "probability": 0.99755859375
+            },
+            {
+                "word": " It's",
+                "word_number": 3,
+                "start": 177.22,
+                "end": 177.78,
+                "probability": 0.99462890625
+            }
+        ]
+    },
+    {
+        "verse_number": 37,
+        "text": " It's  not  enough",
+        "start": 177.78,
+        "end": 177.86,
+        "words": [
+            {
+                "word": " not",
+                "word_number": 1,
+                "start": 177.78,
+                "end": 177.86,
+                "probability": 0.53656005859375
+            },
+            {
+                "word": " enough",
+                "word_number": 2,
+                "start": 177.86,
+                "end": 177.86,
+                "probability": 0.99365234375
+            },
+            {
+                "word": " It's",
+                "word_number": 3,
+                "start": 177.86,
+                "end": 177.86,
+                "probability": 0.990234375
+            }
+        ]
+    },
+    {
+        "verse_number": 38,
+        "text": " It's  not  enough",
+        "start": 177.86,
+        "end": 179.7,
+        "words": [
+            {
+                "word": " enough",
+                "word_number": 1,
+                "start": 177.86,
+                "end": 179.14,
+                "probability": 0.5836181640625
+            },
+            {
+                "word": " not",
+                "word_number": 2,
+                "start": 179.14,
+                "end": 179.16,
+                "probability": 0.99169921875
+            },
+            {
+                "word": " It's",
+                "word_number": 3,
+                "start": 179.16,
+                "end": 179.7,
+                "probability": 0.9921875
+            }
+        ]
+    },
+    {
+        "verse_number": 39,
+        "text": " It's  not  enough",
+        "start": 179.7,
+        "end": 179.96,
+        "words": [
+            {
+                "word": " not",
+                "word_number": 1,
+                "start": 179.7,
+                "end": 179.96,
+                "probability": 0.6715087890625
+            },
+            {
+                "word": " enough",
+                "word_number": 2,
+                "start": 179.96,
+                "end": 179.96,
+                "probability": 0.99462890625
+            },
+            {
+                "word": " It's",
+                "word_number": 3,
+                "start": 179.96,
+                "end": 179.96,
+                "probability": 0.99365234375
+            }
+        ]
+    },
+    {
+        "verse_number": 40,
+        "text": " It's  not  enough",
+        "start": 179.96,
+        "end": 182.52,
+        "words": [
+            {
+                "word": " not",
+                "word_number": 1,
+                "start": 179.96,
+                "end": 180.76,
+                "probability": 0.751953125
+            },
+            {
+                "word": " enough",
+                "word_number": 2,
+                "start": 180.76,
+                "end": 181.24,
+                "probability": 0.99658203125
+            },
+            {
+                "word": " It's",
+                "word_number": 3,
+                "start": 181.24,
+                "end": 182.52,
+                "probability": 0.99462890625
+            }
+        ]
+    },
+    {
+        "verse_number": 41,
+        "text": " It's  not  enough",
+        "start": 182.52,
+        "end": 184.62,
+        "words": [
+            {
+                "word": " not",
+                "word_number": 1,
+                "start": 182.52,
+                "end": 184.62,
+                "probability": 0.796875
+            },
+            {
+                "word": " enough",
+                "word_number": 2,
+                "start": 184.62,
+                "end": 184.62,
+                "probability": 0.99658203125
+            },
+            {
+                "word": " It's",
+                "word_number": 3,
+                "start": 184.62,
+                "end": 184.62,
+                "probability": 0.99560546875
+            }
+        ]
+    },
+    {
+        "verse_number": 42,
+        "text": " It's  not  enough",
+        "start": 184.62,
+        "end": 185.66,
+        "words": [
+            {
+                "word": " enough",
+                "word_number": 1,
+                "start": 184.62,
+                "end": 185.2,
+                "probability": 0.820068359375
+            },
+            {
+                "word": " not",
+                "word_number": 2,
+                "start": 185.2,
+                "end": 185.44,
+                "probability": 0.9951171875
+            },
+            {
+                "word": " It's",
+                "word_number": 3,
+                "start": 185.44,
+                "end": 185.66,
+                "probability": 0.99560546875
+            }
+        ]
+    },
+    {
+        "verse_number": 43,
+        "text": " It's  not  enough",
+        "start": 185.66,
+        "end": 186.62,
+        "words": [
+            {
+                "word": " enough",
+                "word_number": 1,
+                "start": 185.66,
+                "end": 185.76,
+                "probability": 0.868408203125
+            },
+            {
+                "word": " not",
+                "word_number": 2,
+                "start": 185.76,
+                "end": 185.8,
+                "probability": 0.99462890625
+            },
+            {
+                "word": " It's",
+                "word_number": 3,
+                "start": 185.8,
+                "end": 186.62,
+                "probability": 0.9951171875
+            }
+        ]
+    },
+    {
+        "verse_number": 44,
+        "text": " It's  not  enough",
+        "start": 186.62,
+        "end": 187.4,
+        "words": [
+            {
+                "word": " not",
+                "word_number": 1,
+                "start": 186.62,
+                "end": 186.62,
+                "probability": 0.857666015625
+            },
+            {
+                "word": " enough",
+                "word_number": 2,
+                "start": 186.62,
+                "end": 186.62,
+                "probability": 0.99560546875
+            },
+            {
+                "word": " It's",
+                "word_number": 3,
+                "start": 186.62,
+                "end": 187.4,
+                "probability": 0.99560546875
+            }
+        ]
+    },
+    {
+        "verse_number": 45,
+        "text": " It's  not  enough",
+        "start": 187.4,
+        "end": 187.54,
+        "words": [
+            {
+                "word": " not",
+                "word_number": 1,
+                "start": 187.4,
+                "end": 187.4,
+                "probability": 0.839111328125
+            },
+            {
+                "word": " enough",
+                "word_number": 2,
+                "start": 187.4,
+                "end": 187.4,
+                "probability": 0.99658203125
+            },
+            {
+                "word": " It's",
+                "word_number": 3,
+                "start": 187.4,
+                "end": 187.54,
+                "probability": 0.9951171875
+            }
+        ]
+    },
+    {
+        "verse_number": 46,
+        "text": " It's  not  enough",
+        "start": 187.54,
+        "end": 187.76,
+        "words": [
+            {
+                "word": " not",
+                "word_number": 1,
+                "start": 187.54,
+                "end": 187.76,
+                "probability": 0.836669921875
+            },
+            {
+                "word": " enough",
+                "word_number": 2,
+                "start": 187.76,
+                "end": 187.76,
+                "probability": 0.99658203125
+            },
+            {
+                "word": " It's",
+                "word_number": 3,
+                "start": 187.76,
+                "end": 187.76,
+                "probability": 0.99609375
+            }
+        ]
+    },
+    {
+        "verse_number": 47,
+        "text": " It's  not  enough",
+        "start": 187.76,
+        "end": 188.18,
+        "words": [
+            {
+                "word": " not",
+                "word_number": 1,
+                "start": 187.76,
+                "end": 188.18,
+                "probability": 0.823486328125
+            },
+            {
+                "word": " enough",
+                "word_number": 2,
+                "start": 188.18,
+                "end": 188.18,
+                "probability": 0.99658203125
+            },
+            {
+                "word": " It's",
+                "word_number": 3,
+                "start": 188.18,
+                "end": 188.18,
+                "probability": 0.99609375
+            }
+        ]
+    },
+    {
+        "verse_number": 48,
+        "text": " It's  not  enough",
+        "start": 188.18,
+        "end": 188.2,
+        "words": [
+            {
+                "word": " not",
+                "word_number": 1,
+                "start": 188.18,
+                "end": 188.2,
+                "probability": 0.897705078125
+            },
+            {
+                "word": " enough",
+                "word_number": 2,
+                "start": 188.2,
+                "end": 188.2,
+                "probability": 0.9970703125
+            },
+            {
+                "word": " It's",
+                "word_number": 3,
+                "start": 188.2,
+                "end": 188.2,
+                "probability": 0.99560546875
+            }
+        ]
+    },
+    {
+        "verse_number": 49,
+        "text": " It's  not  enough",
+        "start": 188.2,
+        "end": 189.98,
+        "words": [
+            {
+                "word": " not",
+                "word_number": 1,
+                "start": 188.2,
+                "end": 188.26,
+                "probability": 0.90966796875
+            },
+            {
+                "word": " enough",
+                "word_number": 2,
+                "start": 188.26,
+                "end": 188.78,
+                "probability": 0.9970703125
+            },
+            {
+                "word": " It's",
+                "word_number": 3,
+                "start": 188.78,
+                "end": 189.98,
+                "probability": 0.99560546875
+            }
+        ]
+    },
+    {
+        "verse_number": 50,
+        "text": " It's  not  enough",
+        "start": 189.98,
+        "end": 192.72,
+        "words": [
+            {
+                "word": " not",
+                "word_number": 1,
+                "start": 189.98,
+                "end": 191.94,
+                "probability": 0.91162109375
+            },
+            {
+                "word": " enough",
+                "word_number": 2,
+                "start": 191.94,
+                "end": 191.94,
+                "probability": 0.9970703125
+            },
+            {
+                "word": " It's",
+                "word_number": 3,
+                "start": 191.94,
+                "end": 192.72,
+                "probability": 0.99609375
+            }
+        ]
+    },
+    {
+        "verse_number": 51,
+        "text": " It's  not  enough",
+        "start": 192.72,
+        "end": 195.98,
+        "words": [
+            {
+                "word": " not",
+                "word_number": 1,
+                "start": 192.72,
+                "end": 193.84,
+                "probability": 0.908203125
+            },
+            {
+                "word": " enough",
+                "word_number": 2,
+                "start": 193.84,
+                "end": 194.54,
+                "probability": 0.9970703125
+            },
+            {
+                "word": " It's",
+                "word_number": 3,
+                "start": 194.54,
+                "end": 195.98,
+                "probability": 0.99560546875
+            }
+        ]
+    },
+    {
+        "verse_number": 52,
+        "text": " It's  not  enough",
+        "start": 197.16,
+        "end": 198.9,
+        "words": [
+            {
+                "word": " not",
+                "word_number": 1,
+                "start": 197.16,
+                "end": 198.26,
+                "probability": 0.923583984375
+            },
+            {
+                "word": " enough",
+                "word_number": 2,
+                "start": 198.26,
+                "end": 198.42,
+                "probability": 0.99755859375
+            },
+            {
+                "word": " It's",
+                "word_number": 3,
+                "start": 198.42,
+                "end": 198.9,
+                "probability": 0.99609375
+            }
+        ]
+    },
+    {
+        "verse_number": 53,
+        "text": " It's  not  enough",
+        "start": 198.9,
+        "end": 200.66,
+        "words": [
+            {
+                "word": " not",
+                "word_number": 1,
+                "start": 198.9,
+                "end": 199.82,
+                "probability": 0.914306640625
+            },
+            {
+                "word": " enough",
+                "word_number": 2,
+                "start": 199.82,
+                "end": 199.98,
+                "probability": 0.99755859375
+            },
+            {
+                "word": " It's",
+                "word_number": 3,
+                "start": 199.98,
+                "end": 200.66,
+                "probability": 0.99609375
+            }
+        ]
+    },
+    {
+        "verse_number": 54,
+        "text": " It's  not  enough",
+        "start": 200.66,
+        "end": 202.16,
+        "words": [
+            {
+                "word": " not",
+                "word_number": 1,
+                "start": 200.66,
+                "end": 202.16,
+                "probability": 0.92822265625
+            },
+            {
+                "word": " enough",
+                "word_number": 2,
+                "start": 202.16,
+                "end": 202.16,
+                "probability": 0.998046875
+            },
+            {
+                "word": " It's",
+                "word_number": 3,
+                "start": 202.16,
+                "end": 202.16,
+                "probability": 0.9970703125
+            }
+        ]
+    },
+    {
+        "verse_number": 55,
+        "text": " It's  not  enough",
+        "start": 202.16,
+        "end": 202.48,
+        "words": [
+            {
+                "word": " not",
+                "word_number": 1,
+                "start": 202.16,
+                "end": 202.46,
+                "probability": 0.9375
+            },
+            {
+                "word": " enough",
+                "word_number": 2,
+                "start": 202.46,
+                "end": 202.46,
+                "probability": 0.998046875
+            },
+            {
+                "word": " It's",
+                "word_number": 3,
+                "start": 202.46,
+                "end": 202.48,
+                "probability": 0.9970703125
+            }
+        ]
+    },
+    {
+        "verse_number": 56,
+        "text": " It  can't  return  the  part  I  lost",
+        "start": 202.86,
+        "end": 208.1,
+        "words": [
+            {
+                "word": " part",
+                "word_number": 1,
+                "start": 202.86,
+                "end": 204.76,
+                "probability": 0.69189453125
+            },
+            {
+                "word": " return",
+                "word_number": 2,
+                "start": 204.76,
+                "end": 205.28,
+                "probability": 0.97705078125
+            },
+            {
+                "word": " lost",
+                "word_number": 3,
+                "start": 205.28,
+                "end": 205.66,
+                "probability": 0.99169921875
+            },
+            {
+                "word": " can't",
+                "word_number": 4,
+                "start": 205.66,
+                "end": 206.3,
+                "probability": 0.9716796875
+            },
+            {
+                "word": " the",
+                "word_number": 5,
+                "start": 206.3,
+                "end": 206.58,
+                "probability": 0.9921875
+            },
+            {
+                "word": " I",
+                "word_number": 6,
+                "start": 206.58,
+                "end": 207.28,
+                "probability": 0.94091796875
+            },
+            {
+                "word": " It",
+                "word_number": 7,
+                "start": 207.28,
+                "end": 208.1,
+                "probability": 0.986328125
+            }
+        ]
+    }
+]

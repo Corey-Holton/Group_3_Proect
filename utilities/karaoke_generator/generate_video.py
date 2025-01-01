@@ -1,5 +1,7 @@
+import torch
 import subprocess
 from .utilities import extract_audio_duration, validate_file
+from ..print_utilities import print_message
 
 def generate_karaoke_video(
     audio_path,
@@ -13,23 +15,19 @@ def generate_karaoke_video(
     audio_bitrate="192k"
 ):
     """
-    Generates a karaoke video with a black background, supporting GPU acceleration if available.
+    Generate a karaoke video with a black background, utilizing GPU acceleration if available.
 
-    Args:
-        audio_path (str): Path to the audio file.
-        ass_path (str): Path to the ASS subtitle file.
-        output_path (str): Path to save the generated video.
-        resolution (str): Resolution of the video (e.g., "1280x720").
-        preset (str): FFmpeg encoding preset for speed vs quality.
-        crf (int): Constant Rate Factor for video quality.
-        fps (int): Frames per second for the video.
-        bitrate (str): Video bitrate for quality control.
-        audio_bitrate (str): Audio bitrate for quality control.
-
-    Returns:
-        None
+    Parameters:
+    - audio_path (str): Path to the input audio file.
+    - ass_path (str): Path to the ASS subtitle file.
+    - output_path (str): Path to save the generated video.
+    - resolution (str): Video resolution (default: "1280x720").
+    - preset (str): FFmpeg encoding preset for speed/quality tradeoff (default: "fast").
+    - crf (int): Quality setting for video encoding (lower is better, default: 23).
+    - fps (int): Frames per second for the video (default: 24).
+    - bitrate (str): Video bitrate for quality control (default: "3000k").
+    - audio_bitrate (str): Audio bitrate for output quality (default: "192k").
     """
-    import torch  # Import here for clarity
 
     # Validate input files
     if not validate_file(audio_path) or not validate_file(ass_path):
@@ -37,12 +35,14 @@ def generate_karaoke_video(
 
     # Check for GPU availability
     if torch.cuda.is_available():
+        # Use NVIDIA NVENC for GPU acceleration
         device = torch.cuda.get_device_name(0)
         print(f"✅ GPU detected: {device}")
-        video_codec = "h264_nvenc"  # Use NVIDIA NVENC for GPU acceleration
+        video_codec = "h264_nvenc"  
     else:
+        # Use CPU codec
         print("⚠️ No GPU detected. Falling back to CPU.")
-        video_codec = "libx264"  # Use CPU codec
+        video_codec = "libx264"  
 
     # Get audio duration
     audio_duration = extract_audio_duration(audio_path)
