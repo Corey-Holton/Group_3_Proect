@@ -1,3 +1,4 @@
 from .utilities import extract_audio_duration, display_verses_with_timing
 from .generate_ass import create_ass_file
-from .extract_lyrics import extract_lyrics_with_timing
+from .extract_lyric_timing import extract_lyrics_with_timing
+from .generate_video import generate_karaoke_video
