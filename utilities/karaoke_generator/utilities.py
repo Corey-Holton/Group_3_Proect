@@ -1,5 +1,6 @@
 import subprocess
 import time
+import os
 from colorama import Fore, Style
 
 
@@ -67,4 +68,27 @@ def display_verses_with_timing(verses):
             while time.time() - start_time < word["end"]:
                 time.sleep(0.01)
 
-        print("\n")  # Move to a new line after the verse
+        # Move to a new line after the verse
+        print("\n")  
+
+
+def validate_file(path, file_type="file"):
+    """
+    Validates the existence of a file or directory.
+
+    Args:
+        path (str): Path to validate.
+        file_type (str): Type of validation ('file' or 'directory').
+
+    Returns:
+        bool: True if the file or directory exists, False otherwise.
+    """
+    if file_type == "file" and not os.path.isfile(path):
+        print(f"❌ {file_type.capitalize()} not found: {path}")
+        return False
+    
+    if file_type == "directory" and not os.path.isdir(path):
+        print(f"❌ {file_type.capitalize()} not found: {path}")
+        return False
+    
+    return True
