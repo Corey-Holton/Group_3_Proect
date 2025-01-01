@@ -4,8 +4,8 @@ def merge_audio_stems(
     bass_file, 
     drums_file, 
     other_file, 
-    output_format="mp3", 
-    output_path=None
+    output_format, 
+    output_path,
 ):
     """
     Merge the bass, drums, and other stems into a single audio file.

@@ -28,6 +28,11 @@ from utilities import (
     process_audio_lyric_translation,
     get_available_languages,
     process_midi_style_conversion,
+    process_audio_extract_lyric_timing, 
+    load_lyrics_metadata,
+    save_modified_lyrics,
+    process_audio_merging,
+    process_karaoke_creation
 )
 
 # ════════════════════════════════════════════════════════════
@@ -192,6 +197,194 @@ def create_external_website_interface():
 
     return interface
 
+# ════════════════════════════════════════════════════════════
+# Gradio Interface 6 Sub-Interface 1: Extract Lyrics MetaData
+# ════════════════════════════════════════════════════════════
+def create_lyric_extraction_interface():
+    with gr.Blocks() as interface:
+        with gr.Row():
+            with gr.Column(scale=1):
+                gr.Markdown("### Upload Audio File")
+                audio_input = gr.Audio(type="filepath", label="Vocals Audio File", sources="upload")
+                extract_button = gr.Button("Extract Lyrics Metadata")
+
+        with gr.Row():
+            with gr.Column(scale=1):
+                gr.Markdown("### Metadata Output")
+                metadata_output = gr.Textbox(label="Raw Metadata File Path", interactive=False)
+
+        extract_button.click(
+            process_audio_extract_lyric_timing,
+            inputs=[audio_input],
+            outputs=[metadata_output],
+        )
+
+    return interface
+
+
+# ════════════════════════════════════════════════════════════
+# Gradio Interface 6 Sub-Interface 2: Modify Lyrics Metadata
+# ════════════════════════════════════════════════════════════
+def create_lyric_modification_interface():
+    with gr.Blocks() as interface:
+        with gr.Row():
+            with gr.Column(scale=1):
+                gr.Markdown("### Upload Metadata File")
+                metadata_input = gr.File(label="Raw Metadata JSON", file_types=[".json"])
+                load_button = gr.Button("Load Metadata")
+
+        with gr.Row():
+            with gr.Column(scale=1):
+                gr.Markdown("### Edit Words")
+                words_table = gr.Dataframe(
+                    headers=["Verse Number", "Word Number", "Word", "Start Time", "End Time", "Probability"],
+                    datatype=["number", "number", "str", "number", "number", "number"],
+                    interactive=True
+                )
+
+        with gr.Row():
+            with gr.Column(scale=1):
+                save_button = gr.Button("Save Modified Metadata")
+                modified_metadata_output = gr.Textbox(label="Modified Metadata File Path", interactive=False)
+
+        # Actions
+        def load_and_display_metadata(metadata_file):
+            return load_lyrics_metadata(metadata_file)
+
+        load_button.click(
+            load_and_display_metadata,
+            inputs=[metadata_input],
+            outputs=[words_table],
+        )
+
+        def save_metadata(metadata_file, modified_words):
+            return save_modified_lyrics(metadata_file, modified_words)
+
+        save_button.click(
+            save_metadata,
+            inputs=[metadata_input, words_table],
+            outputs=[modified_metadata_output],
+        )
+
+    return interface
+
+# ════════════════════════════════════════════════════════════
+# Gradio Interface 6 Sub-Interface 3: Process Audio Merging
+# ════════════════════════════════════════════════════════════
+def create_audio_merging_interface():
+    with gr.Blocks() as interface:
+        with gr.Row():
+            with gr.Column(scale=1):
+                gr.Markdown("### Fuse Bass, Drums, and Other Stems")
+                bass_input = gr.Audio(type="filepath", label="Bass Stem", sources="upload")
+                drums_input = gr.Audio(type="filepath", label="Drums Stem", sources="upload")
+                other_input = gr.Audio(type="filepath", label="Other Stem", sources="upload")
+                fuse_button = gr.Button("Fuse Stems")
+            with gr.Column(scale=1):
+                gr.Markdown("### Fused Output")
+                fused_output = gr.Audio(label="Fused Audio")
+
+        fuse_button.click(
+            process_audio_merging,
+            inputs=[bass_input, drums_input, other_input],
+            outputs=[fused_output],
+        )
+
+    return interface
+
+# ════════════════════════════════════════════════════════════
+# Gradio Interface 6 Sub-Interface 4: Process Karaoke Creation
+# ════════════════════════════════════════════════════════════
+def create_karaoke_creation_interface():
+    """
+    Interface for creating a karaoke video by uploading instrumental audio and lyrics metadata.
+    """
+    with gr.Blocks() as interface:
+        with gr.Row():
+            with gr.Column(scale=1):
+                gr.Markdown("### Input Files")
+                instrumental_audio = gr.Audio(type="filepath", label="Instrumental Audio", sources="upload")
+                lyrics_metadata = gr.File(label="Lyrics Metadata (JSON)", file_types=[".json"])
+                file_name = gr.Textbox(label="Output File Name", placeholder="Enter a file name without extension")
+
+            with gr.Column(scale=1):
+                gr.Markdown("### ASS File Parameters")
+                font = gr.Textbox(label="Font", value="Arial", placeholder="Font for lyrics display")
+                fontsize = gr.Slider(minimum=8, maximum=36, step=1, value=10, label="Font Size")
+                title = gr.Textbox(label="Video Title", value="Karaoke Title", placeholder="Title of the video")
+
+                gr.Markdown("### Video Parameters")
+                resolution = gr.Dropdown(
+                    choices=["1280x720", "1920x1080", "640x480"],
+                    value="1280x720",
+                    label="Resolution"
+                )
+                preset = gr.Dropdown(
+                    choices=["ultrafast", "fast", "medium", "slow"],
+                    value="fast",
+                    label="FFmpeg Preset"
+                )
+                crf = gr.Slider(minimum=0, maximum=51, step=1, value=23, label="CRF (Video Quality)")
+                fps = gr.Slider(minimum=15, maximum=60, step=1, value=24, label="Frames per Second")
+                bitrate = gr.Textbox(label="Video Bitrate", value="3000k", placeholder="e.g., 3000k")
+                audio_bitrate = gr.Textbox(label="Audio Bitrate", value="192k", placeholder="e.g., 192k")
+
+        with gr.Row():
+            with gr.Column(scale=1):
+                process_button = gr.Button("Create Karaoke Video")
+
+        with gr.Row():
+            with gr.Column(scale=1):
+                output_video = gr.Textbox(label="Output Karaoke Video Path", interactive=False)
+
+        # Action: Process Karaoke Creation
+        process_button.click(
+            process_karaoke_creation,
+            inputs=[
+                instrumental_audio,
+                lyrics_metadata,
+                file_name,
+                font,
+                fontsize,
+                title,
+                resolution,
+                preset,
+                crf,
+                fps,
+                bitrate,
+                audio_bitrate,
+            ],
+            outputs=[output_video],
+        )
+
+    return interface
+
+# ════════════════════════════════════════════════════════════
+# Main Karaoke Sub-Tabbed Interface 6: Karaoke Features
+# ════════════════════════════════════════════════════════════
+def create_karaoke_subtabs():
+    # Sub-tabs for Karaoke features
+    lyric_extraction_interface = create_lyric_extraction_interface()
+    lyric_modification_interface = create_lyric_modification_interface()
+    audio_merging_interface = create_audio_merging_interface()
+    karaoke_creation_interface = create_karaoke_creation_interface()
+
+    karaoke_subtabs = gr.TabbedInterface(
+        [
+            lyric_extraction_interface,
+            lyric_modification_interface,
+            audio_merging_interface,
+            karaoke_creation_interface,
+        ],
+        tab_names=[
+            "Extract Lyrics Metadata",
+            "Modify Lyrics Metadata",
+            "Merge Audio Files",
+            "Create Karaoke Video",
+        ],
+    )
+    return karaoke_subtabs
+
 
 # ════════════════════════════════════════════════════════════
 # Main Interface Setup
@@ -201,6 +394,7 @@ audio_to_midi_interface = create_audio_to_midi_interface()
 modify_midi_interface = create_modify_midi_interface()
 lyrics_interface = create_lyrics_interface()
 external_website_interface = create_external_website_interface()
+karaoke_subtabs = create_karaoke_subtabs()
 
 tabbed_interface = gr.TabbedInterface(
     [
@@ -209,6 +403,7 @@ tabbed_interface = gr.TabbedInterface(
         modify_midi_interface,
         lyrics_interface,
         external_website_interface,
+        karaoke_subtabs,
     ],
     tab_names=[
         "Audio Separation",
@@ -216,6 +411,7 @@ tabbed_interface = gr.TabbedInterface(
         "Modify MIDI",
         "Lyrics Extraction",
         "SpessaSynth Website",
+        "Karaoke Tools",
     ],
     theme="shivi/calm_seafoam",
 )

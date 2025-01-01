@@ -1,0 +1,1076 @@
+[
+    {
+        "verse_number": 1,
+        "text": " like  adam  in  the  garden  of  eve  my  bitch  got  an  apple  bottom  and  she  swallowed  my  seeds  follow",
+        "start": 11.959999999999996,
+        "end": 17.86,
+        "words": [
+            {
+                "word": " test",
+                "word_number": 1,
+                "start": 11.959999999999996,
+                "end": 12.539999999999997,
+                "probability": 0.052825927734375
+            },
+            {
+                "word": " test asdf",
+                "word_number": 2,
+                "start": 12.539999999999997,
+                "end": 13.12,
+                "probability": 0.467529296875
+            },
+            {
+                "word": " in",
+                "word_number": 3,
+                "start": 13.12,
+                "end": 13.34,
+                "probability": 0.92236328125
+            },
+            {
+                "word": " the",
+                "word_number": 4,
+                "start": 13.34,
+                "end": 13.44,
+                "probability": 0.97412109375
+            },
+            {
+                "word": " garden",
+                "word_number": 5,
+                "start": 13.44,
+                "end": 13.84,
+                "probability": 0.9716796875
+            },
+            {
+                "word": " of",
+                "word_number": 6,
+                "start": 13.84,
+                "end": 14.02,
+                "probability": 0.908203125
+            },
+            {
+                "word": " eve",
+                "word_number": 7,
+                "start": 14.02,
+                "end": 14.36,
+                "probability": 0.87353515625
+            },
+            {
+                "word": " my",
+                "word_number": 8,
+                "start": 14.36,
+                "end": 14.84,
+                "probability": 0.8544921875
+            },
+            {
+                "word": " bitch",
+                "word_number": 9,
+                "start": 14.84,
+                "end": 15.0,
+                "probability": 0.98046875
+            },
+            {
+                "word": " got",
+                "word_number": 10,
+                "start": 15.0,
+                "end": 15.2,
+                "probability": 0.99267578125
+            },
+            {
+                "word": " an",
+                "word_number": 11,
+                "start": 15.2,
+                "end": 15.36,
+                "probability": 0.82861328125
+            },
+            {
+                "word": " apple",
+                "word_number": 12,
+                "start": 15.36,
+                "end": 15.7,
+                "probability": 0.99853515625
+            },
+            {
+                "word": " bottom",
+                "word_number": 13,
+                "start": 15.7,
+                "end": 16.1,
+                "probability": 0.99169921875
+            },
+            {
+                "word": " and",
+                "word_number": 14,
+                "start": 16.1,
+                "end": 16.28,
+                "probability": 0.9951171875
+            },
+            {
+                "word": " she",
+                "word_number": 15,
+                "start": 16.28,
+                "end": 16.38,
+                "probability": 0.99951171875
+            },
+            {
+                "word": " swallowed",
+                "word_number": 16,
+                "start": 16.38,
+                "end": 16.78,
+                "probability": 0.56103515625
+            },
+            {
+                "word": " my",
+                "word_number": 17,
+                "start": 16.78,
+                "end": 17.04,
+                "probability": 0.9990234375
+            },
+            {
+                "word": " seeds",
+                "word_number": 18,
+                "start": 17.04,
+                "end": 17.46,
+                "probability": 0.8984375
+            },
+            {
+                "word": " follow",
+                "word_number": 19,
+                "start": 17.46,
+                "end": 17.86,
+                "probability": 0.8427734375
+            }
+        ]
+    },
+    {
+        "verse_number": 2,
+        "text": " my  leaf  fire  i  breathe  water  my  seed  and  sit  back  and  watch  money  growing  trees  dropping  seeds  like",
+        "start": 17.86,
+        "end": 23.84,
+        "words": [
+            {
+                "word": " my",
+                "word_number": 1,
+                "start": 17.86,
+                "end": 18.16,
+                "probability": 0.9990234375
+            },
+            {
+                "word": " leaf",
+                "word_number": 2,
+                "start": 18.16,
+                "end": 18.54,
+                "probability": 0.63818359375
+            },
+            {
+                "word": " fire",
+                "word_number": 3,
+                "start": 18.54,
+                "end": 18.88,
+                "probability": 0.60009765625
+            },
+            {
+                "word": " i",
+                "word_number": 4,
+                "start": 18.88,
+                "end": 19.08,
+                "probability": 0.97216796875
+            },
+            {
+                "word": " breathe",
+                "word_number": 5,
+                "start": 19.08,
+                "end": 19.42,
+                "probability": 0.9912109375
+            },
+            {
+                "word": " water",
+                "word_number": 6,
+                "start": 19.42,
+                "end": 19.8,
+                "probability": 0.99755859375
+            },
+            {
+                "word": " my",
+                "word_number": 7,
+                "start": 19.8,
+                "end": 20.02,
+                "probability": 0.99853515625
+            },
+            {
+                "word": " seed",
+                "word_number": 8,
+                "start": 20.02,
+                "end": 20.42,
+                "probability": 0.79296875
+            },
+            {
+                "word": " and",
+                "word_number": 9,
+                "start": 20.42,
+                "end": 20.84,
+                "probability": 0.99853515625
+            },
+            {
+                "word": " sit",
+                "word_number": 10,
+                "start": 20.84,
+                "end": 20.94,
+                "probability": 0.99951171875
+            },
+            {
+                "word": " back",
+                "word_number": 11,
+                "start": 20.94,
+                "end": 21.26,
+                "probability": 1.0
+            },
+            {
+                "word": " and",
+                "word_number": 12,
+                "start": 21.26,
+                "end": 21.46,
+                "probability": 0.99951171875
+            },
+            {
+                "word": " watch",
+                "word_number": 13,
+                "start": 21.46,
+                "end": 21.68,
+                "probability": 1.0
+            },
+            {
+                "word": " money",
+                "word_number": 14,
+                "start": 21.68,
+                "end": 22.02,
+                "probability": 0.99755859375
+            },
+            {
+                "word": " growing",
+                "word_number": 15,
+                "start": 22.02,
+                "end": 22.28,
+                "probability": 0.939453125
+            },
+            {
+                "word": " trees",
+                "word_number": 16,
+                "start": 22.28,
+                "end": 22.76,
+                "probability": 0.998046875
+            },
+            {
+                "word": " dropping",
+                "word_number": 17,
+                "start": 22.76,
+                "end": 23.14,
+                "probability": 0.998046875
+            },
+            {
+                "word": " seeds",
+                "word_number": 18,
+                "start": 23.14,
+                "end": 23.42,
+                "probability": 0.99658203125
+            },
+            {
+                "word": " like",
+                "word_number": 19,
+                "start": 23.42,
+                "end": 23.84,
+                "probability": 0.99853515625
+            }
+        ]
+    },
+    {
+        "verse_number": 3,
+        "text": " classes  these  hoes  drop  their  asses  i  drop  a  seed  in  the  panties  if  it  smell  like  pansies",
+        "start": 23.84,
+        "end": 29.02,
+        "words": [
+            {
+                "word": " classes",
+                "word_number": 1,
+                "start": 23.84,
+                "end": 24.34,
+                "probability": 0.9033203125
+            },
+            {
+                "word": " these",
+                "word_number": 2,
+                "start": 24.34,
+                "end": 24.82,
+                "probability": 0.99560546875
+            },
+            {
+                "word": " hoes",
+                "word_number": 3,
+                "start": 24.82,
+                "end": 25.08,
+                "probability": 0.928466796875
+            },
+            {
+                "word": " drop",
+                "word_number": 4,
+                "start": 25.08,
+                "end": 25.28,
+                "probability": 0.99658203125
+            },
+            {
+                "word": " their",
+                "word_number": 5,
+                "start": 25.28,
+                "end": 25.5,
+                "probability": 0.94140625
+            },
+            {
+                "word": " asses",
+                "word_number": 6,
+                "start": 25.5,
+                "end": 26.0,
+                "probability": 0.99853515625
+            },
+            {
+                "word": " i",
+                "word_number": 7,
+                "start": 26.0,
+                "end": 26.24,
+                "probability": 0.9951171875
+            },
+            {
+                "word": " drop",
+                "word_number": 8,
+                "start": 26.24,
+                "end": 26.5,
+                "probability": 0.99853515625
+            },
+            {
+                "word": " a",
+                "word_number": 9,
+                "start": 26.5,
+                "end": 26.64,
+                "probability": 0.80029296875
+            },
+            {
+                "word": " seed",
+                "word_number": 10,
+                "start": 26.64,
+                "end": 26.94,
+                "probability": 0.9833984375
+            },
+            {
+                "word": " in",
+                "word_number": 11,
+                "start": 26.94,
+                "end": 27.2,
+                "probability": 0.98583984375
+            },
+            {
+                "word": " the",
+                "word_number": 12,
+                "start": 27.2,
+                "end": 27.28,
+                "probability": 0.453857421875
+            },
+            {
+                "word": " panties",
+                "word_number": 13,
+                "start": 27.28,
+                "end": 27.76,
+                "probability": 0.99462890625
+            },
+            {
+                "word": " if",
+                "word_number": 14,
+                "start": 27.76,
+                "end": 28.0,
+                "probability": 0.99072265625
+            },
+            {
+                "word": " it",
+                "word_number": 15,
+                "start": 28.0,
+                "end": 28.02,
+                "probability": 0.98828125
+            },
+            {
+                "word": " smell",
+                "word_number": 16,
+                "start": 28.02,
+                "end": 28.2,
+                "probability": 0.97265625
+            },
+            {
+                "word": " like",
+                "word_number": 17,
+                "start": 28.2,
+                "end": 28.46,
+                "probability": 0.99951171875
+            },
+            {
+                "word": " pansies",
+                "word_number": 18,
+                "start": 28.46,
+                "end": 29.02,
+                "probability": 0.862060546875
+            }
+        ]
+    },
+    {
+        "verse_number": 4,
+        "text": " i'm  a  banshee  in  the  panties  nigga  ashton  mammy  never  played  golf  but  got  a  driver  and  a  caddy",
+        "start": 29.02,
+        "end": 35.04,
+        "words": [
+            {
+                "word": " i'm",
+                "word_number": 1,
+                "start": 29.02,
+                "end": 29.5,
+                "probability": 0.5023345947265625
+            },
+            {
+                "word": " a",
+                "word_number": 2,
+                "start": 29.5,
+                "end": 29.58,
+                "probability": 0.87353515625
+            },
+            {
+                "word": " banshee",
+                "word_number": 3,
+                "start": 29.58,
+                "end": 30.08,
+                "probability": 0.9658203125
+            },
+            {
+                "word": " in",
+                "word_number": 4,
+                "start": 30.08,
+                "end": 30.26,
+                "probability": 0.849609375
+            },
+            {
+                "word": " the",
+                "word_number": 5,
+                "start": 30.26,
+                "end": 30.36,
+                "probability": 0.309814453125
+            },
+            {
+                "word": " panties",
+                "word_number": 6,
+                "start": 30.36,
+                "end": 30.82,
+                "probability": 0.93505859375
+            },
+            {
+                "word": " nigga",
+                "word_number": 7,
+                "start": 30.82,
+                "end": 31.08,
+                "probability": 0.705078125
+            },
+            {
+                "word": " ashton",
+                "word_number": 8,
+                "start": 31.08,
+                "end": 31.6,
+                "probability": 0.60498046875
+            },
+            {
+                "word": " mammy",
+                "word_number": 9,
+                "start": 31.6,
+                "end": 32.0,
+                "probability": 0.6949462890625
+            },
+            {
+                "word": " never",
+                "word_number": 10,
+                "start": 32.0,
+                "end": 32.46,
+                "probability": 0.92578125
+            },
+            {
+                "word": " played",
+                "word_number": 11,
+                "start": 32.46,
+                "end": 32.92,
+                "probability": 0.94482421875
+            },
+            {
+                "word": " golf",
+                "word_number": 12,
+                "start": 32.92,
+                "end": 33.26,
+                "probability": 0.96337890625
+            },
+            {
+                "word": " but",
+                "word_number": 13,
+                "start": 33.26,
+                "end": 33.42,
+                "probability": 0.77001953125
+            },
+            {
+                "word": " got",
+                "word_number": 14,
+                "start": 33.42,
+                "end": 33.6,
+                "probability": 0.9697265625
+            },
+            {
+                "word": " a",
+                "word_number": 15,
+                "start": 33.6,
+                "end": 33.76,
+                "probability": 0.9892578125
+            },
+            {
+                "word": " driver",
+                "word_number": 16,
+                "start": 33.76,
+                "end": 34.12,
+                "probability": 0.97900390625
+            },
+            {
+                "word": " and",
+                "word_number": 17,
+                "start": 34.12,
+                "end": 34.38,
+                "probability": 0.86376953125
+            },
+            {
+                "word": " a",
+                "word_number": 18,
+                "start": 34.38,
+                "end": 34.48,
+                "probability": 0.98046875
+            },
+            {
+                "word": " caddy",
+                "word_number": 19,
+                "start": 34.48,
+                "end": 35.04,
+                "probability": 0.971923828125
+            }
+        ]
+    },
+    {
+        "verse_number": 5,
+        "text": " hoes  quiet  slamming  like  anis  you  know  stick  your  fingers  some  drop  signs  i'm  dropping  english",
+        "start": 35.04,
+        "end": 41.58,
+        "words": [
+            {
+                "word": " hoes",
+                "word_number": 1,
+                "start": 35.04,
+                "end": 35.52,
+                "probability": 0.37408447265625
+            },
+            {
+                "word": " quiet",
+                "word_number": 2,
+                "start": 35.52,
+                "end": 35.8,
+                "probability": 0.71923828125
+            },
+            {
+                "word": " slamming",
+                "word_number": 3,
+                "start": 35.8,
+                "end": 36.36,
+                "probability": 0.75830078125
+            },
+            {
+                "word": " like",
+                "word_number": 4,
+                "start": 36.36,
+                "end": 36.52,
+                "probability": 0.9951171875
+            },
+            {
+                "word": " anis",
+                "word_number": 5,
+                "start": 36.52,
+                "end": 37.18,
+                "probability": 0.5531005859375
+            },
+            {
+                "word": " you",
+                "word_number": 6,
+                "start": 37.18,
+                "end": 37.66,
+                "probability": 0.9794921875
+            },
+            {
+                "word": " know",
+                "word_number": 7,
+                "start": 37.66,
+                "end": 37.78,
+                "probability": 0.50390625
+            },
+            {
+                "word": " stick",
+                "word_number": 8,
+                "start": 37.78,
+                "end": 38.02,
+                "probability": 0.5908203125
+            },
+            {
+                "word": " your",
+                "word_number": 9,
+                "start": 38.02,
+                "end": 38.22,
+                "probability": 0.99365234375
+            },
+            {
+                "word": " fingers",
+                "word_number": 10,
+                "start": 38.22,
+                "end": 38.66,
+                "probability": 0.9892578125
+            },
+            {
+                "word": " some",
+                "word_number": 11,
+                "start": 38.66,
+                "end": 39.28,
+                "probability": 0.9443359375
+            },
+            {
+                "word": " drop",
+                "word_number": 12,
+                "start": 39.28,
+                "end": 39.6,
+                "probability": 0.9814453125
+            },
+            {
+                "word": " signs",
+                "word_number": 13,
+                "start": 39.6,
+                "end": 39.9,
+                "probability": 0.7666015625
+            },
+            {
+                "word": " i'm",
+                "word_number": 14,
+                "start": 39.9,
+                "end": 40.8,
+                "probability": 0.99267578125
+            },
+            {
+                "word": " dropping",
+                "word_number": 15,
+                "start": 40.8,
+                "end": 41.16,
+                "probability": 0.982421875
+            },
+            {
+                "word": " english",
+                "word_number": 16,
+                "start": 41.16,
+                "end": 41.58,
+                "probability": 0.654296875
+            }
+        ]
+    },
+    {
+        "verse_number": 6,
+        "text": " even  if  tyler  named  the  sunflower  no  seeds  in  the  bud  still  don't  trust  bugs",
+        "start": 41.58,
+        "end": 47.46,
+        "words": [
+            {
+                "word": " even",
+                "word_number": 1,
+                "start": 41.58,
+                "end": 42.3,
+                "probability": 0.98388671875
+            },
+            {
+                "word": " if",
+                "word_number": 2,
+                "start": 42.3,
+                "end": 42.62,
+                "probability": 0.83349609375
+            },
+            {
+                "word": " tyler",
+                "word_number": 3,
+                "start": 42.62,
+                "end": 43.16,
+                "probability": 0.83984375
+            },
+            {
+                "word": " named",
+                "word_number": 4,
+                "start": 43.16,
+                "end": 43.68,
+                "probability": 0.47900390625
+            },
+            {
+                "word": " the",
+                "word_number": 5,
+                "start": 43.68,
+                "end": 43.86,
+                "probability": 0.428955078125
+            },
+            {
+                "word": " sunflower",
+                "word_number": 6,
+                "start": 43.86,
+                "end": 44.2,
+                "probability": 0.79931640625
+            },
+            {
+                "word": " no",
+                "word_number": 7,
+                "start": 44.2,
+                "end": 44.8,
+                "probability": 0.99658203125
+            },
+            {
+                "word": " seeds",
+                "word_number": 8,
+                "start": 44.8,
+                "end": 45.24,
+                "probability": 0.849609375
+            },
+            {
+                "word": " in",
+                "word_number": 9,
+                "start": 45.24,
+                "end": 45.54,
+                "probability": 0.693359375
+            },
+            {
+                "word": " the",
+                "word_number": 10,
+                "start": 45.54,
+                "end": 45.68,
+                "probability": 0.99951171875
+            },
+            {
+                "word": " bud",
+                "word_number": 11,
+                "start": 45.68,
+                "end": 45.96,
+                "probability": 0.345947265625
+            },
+            {
+                "word": " still",
+                "word_number": 12,
+                "start": 45.96,
+                "end": 46.28,
+                "probability": 0.99755859375
+            },
+            {
+                "word": " don't",
+                "word_number": 13,
+                "start": 46.28,
+                "end": 46.84,
+                "probability": 0.999267578125
+            },
+            {
+                "word": " trust",
+                "word_number": 14,
+                "start": 46.84,
+                "end": 47.06,
+                "probability": 0.99951171875
+            },
+            {
+                "word": " bugs",
+                "word_number": 15,
+                "start": 47.06,
+                "end": 47.46,
+                "probability": 0.8994140625
+            }
+        ]
+    },
+    {
+        "verse_number": 7,
+        "text": " on  these  niggas  they  can't  fuck  with  the  boy  and  sees  on  these  bitches  for  the  love  of  the  sport",
+        "start": 47.46,
+        "end": 53.24,
+        "words": [
+            {
+                "word": " on",
+                "word_number": 1,
+                "start": 47.46,
+                "end": 47.78,
+                "probability": 0.455078125
+            },
+            {
+                "word": " these",
+                "word_number": 2,
+                "start": 47.78,
+                "end": 48.66,
+                "probability": 0.9951171875
+            },
+            {
+                "word": " niggas",
+                "word_number": 3,
+                "start": 48.66,
+                "end": 49.1,
+                "probability": 0.994140625
+            },
+            {
+                "word": " they",
+                "word_number": 4,
+                "start": 49.1,
+                "end": 49.24,
+                "probability": 0.994140625
+            },
+            {
+                "word": " can't",
+                "word_number": 5,
+                "start": 49.24,
+                "end": 49.5,
+                "probability": 0.99853515625
+            },
+            {
+                "word": " fuck",
+                "word_number": 6,
+                "start": 49.5,
+                "end": 49.68,
+                "probability": 0.9609375
+            },
+            {
+                "word": " with",
+                "word_number": 7,
+                "start": 49.68,
+                "end": 49.84,
+                "probability": 0.99755859375
+            },
+            {
+                "word": " the",
+                "word_number": 8,
+                "start": 49.84,
+                "end": 49.94,
+                "probability": 0.9970703125
+            },
+            {
+                "word": " boy",
+                "word_number": 9,
+                "start": 49.94,
+                "end": 50.22,
+                "probability": 0.994140625
+            },
+            {
+                "word": " and",
+                "word_number": 10,
+                "start": 50.22,
+                "end": 50.56,
+                "probability": 0.60888671875
+            },
+            {
+                "word": " sees",
+                "word_number": 11,
+                "start": 50.56,
+                "end": 50.88,
+                "probability": 0.127685546875
+            },
+            {
+                "word": " on",
+                "word_number": 12,
+                "start": 50.88,
+                "end": 51.46,
+                "probability": 0.95361328125
+            },
+            {
+                "word": " these",
+                "word_number": 13,
+                "start": 51.46,
+                "end": 51.62,
+                "probability": 0.998046875
+            },
+            {
+                "word": " bitches",
+                "word_number": 14,
+                "start": 51.62,
+                "end": 51.98,
+                "probability": 0.94970703125
+            },
+            {
+                "word": " for",
+                "word_number": 15,
+                "start": 51.98,
+                "end": 52.28,
+                "probability": 0.96240234375
+            },
+            {
+                "word": " the",
+                "word_number": 16,
+                "start": 52.28,
+                "end": 52.42,
+                "probability": 0.9990234375
+            },
+            {
+                "word": " love",
+                "word_number": 17,
+                "start": 52.42,
+                "end": 52.7,
+                "probability": 0.9990234375
+            },
+            {
+                "word": " of",
+                "word_number": 18,
+                "start": 52.7,
+                "end": 52.84,
+                "probability": 0.9970703125
+            },
+            {
+                "word": " the",
+                "word_number": 19,
+                "start": 52.84,
+                "end": 52.9,
+                "probability": 0.98095703125
+            },
+            {
+                "word": " sport",
+                "word_number": 20,
+                "start": 52.9,
+                "end": 53.24,
+                "probability": 0.99658203125
+            }
+        ]
+    },
+    {
+        "verse_number": 8,
+        "text": " and  dropping  seeds  got  these  garden  flowers  popping  course  and  dropping  seeds  motherfucker",
+        "start": 53.24,
+        "end": 57.62,
+        "words": [
+            {
+                "word": " and",
+                "word_number": 1,
+                "start": 53.24,
+                "end": 53.6,
+                "probability": 0.94140625
+            },
+            {
+                "word": " dropping",
+                "word_number": 2,
+                "start": 53.6,
+                "end": 53.86,
+                "probability": 0.1644287109375
+            },
+            {
+                "word": " seeds",
+                "word_number": 3,
+                "start": 53.86,
+                "end": 54.18,
+                "probability": 0.9775390625
+            },
+            {
+                "word": " got",
+                "word_number": 4,
+                "start": 54.18,
+                "end": 54.48,
+                "probability": 0.9951171875
+            },
+            {
+                "word": " these",
+                "word_number": 5,
+                "start": 54.48,
+                "end": 54.66,
+                "probability": 0.92578125
+            },
+            {
+                "word": " garden",
+                "word_number": 6,
+                "start": 54.66,
+                "end": 54.96,
+                "probability": 0.4267578125
+            },
+            {
+                "word": " flowers",
+                "word_number": 7,
+                "start": 54.96,
+                "end": 55.28,
+                "probability": 0.99853515625
+            },
+            {
+                "word": " popping",
+                "word_number": 8,
+                "start": 55.28,
+                "end": 55.74,
+                "probability": 0.8623046875
+            },
+            {
+                "word": " course",
+                "word_number": 9,
+                "start": 55.74,
+                "end": 56.24,
+                "probability": 0.61962890625
+            },
+            {
+                "word": " and",
+                "word_number": 10,
+                "start": 56.24,
+                "end": 56.58,
+                "probability": 0.68017578125
+            },
+            {
+                "word": " dropping",
+                "word_number": 11,
+                "start": 56.58,
+                "end": 56.8,
+                "probability": 0.9375
+            },
+            {
+                "word": " seeds",
+                "word_number": 12,
+                "start": 56.8,
+                "end": 57.2,
+                "probability": 0.9794921875
+            },
+            {
+                "word": " motherfucker",
+                "word_number": 13,
+                "start": 57.2,
+                "end": 57.62,
+                "probability": 0.806640625
+            }
+        ]
+    },
+    {
+        "verse_number": 9,
+        "text": " wheezy  baby",
+        "start": 57.62,
+        "end": 58.68,
+        "words": [
+            {
+                "word": " wheezy",
+                "word_number": 1,
+                "start": 57.62,
+                "end": 58.32,
+                "probability": 0.8458658854166666
+            },
+            {
+                "word": " baby",
+                "word_number": 2,
+                "start": 58.32,
+                "end": 58.68,
+                "probability": 0.99853515625
+            }
+        ]
+    },
+    {
+        "verse_number": 10,
+        "text": " boy",
+        "start": 59.02,
+        "end": 59.26,
+        "words": [
+            {
+                "word": " boy",
+                "word_number": 1,
+                "start": 59.02,
+                "end": 59.26,
+                "probability": 0.33203125
+            }
+        ]
+    }
+]
