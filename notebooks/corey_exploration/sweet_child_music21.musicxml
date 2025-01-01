@@ -8,7 +8,7 @@
   <identification>
     <creator type="composer">Guns n' Roses</creator>
     <encoding>
-      <encoding-date>2024-12-30</encoding-date>
+      <encoding-date>2025-01-01</encoding-date>
       <software>music21 v.9.3.0</software>
     </encoding>
   </identification>
@@ -19,21 +19,21 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="Pee62e420da78467f64936af42aa3f1b6">
+    <score-part id="Pb31c57c013032d5c9b1e79a99d936e1a">
       <part-name>electric guitar</part-name>
       <part-abbreviation>Elec Gtr</part-abbreviation>
-      <score-instrument id="I255b1db021e390b2e3494ed8dbff9367">
+      <score-instrument id="Ic55b6942008ea40e69eb67e060cc409a">
         <instrument-name>electric guitar</instrument-name>
         <instrument-abbreviation>Elec Gtr</instrument-abbreviation>
       </score-instrument>
-      <midi-instrument id="I255b1db021e390b2e3494ed8dbff9367">
+      <midi-instrument id="Ic55b6942008ea40e69eb67e060cc409a">
         <midi-channel>1</midi-channel>
         <midi-program>31</midi-program>
       </midi-instrument>
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="Pee62e420da78467f64936af42aa3f1b6">
+  <part id="Pb31c57c013032d5c9b1e79a99d936e1a">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>
