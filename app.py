@@ -324,7 +324,10 @@ def create_audio_merging_interface():
                 other_input = gr.Audio(type="filepath", label="Other Stem", sources="upload")
 
         with gr.Row():
-            fuse_button = gr.Button("Merge Stems")
+            with gr.Column(scale=1):
+                gr.Markdown("### Name the output file. (Example: `song_name`)")
+                name_file = gr.Textbox(label="Output File Name", placeholder="Enter a name for the file without an extension.")
+                fuse_button = gr.Button("Merge Stems")
 
         with gr.Row():
             with gr.Column(scale=1):
@@ -333,7 +336,7 @@ def create_audio_merging_interface():
 
         fuse_button.click(
             process_audio_merging,
-            inputs=[bass_input, drums_input, other_input],
+            inputs=[bass_input, drums_input, other_input, name_file],
             outputs=[fused_output],
         )
 

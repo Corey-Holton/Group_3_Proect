@@ -144,13 +144,15 @@ def save_modified_lyrics(metadata_file, modified_words):
 def process_audio_merging(
     bass_file, 
     drums_file, 
-    instrumental_file, 
+    instrumental_file,
+    file_name,
     output_format="mp3", 
 ):
     
     output_directory = Path(DEFAULT_OUTPUT_DIR_INSTRUMENTAL)
     output_directory.mkdir(parents=True, exist_ok=True)
-    output_file = output_directory / f"{Path(instrumental_file).stem}_instrumental.{output_format}"
+    output_file = f"{output_directory}/{file_name}.{output_format}"
+    print(output_file)
 
     try:
         output_file = merge_audio_stems(
@@ -158,7 +160,7 @@ def process_audio_merging(
             drums_file, 
             instrumental_file, 
             output_format=output_format, 
-            output_path=output_file
+            output_file=output_file
         )
 
         print_message(f"Instrumental audio saved at: {output_file}", text_color="bright_green")
