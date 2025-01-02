@@ -27,14 +27,14 @@ def write_script_info(file, title="Karaoke Subtitles"):
     write_section(file, "Script Info", content)
 
 
-def write_styles(file, font="Arial", fontsize=48):
+def write_styles(file, font="Arial", fontsize=48, primary_color="&H00FFFFFF", secondary_color="&H0000FFFF",):
     """Write the styles section."""
     # Define the content for the styles section, including format and default style settings
     content = (
         "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, "
         "Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, "
         "Alignment, MarginL, MarginR, MarginV, Encoding\n"
-        f"Style: Default,{font},{fontsize},&H00FFFFFF,&H00FFFF00,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,3,0,5,0,0,0,1\n"
+        f"Style: Default,{font},{fontsize},{primary_color},{secondary_color},&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,3,0,5,0,0,0,1\n"
     )
     
     # Write the styles section using the `write_section` helper
@@ -114,7 +114,7 @@ def write_loader_event(file, loader_duration, screen_width, screen_height, loade
             margin_v=margin_v
         )
 
-
+# ! Note to self: Revisit to improve, refactor, and clean up
 def write_lyrics_events(f, verses, primary_color="&H00FFFFFF", highlight_color="&H00FFFF00", loader_color="&H00FF0000", loader_threshold=10.0):
     """
     Write lyrics events with word-based timing, dynamic coloring during gaps, and loaders for long verse gaps.
@@ -234,7 +234,7 @@ def write_lyrics_events(f, verses, primary_color="&H00FFFFFF", highlight_color="
                 segment_duration = verse_gap_duration / bar_length
 
                 for i in range(1, bar_length + 1):
-                    loader_text = f"|{'█' * i}{' ' * (bar_length - i)}|"
+                    loader_text = f"{{\\c{loader_color}}}|{'█' * i}{' ' * (bar_length - i)}|"
                     segment_start = current_verse_end + (i - 1) * segment_duration
                     segment_end = current_verse_end + i * segment_duration
                     f.write(
@@ -260,9 +260,11 @@ def create_ass_file(
     verses, 
     output_path, 
     audio_duration, 
-    title="Karaoke", 
     font="Arial", 
     fontsize=48, 
+    primary_color="&H00FFFFFF",
+    secondary_color="&H0000FFFF",
+    title="Karaoke", 
     screen_width=1280, 
     screen_height=720
 ):
@@ -283,7 +285,7 @@ def create_ass_file(
             write_script_info(file, title)
 
             # Write subtitle styles (e.g., font and alignment settings)
-            write_styles(file, font, fontsize)
+            write_styles(file, font, fontsize, primary_color, secondary_color)
 
             # Write the header for the events section
             write_events_header(file)
@@ -292,7 +294,7 @@ def create_ass_file(
             write_title_event(file, title, title_duration, screen_height)
 
             # Write the loader animation event after the title
-            write_loader_event(file, loader_duration, screen_width, screen_height, start_time=title_duration)
+            write_loader_event(file, loader_duration, screen_width, screen_height, start_time=title_duration, loader_color=primary_color, border_color=primary_color)
 
             # Calculate the offset for the verses start times to follow the title and loader
             verses_start_time = title_duration + loader_duration
@@ -303,7 +305,7 @@ def create_ass_file(
                 verse["end"] += verses_start_time
 
             # Write the events for the lyrics with appropriate timing and formatting
-            write_lyrics_events(file, verses)
+            write_lyrics_events(file, verses, primary_color=primary_color, highlight_color=secondary_color, loader_color=secondary_color)
 
             # Extend the last subtitle event to cover any remaining audio duration
             extend_last_event(file, verses, audio_duration)
