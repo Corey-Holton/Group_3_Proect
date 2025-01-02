@@ -122,3 +122,227 @@ audio_processing/
 - Integration with cloud storage for saving outputs.
 - Support for more languages in lyrics translation.
 - Improved MIDI modification capabilities.
+
+# Guitar Chord Recognition with Audio Feature Extraction and CNN
+
+## 📚 **Project Overview**
+This project focuses on recognizing guitar chords using deep learning and audio signal processing techniques. By leveraging **Librosa** for feature extraction and a **Convolutional Neural Network (CNN)** for classification, the system identifies guitar chords from audio recordings.
+
+---
+
+## 🚀 **Key Features**
+- **Audio Feature Extraction:** MFCC, Mel Spectrogram, Chroma, and Spectral Contrast.
+- **Data Augmentation:** Techniques such as white noise addition, time stretching, time shifting, and pitch shifting.
+- **Machine Learning Model:** CNN implemented using TensorFlow/Keras.
+- **Dataset Processing:** Handles large datasets of `.wav` files with preprocessing and normalization.
+- **Evaluation Metrics:** Accuracy, Confusion Matrix, and Loss Curves.
+
+---
+
+## ⚙️ **Technologies Used**
+- **Python Libraries:**
+  - Librosa
+  - TensorFlow/Keras
+  - Scikit-learn
+  - Pandas
+  - NumPy
+  - Matplotlib
+  - Seaborn
+- **Machine Learning Techniques:**
+  - CNN (Convolutional Neural Network)
+  - Data Augmentation
+  - Feature Normalization
+- **Audio Processing Libraries:**
+  - Music21
+  - Pydub
+
+---
+
+## 📊 **Audio Features Explained**
+- **MFCC (Mel-Frequency Cepstral Coefficients):** Captures the spectral envelope of an audio signal.
+- **Mel Spectrogram:** Converts frequencies into the Mel scale for better frequency resolution.
+- **Chroma Features:** Represents the energy content in each pitch class.
+- **Spectral Contrast:** Highlights differences in peaks and valleys of frequency spectra.
+
+---
+
+## 🛠️ **Setup Instructions**
+1. **Clone the Repository:**
+   ```bash
+   git clone <repo_url>
+   cd <repo_directory>
+   ```
+2. **Install Dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. **Run the Script:**
+   ```bash
+   python main.py
+   ```
+4. **Model Training and Evaluation:**
+   - Follow instructions in the notebook or script.
+
+---
+
+## 🧪 **How it Works**
+1. **Audio Preprocessing:** Load `.wav` files and apply noise reduction, normalization, and augmentation.
+2. **Feature Extraction:** Extract MFCCs, Mel Spectrogram, Chroma, and Spectral Contrast features.
+3. **Data Splitting:** Train, validation, and test datasets.
+4. **CNN Training:** Train a CNN model to classify audio features.
+5. **Model Evaluation:** Evaluate accuracy and generate confusion matrices.
+6. **Save Model:** Export trained model and preprocessors (`encoder.pkl`, `scaler.pkl`).
+
+---
+
+## 📈 **Results and Evaluation**
+- **Validation Accuracy:** Displayed via confusion matrix.
+- **Model Loss Curve:** Graph showing training and validation loss over epochs.
+
+---
+
+## 📦 **Outputs**
+- `guitar_chord_recognition_model.keras`: Trained model file.
+- `encoder.pkl`: Label encoder.
+- `scaler.pkl`: Feature scaler.
+- ** guitar_chord_recognition_model.keras is 1.5 gigs and too large to be added to the git repository so it is added to the gitignore file. This will have to be created to use the chord prediciton model.
+
+---
+
+## 🤝 **Contributing**
+Contributions are welcome! Please submit a pull request or open an issue for feedback.
+
+---
+
+## 📝 **License**
+This project is licensed under the **MIT License**.
+
+
+
+# Guitar Chord Recognition and Audio Processing
+
+## Overview
+
+This project focuses on analyzing and predicting guitar chords from audio files using advanced signal processing and machine learning techniques. The workflow integrates audio feature extraction, model-based chord prediction, and MIDI/music sheet generation.
+
+## Features
+
+Audio Processing: Extracts meaningful audio features using FFT (Fast Fourier Transform) and CQT (Constant-Q Transform).
+
+Chord Prediction: Uses a pre-trained Keras deep learning model for chord recognition.
+
+Pitch Estimation: Identifies fundamental frequencies and generates MIDI notes.
+
+Music Visualization: Generates music21 streams and MIDI files for playback and analysis.
+
+Interactive UI for Fine-Tuning: Sliders to adjust CQT parameters.
+
+Music Sheet Generation: Creates sheet music with predicted chords and notes.
+
+## Dependencies
+
+Ensure the following libraries are installed:
+
+numpy
+
+matplotlib
+
+seaborn
+
+joblib
+
+keras
+
+librosa
+
+midiutil
+
+music21
+
+IPython
+
+ipywidgets
+
+Install via pip:
+
+pip install numpy matplotlib seaborn joblib keras librosa midiutil music21 ipywidgets
+
+## Configuration
+
+- Audio Path: path = './audio/music/'
+
+- Sampling Frequency: fs = 44100
+
+- FFT Parameters: nfft = 2048, overlap = 0.5
+
+- CQT Parameters: n_bins = 72, mag_exp = 4, cqt_threshold = -61
+
+## Workflow
+
+1. Model and Audio Loading
+
+- Load a pre-trained Keras model (guitar_chord_recognition_model.keras).
+
+- Load encoder and scaler (encoder.pkl, scaler.pkl).
+
+- Load and preprocess the audio file using Librosa.
+
+2. Signal Processing
+
+- Apply FFT and CQT for frequency analysis.
+
+- Segment audio into smaller chunks for chord prediction.
+
+3. Chord Prediction
+
+- Predict chords using the trained model.
+
+- Decode predicted outputs into chord names.
+
+4. Music Sheet and MIDI Generation
+
+- Estimate pitch and generate sine waves.
+
+- Create MIDI notes and music21 streams.
+
+- Generate and save MIDI files.
+
+## Outputs
+
+- Audio Playback: Listen to processed audio.
+
+- Visual Plots: FFT and CQT spectrograms.
+
+- Music21 Stream: Play and display sheet music.
+
+- MIDI File: Saved as sweet_child_music21_with_chords.mid
+
+## Running the Code
+
+1. Place audio files in the specified path.
+
+2. Run the script in a Jupyter Notebook environment.
+
+3. Use the UI to fine-tune parameters.
+
+## Troubleshooting
+
+- Verify all dependencies are installed.
+
+- Ensure valid audio file paths.
+
+- Check model and encoder files are available.
+
+## Future Improvements
+
+- Expand model to recognize additional instruments.
+
+- Real-time chord prediction.
+
+## Authors
+
+- Group 3 Project Team (Corey Holton, Christian Palacios, Edwin Lovera, Montre Davis)
+License
+
+This project is licensed under the MIT License.
+
