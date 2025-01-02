@@ -141,18 +141,6 @@ def save_modified_lyrics(metadata_file, modified_words):
 # ════════════════════════════════════════════════════════════
 # Gradio Merge Audio Handler
 # ════════════════════════════════════════════════════════════
-""" 
-What we will need:
-INPUT
-1. bass file
-2. drum file
-3. instrumental file
-4. output format
-
-OUTPUT
-5. output path to save instrumental audio
-
-"""
 def process_audio_merging(
     bass_file, 
     drums_file, 
@@ -184,7 +172,6 @@ def process_audio_merging(
 # ════════════════════════════════════════════════════════════
 # Gradio Create Video Handler
 # ════════════════════════════════════════════════════════════
-
 def process_karaoke_creation(
     input_file_instrumental,
     input_file_lyrics_metadata,
