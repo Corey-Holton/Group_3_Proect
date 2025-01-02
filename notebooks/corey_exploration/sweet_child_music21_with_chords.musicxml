@@ -1,0 +1,1332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE score-partwise  PUBLIC "-//Recordare//DTD MusicXML 4.0 Partwise//EN" "http://www.musicxml.org/dtds/partwise.dtd">
+<score-partwise version="4.0">
+  <work>
+    <work-title>Sweet Child O' Mine - Introduction</work-title>
+  </work>
+  <movement-title>Sweet Child O' Mine - Introduction</movement-title>
+  <identification>
+    <creator type="composer">Guns n' Roses</creator>
+    <encoding>
+      <encoding-date>2025-01-01</encoding-date>
+      <software>music21 v.9.3.0</software>
+    </encoding>
+  </identification>
+  <defaults>
+    <scaling>
+      <millimeters>7</millimeters>
+      <tenths>40</tenths>
+    </scaling>
+  </defaults>
+  <part-list>
+    <score-part id="P33bf160a0250342bc59a69414d284eb3">
+      <part-name>electric guitar</part-name>
+      <part-abbreviation>Elec Gtr</part-abbreviation>
+      <score-instrument id="I23faf755aced66d64e2e2bbb168fcc0c">
+        <instrument-name>electric guitar</instrument-name>
+        <instrument-abbreviation>Elec Gtr</instrument-abbreviation>
+      </score-instrument>
+      <midi-instrument id="I23faf755aced66d64e2e2bbb168fcc0c">
+        <midi-channel>1</midi-channel>
+        <midi-program>31</midi-program>
+      </midi-instrument>
+    </score-part>
+  </part-list>
+  <!--=========================== Part 1 ===========================-->
+  <part id="P33bf160a0250342bc59a69414d284eb3">
+    <!--========================= Measure 1 ==========================-->
+    <measure implicit="no" number="1">
+      <attributes>
+        <divisions>10080</divisions>
+        <key>
+          <fifths>-4</fifths>
+          <mode>major</mode>
+        </key>
+        <time>
+          <beats>4</beats>
+          <beat-type>4</beat-type>
+        </time>
+        <clef>
+          <sign>F</sign>
+          <line>4</line>
+        </clef>
+      </attributes>
+      <direction>
+        <direction-type>
+          <metronome parentheses="no">
+            <beat-unit>quarter</beat-unit>
+            <per-minute>130</per-minute>
+          </metronome>
+        </direction-type>
+        <sound tempo="130" />
+      </direction>
+      <note>
+        <rest />
+        <duration>10080</duration>
+        <type>quarter</type>
+      </note>
+      <note dynamics="125.56">
+        <pitch>
+          <step>C</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note dynamics="87.78">
+        <pitch>
+          <step>C</step>
+          <alter>1</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">forward hook</beam>
+      </note>
+      <note dynamics="98.89">
+        <pitch>
+          <step>G</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+      </note>
+      <note dynamics="108.89">
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note dynamics="95.56">
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+        <beam number="2">backward hook</beam>
+      </note>
+      <note dynamics="115.56">
+        <pitch>
+          <step>G</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note dynamics="101.11">
+        <pitch>
+          <step>F</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>natural</accidental>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+      </note>
+    </measure>
+    <!--========================= Measure 2 ==========================-->
+    <measure implicit="no" number="2">
+      <note dynamics="105.56">
+        <pitch>
+          <step>G</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note dynamics="116.67">
+        <pitch>
+          <step>C</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+      </note>
+      <note dynamics="98.89">
+        <pitch>
+          <step>C</step>
+          <alter>1</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note dynamics="87.78">
+        <pitch>
+          <step>G</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+      </note>
+      <note dynamics="87.78">
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note dynamics="92.22">
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+      </note>
+      <note dynamics="102.22">
+        <pitch>
+          <step>G</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note dynamics="88.89">
+        <pitch>
+          <step>F</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>natural</accidental>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+      </note>
+    </measure>
+    <!--========================= Measure 3 ==========================-->
+    <measure implicit="no" number="3">
+      <note dynamics="90.00">
+        <pitch>
+          <step>G</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+        <beam number="2">forward hook</beam>
+      </note>
+      <note dynamics="96.67">
+        <pitch>
+          <step>D</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">continue</beam>
+      </note>
+      <note dynamics="90.00">
+        <pitch>
+          <step>C</step>
+          <alter>1</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+        <beam number="2">backward hook</beam>
+      </note>
+      <note dynamics="73.33">
+        <pitch>
+          <step>G</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note dynamics="77.78">
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+      </note>
+      <note dynamics="88.89">
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note dynamics="94.44">
+        <pitch>
+          <step>G</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+      </note>
+      <note dynamics="91.11">
+        <pitch>
+          <step>F</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>natural</accidental>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note dynamics="92.22">
+        <pitch>
+          <step>G</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+      </note>
+    </measure>
+    <!--========================= Measure 4 ==========================-->
+    <measure implicit="no" number="4">
+      <note dynamics="98.89">
+        <pitch>
+          <step>D</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note dynamics="84.44">
+        <pitch>
+          <step>C</step>
+          <alter>1</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+      </note>
+      <note dynamics="98.89">
+        <pitch>
+          <step>G</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note dynamics="123.33">
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+      </note>
+      <note dynamics="96.67">
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note dynamics="98.89">
+        <pitch>
+          <step>G</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+      </note>
+      <note dynamics="91.11">
+        <pitch>
+          <step>F</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>natural</accidental>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note dynamics="77.78">
+        <pitch>
+          <step>G</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+      </note>
+    </measure>
+    <!--========================= Measure 5 ==========================-->
+    <measure implicit="no" number="5">
+      <note dynamics="84.44">
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note dynamics="78.89">
+        <pitch>
+          <step>C</step>
+          <alter>1</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">continue</beam>
+        <beam number="2">forward hook</beam>
+      </note>
+      <note dynamics="82.22">
+        <pitch>
+          <step>G</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+      </note>
+      <note dynamics="106.67">
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note dynamics="96.67">
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+      </note>
+      <note dynamics="101.11">
+        <pitch>
+          <step>G</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note dynamics="98.89">
+        <pitch>
+          <step>F</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>natural</accidental>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+      </note>
+      <note dynamics="78.89">
+        <pitch>
+          <step>G</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note dynamics="83.33">
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <tie type="start" />
+        <type>16th</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+        <beam number="2">backward hook</beam>
+        <notations>
+          <tied type="start" />
+        </notations>
+      </note>
+    </measure>
+    <!--========================= Measure 6 ==========================-->
+    <measure implicit="no" number="6">
+      <note dynamics="83.33">
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <tie type="stop" />
+        <type>16th</type>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+        <beam number="2">forward hook</beam>
+        <notations>
+          <tied type="stop" />
+        </notations>
+      </note>
+      <note dynamics="83.33">
+        <pitch>
+          <step>C</step>
+          <alter>1</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">continue</beam>
+      </note>
+      <note dynamics="85.56">
+        <pitch>
+          <step>G</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+      </note>
+      <note dynamics="86.67">
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note dynamics="88.89">
+        <pitch>
+          <step>F</step>
+          <alter>1</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+      </note>
+      <note dynamics="102.22">
+        <pitch>
+          <step>G</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note dynamics="88.89">
+        <pitch>
+          <step>F</step>
+          <alter>0</alter>
+          <octave>5</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>natural</accidental>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+      </note>
+      <note dynamics="87.78">
+        <pitch>
+          <step>G</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+      </note>
+      <note dynamics="111.11">
+        <pitch>
+          <step>C</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>2520</duration>
+        <type>16th</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+        <beam number="2">backward hook</beam>
+      </note>
+    </measure>
+    <!--========================= Measure 7 ==========================-->
+    <measure implicit="no" number="7">
+      <harmony>
+        <root>
+          <root-step>F</root-step>
+          <root-alter>1</root-alter>
+        </root>
+        <kind>dominant</kind>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>D</root-step>
+          <root-alter>0</root-alter>
+        </root>
+        <kind>minor</kind>
+        <offset sound="yes">-7923</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>C</root-step>
+          <root-alter>0</root-alter>
+        </root>
+        <kind>major</kind>
+        <offset sound="yes">-15847</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>D</root-step>
+          <root-alter>0</root-alter>
+        </root>
+        <kind>minor</kind>
+        <offset sound="yes">-23771</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>D</root-step>
+          <root-alter>0</root-alter>
+        </root>
+        <kind>minor</kind>
+        <offset sound="yes">-31695</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+        </root>
+        <kind>minor</kind>
+        <offset sound="yes">-39619</offset>
+      </harmony>
+    </measure>
+    <!--========================= Measure 8 ==========================-->
+    <measure implicit="no" number="8">
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+        </root>
+        <kind>minor</kind>
+      </harmony>
+      <forward>
+        <duration>7223</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+          <root-alter>1</root-alter>
+        </root>
+        <kind>dominant</kind>
+        <offset sound="yes">-7222</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+          <root-alter>1</root-alter>
+        </root>
+        <kind>major</kind>
+        <offset sound="yes">-15146</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+          <root-alter>1</root-alter>
+        </root>
+        <kind>major</kind>
+        <offset sound="yes">-23070</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>E</root-step>
+          <root-alter>0</root-alter>
+        </root>
+        <kind>major</kind>
+        <offset sound="yes">-30994</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>C</root-step>
+          <root-alter>1</root-alter>
+        </root>
+        <kind>minor</kind>
+        <offset sound="yes">-38918</offset>
+      </harmony>
+    </measure>
+    <!--========================= Measure 9 ==========================-->
+    <measure implicit="no" number="9">
+      <harmony>
+        <root>
+          <root-step>C</root-step>
+          <root-alter>1</root-alter>
+        </root>
+        <kind>minor</kind>
+      </harmony>
+      <forward>
+        <duration>6522</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+          <root-alter>0</root-alter>
+        </root>
+        <kind>major</kind>
+        <offset sound="yes">-6521</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>D</root-step>
+          <root-alter>0</root-alter>
+        </root>
+        <kind>minor</kind>
+        <offset sound="yes">-14445</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+          <root-alter>1</root-alter>
+        </root>
+        <kind>dominant</kind>
+        <offset sound="yes">-22369</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>A</root-step>
+          <root-alter>1</root-alter>
+        </root>
+        <kind>minor</kind>
+        <offset sound="yes">-30293</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+          <root-alter>1</root-alter>
+        </root>
+        <kind>major</kind>
+        <offset sound="yes">-38217</offset>
+      </harmony>
+    </measure>
+    <!--========================= Measure 10 =========================-->
+    <measure implicit="no" number="10">
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+          <root-alter>1</root-alter>
+        </root>
+        <kind>major</kind>
+      </harmony>
+      <forward>
+        <duration>5821</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>D</root-step>
+          <root-alter>0</root-alter>
+        </root>
+        <kind>minor</kind>
+        <offset sound="yes">-5820</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>C</root-step>
+          <root-alter>0</root-alter>
+        </root>
+        <kind>major</kind>
+        <offset sound="yes">-13744</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>C</root-step>
+        </root>
+        <kind>major</kind>
+        <offset sound="yes">-21668</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+          <root-alter>1</root-alter>
+        </root>
+        <kind>major</kind>
+        <offset sound="yes">-29592</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>C</root-step>
+          <root-alter>1</root-alter>
+        </root>
+        <kind>minor</kind>
+        <offset sound="yes">-37516</offset>
+      </harmony>
+    </measure>
+    <!--========================= Measure 11 =========================-->
+    <measure implicit="no" number="11">
+      <harmony>
+        <root>
+          <root-step>C</root-step>
+          <root-alter>1</root-alter>
+        </root>
+        <kind>minor</kind>
+      </harmony>
+      <forward>
+        <duration>5120</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>B</root-step>
+          <root-alter>0</root-alter>
+        </root>
+        <kind>major</kind>
+        <offset sound="yes">-5120</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>B</root-step>
+          <root-alter>0</root-alter>
+        </root>
+        <kind>dominant</kind>
+        <offset sound="yes">-13043</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+          <root-alter>1</root-alter>
+        </root>
+        <kind>major</kind>
+        <offset sound="yes">-20967</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>F</root-step>
+          <root-alter>0</root-alter>
+        </root>
+        <kind>dominant</kind>
+        <offset sound="yes">-28891</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+          <root-alter>1</root-alter>
+        </root>
+        <kind>major</kind>
+        <offset sound="yes">-36815</offset>
+      </harmony>
+    </measure>
+    <!--========================= Measure 12 =========================-->
+    <measure implicit="no" number="12">
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+          <root-alter>1</root-alter>
+        </root>
+        <kind>major</kind>
+      </harmony>
+      <forward>
+        <duration>4419</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+          <root-alter>1</root-alter>
+        </root>
+        <kind>dominant</kind>
+        <offset sound="yes">-4419</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>E</root-step>
+          <root-alter>0</root-alter>
+        </root>
+        <kind>major</kind>
+        <offset sound="yes">-12342</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>C</root-step>
+        </root>
+        <kind>dominant</kind>
+        <offset sound="yes">-20266</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>B</root-step>
+          <root-alter>0</root-alter>
+        </root>
+        <kind>major</kind>
+        <offset sound="yes">-28190</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>C</root-step>
+          <root-alter>1</root-alter>
+        </root>
+        <kind>minor</kind>
+        <offset sound="yes">-36114</offset>
+      </harmony>
+    </measure>
+    <!--========================= Measure 13 =========================-->
+    <measure implicit="no" number="13">
+      <harmony>
+        <root>
+          <root-step>C</root-step>
+          <root-alter>1</root-alter>
+        </root>
+        <kind>minor</kind>
+      </harmony>
+      <forward>
+        <duration>3718</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+          <root-alter>0</root-alter>
+        </root>
+        <kind>major</kind>
+        <offset sound="yes">-3718</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+          <root-alter>1</root-alter>
+        </root>
+        <kind>major</kind>
+        <offset sound="yes">-11641</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+          <root-alter>1</root-alter>
+        </root>
+        <kind>major</kind>
+        <offset sound="yes">-19565</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+          <root-alter>0</root-alter>
+        </root>
+        <kind>major</kind>
+        <offset sound="yes">-27489</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+        </root>
+        <kind>minor</kind>
+        <offset sound="yes">0</offset>
+      </harmony>
+    </measure>
+    <!--========================= Measure 14 =========================-->
+    <measure implicit="no" number="14">
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+        </root>
+        <kind>minor</kind>
+      </harmony>
+      <forward>
+        <duration>3017</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+          <root-alter>1</root-alter>
+        </root>
+        <kind>minor</kind>
+        <offset sound="yes">-3017</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+          <root-alter>0</root-alter>
+        </root>
+        <kind>major</kind>
+        <offset sound="yes">-10940</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>C</root-step>
+          <root-alter>1</root-alter>
+        </root>
+        <kind>minor</kind>
+        <offset sound="yes">-18864</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+          <root-alter>1</root-alter>
+        </root>
+        <kind>major</kind>
+        <offset sound="yes">-26788</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>C</root-step>
+          <root-alter>0</root-alter>
+        </root>
+        <kind>minor</kind>
+        <offset sound="yes">-34712</offset>
+      </harmony>
+    </measure>
+    <!--========================= Measure 15 =========================-->
+    <measure implicit="no" number="15">
+      <harmony>
+        <root>
+          <root-step>C</root-step>
+          <root-alter>0</root-alter>
+        </root>
+        <kind>minor</kind>
+      </harmony>
+      <forward>
+        <duration>2316</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>C</root-step>
+        </root>
+        <kind>major</kind>
+        <offset sound="yes">-2316</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+        </root>
+        <kind>major</kind>
+        <offset sound="yes">-10240</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+          <root-alter>1</root-alter>
+        </root>
+        <kind>dominant</kind>
+        <offset sound="yes">-18163</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+          <root-alter>0</root-alter>
+        </root>
+        <kind>major</kind>
+        <offset sound="yes">-26087</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+        </root>
+        <kind>major</kind>
+        <offset sound="yes">0</offset>
+      </harmony>
+    </measure>
+    <!--========================= Measure 16 =========================-->
+    <measure implicit="no" number="16">
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+        </root>
+        <kind>major</kind>
+      </harmony>
+      <forward>
+        <duration>1615</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>C</root-step>
+          <root-alter>1</root-alter>
+        </root>
+        <kind>minor</kind>
+        <offset sound="yes">-1615</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>G</root-step>
+          <root-alter>0</root-alter>
+        </root>
+        <kind>major</kind>
+        <offset sound="yes">-9539</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>F</root-step>
+          <root-alter>0</root-alter>
+        </root>
+        <kind>dominant</kind>
+        <offset sound="yes">-17462</offset>
+      </harmony>
+      <forward>
+        <duration>7924</duration>
+      </forward>
+      <harmony>
+        <root>
+          <root-step>D</root-step>
+          <root-alter>0</root-alter>
+        </root>
+        <kind>minor</kind>
+        <offset sound="yes">-25386</offset>
+      </harmony>
+      <barline location="right">
+        <bar-style>light-heavy</bar-style>
+      </barline>
+    </measure>
+  </part>
+</score-partwise>
