@@ -22,7 +22,7 @@ from .constants import (
 # ════════════════════════════════════════════════════════════
 # Gradio Extract Raw Lyrics Handler
 # ════════════════════════════════════════════════════════════
-def process_audio_extract_lyric_timing(input_file):
+def process_audio_extract_lyric_timing(input_file, file_name):
     """
     Extract lyrics with timing metadata from an audio file.
 
@@ -32,9 +32,13 @@ def process_audio_extract_lyric_timing(input_file):
     Returns:
         str: Path to the saved raw lyrics metadata JSON file.
     """
+
+    if not file_name:
+        raise ValueError("No file name provided. Please provide a valid file name.")
+    
     output_directory = Path(DEFAULT_OUTPUT_DIR_LYRICS_RAW)
     output_directory.mkdir(parents=True, exist_ok=True)
-    output_file = output_directory / f"{Path(input_file).stem}_lyrics_metadata.json"
+    output_file = output_directory / f"{file_name}.json"
 
     try:
         # Extract lyrics metadata
@@ -45,7 +49,7 @@ def process_audio_extract_lyric_timing(input_file):
             json.dump(lyrics_metadata, f, indent=4)
 
         print_message(f"Raw lyrics metadata saved at: {output_file}", text_color="bright_green")
-        return str(output_file)
+        return str(output_file), lyrics_metadata
 
     except Exception as e:
         print_message(f"Error during extraction: {e}", text_color="bright_red")
@@ -120,14 +124,14 @@ def save_modified_lyrics(metadata_file, modified_words):
         # Save updated metadata to JSON
         output_directory = Path(DEFAULT_OUTPUT_DIR_LYRICS_MODIFIED)
         output_directory.mkdir(parents=True, exist_ok=True)
-        output_file = output_directory / f"{Path(metadata_file).stem}_modified.json"
+        output_file = output_directory / f"{Path(metadata_file).stem}.json"
 
         # Save the modified metadata to a new JSON file
         with open(output_file, "w") as f:
             json.dump(metadata, f, indent=4)
 
         print_message(f"Modified lyrics metadata saved at: {output_file}", text_color="bright_green")
-        return str(output_file)
+        return str(output_file), metadata
 
     except Exception as e:
         print_message(f"Error while saving modified metadata: {e}", text_color="bright_red")
