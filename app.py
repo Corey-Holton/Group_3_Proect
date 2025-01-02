@@ -364,6 +364,9 @@ def create_karaoke_creation_interface():
                 lyrics_metadata = gr.File(label="Lyrics Metadata (JSON)", file_types=[".json"])
                 gr.Markdown("### Name the output file. (Example: `song_name`)")
                 file_name = gr.Textbox(label="Output File Name", placeholder="Enter a name for the file without an extension.")
+                gr.Markdown("### Upload an optional background image for the karaoke video.")
+                background_image = gr.Image(type="filepath", label="Background Image (Optional)", interactive=True)
+
 
             with gr.Column(scale=1):
                 gr.Markdown("### Select parameters for the karaoke lyrics being displayed.")
@@ -416,6 +419,7 @@ def create_karaoke_creation_interface():
                 fps,
                 bitrate,
                 audio_bitrate,
+                background_image,
             ],
             outputs=[output_video],
         )

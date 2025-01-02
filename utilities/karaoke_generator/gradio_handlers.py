@@ -192,7 +192,8 @@ def process_karaoke_creation(
     crf=23,
     fps=24,
     bitrate="3000k",
-    audio_bitrate="192k"
+    audio_bitrate="192k",
+    background_image=None,
 ):
     """
     Create a karaoke video by generating an ASS file and combining it with instrumental audio.
@@ -267,6 +268,7 @@ def process_karaoke_creation(
             fps=fps,
             bitrate=bitrate,
             audio_bitrate=audio_bitrate,
+            background_image=background_image, 
         )
         print_message(f"[SUCCESS] Karaoke video created: {karaoke_video_file}", text_color="bright_green")
 
