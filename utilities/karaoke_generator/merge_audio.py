@@ -5,7 +5,7 @@ def merge_audio_stems(
     drums_file, 
     other_file, 
     output_format, 
-    output_path,
+    output_file,
 ):
     """
     Merge the bass, drums, and other stems into a single audio file.
@@ -37,7 +37,7 @@ def merge_audio_stems(
 
         # Step 3: Define the output file path
         # Combine the output base name with the specified format (e.g., fused_audio.mp3)
-        output_file = f"{output_path}.{output_format}"
+        # output_file = f"{output_path}.{output_format}"
 
         # Step 4: Export the merged audio to the specified format
         merged_audio.export(output_file, format=output_format)

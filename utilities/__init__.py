@@ -13,5 +13,7 @@ from .karaoke_generator import (
     load_lyrics_metadata,
     save_modified_lyrics,
     process_audio_merging,
-    process_karaoke_creation
+    process_karaoke_creation,
+    get_font_list,
+    get_available_colors
 )

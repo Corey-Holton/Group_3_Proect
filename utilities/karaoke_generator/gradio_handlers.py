@@ -9,7 +9,7 @@ from .extract_lyric_timing import extract_lyrics_with_timing
 from .merge_audio import merge_audio_stems
 from .generate_ass import create_ass_file
 from .generate_video import generate_karaoke_video
-from .utilities import extract_audio_duration
+from .utilities import extract_audio_duration, get_available_colors
 
 from .constants import (
     DEFAULT_OUTPUT_DIR_LYRICS_RAW,
@@ -144,13 +144,15 @@ def save_modified_lyrics(metadata_file, modified_words):
 def process_audio_merging(
     bass_file, 
     drums_file, 
-    instrumental_file, 
+    instrumental_file,
+    file_name,
     output_format="mp3", 
 ):
     
     output_directory = Path(DEFAULT_OUTPUT_DIR_INSTRUMENTAL)
     output_directory.mkdir(parents=True, exist_ok=True)
-    output_file = output_directory / f"{Path(instrumental_file).stem}_instrumental.{output_format}"
+    output_file = f"{output_directory}/{file_name}.{output_format}"
+    print(output_file)
 
     try:
         output_file = merge_audio_stems(
@@ -158,7 +160,7 @@ def process_audio_merging(
             drums_file, 
             instrumental_file, 
             output_format=output_format, 
-            output_path=output_file
+            output_file=output_file
         )
 
         print_message(f"Instrumental audio saved at: {output_file}", text_color="bright_green")
@@ -178,9 +180,11 @@ def process_karaoke_creation(
     file_name,
 
     # ASS file creation parameters
-    font="Arial",
-    fontsize=10,
-    title="Karaoke Title",
+    font="Maiandra GD",
+    fontsize=13,
+    primary_color="&H00FFFFFF",
+    secondary_color="&H0000FFFF",
+    title="Karaoke",
 
     # Video creation parameters
     resolution="1280x720",
@@ -211,6 +215,12 @@ def process_karaoke_creation(
         str: Path to the generated karaoke video.
     """
     try:
+        available_colors = get_available_colors()
+
+        # Map color names to their hexadecimal codes
+        primary_color_code = available_colors.get(primary_color, "&H00FFFFFF")  # Default to White
+        secondary_color_code = available_colors.get(secondary_color, "&H0000FFFF")  # Default to Yellow
+
         # Create directories for ASS and video output
         output_ass_directory = Path(DEFAULT_OUTPUT_DIR_ASS)
         output_ass_directory.mkdir(parents=True, exist_ok=True)
@@ -240,6 +250,8 @@ def process_karaoke_creation(
             font=font,
             fontsize=fontsize,
             title=title,
+            primary_color=primary_color_code,
+            secondary_color=secondary_color_code
         )
         print_message(f"[SUCCESS] ASS file created: {karaoke_ass_file}", text_color="bright_green")
 

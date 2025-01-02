@@ -32,7 +32,9 @@ from utilities import (
     load_lyrics_metadata,
     save_modified_lyrics,
     process_audio_merging,
-    process_karaoke_creation
+    process_karaoke_creation,
+    get_font_list,
+    get_available_colors,
 )
 
 # ════════════════════════════════════════════════════════════
@@ -322,7 +324,10 @@ def create_audio_merging_interface():
                 other_input = gr.Audio(type="filepath", label="Other Stem", sources="upload")
 
         with gr.Row():
-            fuse_button = gr.Button("Merge Stems")
+            with gr.Column(scale=1):
+                gr.Markdown("### Name the output file. (Example: `song_name`)")
+                name_file = gr.Textbox(label="Output File Name", placeholder="Enter a name for the file without an extension.")
+                fuse_button = gr.Button("Merge Stems")
 
         with gr.Row():
             with gr.Column(scale=1):
@@ -331,7 +336,7 @@ def create_audio_merging_interface():
 
         fuse_button.click(
             process_audio_merging,
-            inputs=[bass_input, drums_input, other_input],
+            inputs=[bass_input, drums_input, other_input, name_file],
             outputs=[fused_output],
         )
 
@@ -344,6 +349,9 @@ def create_karaoke_creation_interface():
     """
     Interface for creating a karaoke video by uploading instrumental audio and lyrics metadata.
     """
+    available_fonts = get_font_list()
+    available_colors = get_available_colors()
+
     with gr.Blocks() as interface:
         with gr.Row():
             gr.Markdown("## Create Karaoke Video")
@@ -359,8 +367,10 @@ def create_karaoke_creation_interface():
 
             with gr.Column(scale=1):
                 gr.Markdown("### Select parameters for the karaoke lyrics being displayed.")
-                font = gr.Textbox(label="Font", value="Arial", placeholder="Font for lyrics display")
-                fontsize = gr.Slider(minimum=8, maximum=36, step=1, value=10, label="Font Size")
+                font = gr.Dropdown(choices=available_fonts, value="Arial", label="Font")
+                fontsize = gr.Slider(minimum=8, maximum=36, step=1, value=13, label="Font Size")
+                primary_color = gr.Dropdown(choices=available_colors, value="White", label="Primary Color (Text)", interactive=True)
+                secondary_color = gr.Dropdown(choices=available_colors, value="Yellow", label="Secondary Color (Highlight)", interactive=True)
                 title = gr.Textbox(label="Video Title", value="Karaoke Title", placeholder="Title of the video")
 
                 gr.Markdown("### Select parameters for the karaoke video to be created.")
@@ -387,7 +397,7 @@ def create_karaoke_creation_interface():
             with gr.Column(scale=1):
                 gr.Markdown("### Output Karaoke Video")
                 output_video = gr.Video(label="Karaoke Video", interactive=False)
-
+                
         # Action: Process Karaoke Creation
         process_button.click(
             process_karaoke_creation,
@@ -397,6 +407,8 @@ def create_karaoke_creation_interface():
                 file_name,
                 font,
                 fontsize,
+                primary_color,
+                secondary_color,
                 title,
                 resolution,
                 preset,
