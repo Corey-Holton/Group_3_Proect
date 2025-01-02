@@ -1,7 +1,24 @@
 import torch
 import subprocess
+from pathlib import Path
+from PIL import Image
 from .utilities import extract_audio_duration, validate_file
 from ..print_utilities import print_message
+
+def preprocess_image(image_path, resolution):
+    output_path = str(Path("./audio_processing/karaoke_files/preprocessed_images/temp_image.png"))
+    try:
+        img = Image.open(image_path)
+        # Ensure RGB format
+        img = img.convert("RGB")  
+        width, height = map(int, resolution.split("x"))
+        # Match video resolution
+        img = img.resize((width, height))  
+        img.save(output_path, "PNG")
+        return output_path
+    except Exception as e:
+        print(f"Error processing image: {e}")
+        return None
 
 def generate_karaoke_video(
     audio_path,
@@ -12,7 +29,8 @@ def generate_karaoke_video(
     crf=23,
     fps=24,
     bitrate="3000k",
-    audio_bitrate="192k"
+    audio_bitrate="192k",
+    background_image=None, 
 ):
     """
     Generate a karaoke video with a black background, utilizing GPU acceleration if available.
@@ -50,24 +68,45 @@ def generate_karaoke_video(
         print("❌ Unable to retrieve audio duration. Aborting.")
         return
 
-    # Build FFmpeg command
-    command = [
-        "ffmpeg",
-        "-y",  # Overwrite output
-        "-f", "lavfi",
-        f"-i", f"color=c=black:s={resolution}:d={audio_duration}",  # Black background
-        "-i", audio_path,  # Audio input
-        "-vf", f"subtitles={ass_path}",  # Add subtitles
-        "-c:v", video_codec,  # Select GPU or CPU codec
-        "-preset", preset,  # Encoding preset
-        "-crf", str(crf),  # Quality level
-        "-r", str(fps),  # Frame rate
-        "-b:v", bitrate,  # Video bitrate
-        "-c:a", "aac",  # Audio codec
+    if background_image:
+        background_image = preprocess_image(background_image, resolution)
+        if not background_image:
+            return "Error processing background image."
+
+# Build FFmpeg command
+    command = ["ffmpeg", "-y"]  # Overwrite output
+
+    if background_image:
+        # Add background image
+        command.extend(["-loop", "1", "-i", background_image])  # Loop the background image
+        # Add audio input
+        command.extend(["-i", audio_path])
+        # Filter complex for scaling and subtitles
+        filter_complex = f"[0:v]scale={resolution},subtitles={ass_path}"
+        command.extend(["-filter_complex", filter_complex])
+        # Map video and audio streams
+        command.extend(["-map", "0:v", "-map", "1:a"])
+    else:
+        # Add a black background
+        command.extend(["-f", "lavfi", "-i", f"color=c=black:s={resolution}:d={audio_duration}"])  # Black background
+        # Add audio input
+        command.extend(["-i", audio_path])
+        # Add subtitles directly
+        command.extend(["-vf", f"subtitles={ass_path}"])
+
+    # Add common video and audio options
+    command.extend([
+        "-pix_fmt", "yuv420p",  # Set standard pixel format
+        "-c:v", video_codec,  # Video codec
+        "-preset", preset,    # Encoding preset
+        "-crf", str(crf),     # Quality level
+        "-r", str(fps),       # Frame rate
+        "-b:v", bitrate,      # Video bitrate
+        "-c:a", "aac",        # Audio codec
         "-b:a", audio_bitrate,  # Audio bitrate
         "-shortest",  # Match shortest stream
         output_path  # Output file
-    ]
+    ])
 
     # Debugging: Print the constructed command
     print("\nRunning FFmpeg command:")
@@ -78,4 +117,6 @@ def generate_karaoke_video(
         subprocess.run(command, check=True)
         print(f"✅ Video successfully created at: {output_path}")
     except subprocess.CalledProcessError as e:
-        print(f"❌ FFmpeg error: {e.stderr}")
+        print(f"❌ FFmpeg error: {e}")
+    except Exception as e:
+        print(f"❌ An unexpected error occurred: {e}")
