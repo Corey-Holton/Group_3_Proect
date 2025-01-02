@@ -41,13 +41,16 @@ from utilities import (
 def create_audio_separation_interface():
     with gr.Blocks() as interface:
         with gr.Row():
+            gr.Markdown("## Separate Audio into Stems using AI")
+
+        with gr.Row():
             with gr.Column(scale=1):
-                gr.Markdown("### Audio Input")
+                gr.Markdown("### Upload an audio file to separate into `vocals`, `instrumental`, `bass`, and `drums`.")
                 audio_input = gr.Audio(type="filepath", label="Upload Audio File", sources="upload")
                 process_button = gr.Button("Separate Audio")
-
+                
             with gr.Column(scale=1):
-                gr.Markdown("### Parameters")
+                gr.Markdown("### Parameters for audio separation using the AI model.")
                 model = gr.Textbox(value="htdemucs_ft", label="Demucs Model", placeholder="htdemucs_ft")
                 save_as_mp3 = gr.Checkbox(label="Save as MP3?", value=True)
                 mp3_bitrate = gr.Slider(minimum=60, maximum=600, step=20, value=320, label="MP3 Bitrate (kbps)")
@@ -56,7 +59,7 @@ def create_audio_separation_interface():
 
         with gr.Row():
             with gr.Column(scale=1):
-                gr.Markdown("### Audio Outputs")
+                gr.Markdown("### Stem audio outputs.")
                 instrumental_output = gr.Audio(label="Instrumental")
                 vocal_output = gr.Audio(label="Vocals")
                 bass_output = gr.Audio(label="Bass")
@@ -75,17 +78,20 @@ def create_audio_separation_interface():
 def create_audio_to_midi_interface():
     with gr.Blocks() as interface:
         with gr.Row():
-            with gr.Column(scale=1):
-                gr.Markdown("### Audio Input")
-                audio_input = gr.Audio(type="filepath", label="Upload Audio File", sources="upload")
-                song_directory = gr.Textbox(label="Song Directory Name", placeholder="Enter a song directory name.", value=f"song_{random.randint(1000, 9999)}")
-                process_button = gr.Button("Convert to MIDI")
+            gr.Markdown("## Convert an Audio File into `MIDI` format using AI")
 
-                gr.Markdown("### MIDI Output")
+        with gr.Row():
+            with gr.Column(scale=1):
+                gr.Markdown("### Upload an audio file to convert to `MIDI`.")
+                audio_input = gr.Audio(type="filepath", label="Upload Audio File", sources="upload")
+                gr.Markdown("### Name the output `MIDI` parent folder. (Example: `song_name`)")
+                song_directory = gr.Textbox(label="`MIDI` Directory Name", placeholder="Enter a song directory name.", value=f"song_{random.randint(1000, 9999)}")
+                process_button = gr.Button("Convert to MIDI")
+                gr.Markdown("### `MIDI` file output.")
                 midi_output = gr.Audio(label="MIDI")
 
             with gr.Column(scale=1):
-                gr.Markdown("### Parameters")
+                gr.Markdown("### Parameters for audio to `MIDI` conversion for the AI model.")
                 save_midi = gr.Checkbox(label="Save MIDI File?", value=True)
                 generate_audio_from_midi = gr.Checkbox(label="Sonify MIDI?", value=False)
                 save_model_outputs = gr.Checkbox(label="Save Model Outputs?", value=False)
@@ -117,18 +123,31 @@ def create_audio_to_midi_interface():
 def create_modify_midi_interface():
     with gr.Blocks() as interface:
         with gr.Row():
+            gr.Markdown("## Modify an Existing `MIDI` File using AI")
+
+        with gr.Row():
             with gr.Column(scale=1):
-                gr.Markdown("### MIDI Input")
+                gr.Markdown("### Upload a `MIDI` file to modify.")
                 midi_input = gr.Audio(type="filepath", label="Upload MIDI File", sources="upload")
-                song_dir_name = gr.Textbox(label="Song Directory Name", placeholder="Enter a song directory name.", value=f"song_{random.randint(1000, 9999)}")
-                song_prefix_name = gr.Textbox(label="Song Prefix Name", placeholder="Enter a song prefix name.", value=f'{random.randint(1000, 9999)}')
-                process_button = gr.Button("Modify MIDI")
 
             with gr.Column(scale=1):
-                gr.Markdown("### Parameters")
+                gr.Markdown("### Name the output `MIDI` parent folder. (Example: `song_name`)")
+                song_dir_name = gr.Textbox(label="`MIDI` Directory Name", placeholder="Enter a song directory name.", value=f"song_{random.randint(1000, 9999)}")
+                gr.Markdown("### Prefix name for the modified `MIDI` file. (Example: `rock_and_roll`)")
+                song_prefix_name = gr.Textbox(label="`MIDI` Prefix Name", placeholder="Enter a song prefix name.", value=f'{random.randint(1000, 9999)}')
+
+        with gr.Row():
+            with gr.Column(scale=1):
+                gr.Markdown("### Text prompt for the AI model.")
                 prompt = gr.Textbox(label="Prompt", placeholder="Enter a prompt here.")
 
-                gr.Markdown("### MIDI Output")
+        with gr.Row():
+            with gr.Column(scale=1):
+                process_button = gr.Button("Modify MIDI")
+
+        with gr.Row():
+            with gr.Column(scale=1):
+                gr.Markdown("### Modified `MIDI` output file.")
                 modified_midi_output = gr.Audio(label="Modified MIDI")
 
         process_button.click(
@@ -138,26 +157,30 @@ def create_modify_midi_interface():
         )
     return interface
 
-
 # ════════════════════════════════════════════════════════════
 # Gradio Interface 4: Extract and Translate Lyrics
 # ════════════════════════════════════════════════════════════
 def create_lyrics_interface():
     with gr.Blocks() as interface:
         with gr.Row():
+            gr.Markdown("## Extract Lyrics for Translation")
+
+        with gr.Row():
             with gr.Column(scale=1):
-                gr.Markdown("### Audio Input")
+                gr.Markdown("### Upload `vocals` audio file.")
                 audio_input = gr.Audio(type="filepath", label="Upload Audio File", sources="upload")
+
+        with gr.Row():
+            with gr.Column(scale=1):
+                gr.Markdown("### Lyrics extraction output.")
+                lyrics_output = gr.Textbox(label="Lyrics")
                 extract_button = gr.Button("Extract Lyrics")
 
             with gr.Column(scale=1):
-                gr.Markdown("### Lyrics Output")
-                lyrics_output = gr.Textbox(label="Lyrics")
-
-                gr.Markdown("### Translate Lyrics")
-                language_code = gr.Dropdown(choices=get_available_languages(), label="Language", interactive=True)
+                gr.Markdown("### Translated lyrics output.")
+                language_code = gr.Dropdown(choices=get_available_languages(), label="Select a Language", interactive=True)
                 translated_output = gr.Textbox(label="Translated Lyrics")
-                translate_button = gr.Button("Translate")
+                translate_button = gr.Button("Translate Lyrics")
 
         extract_button.click(
             process_audio_lyric_extraction,
@@ -171,7 +194,6 @@ def create_lyrics_interface():
             outputs=[translated_output],
         )
     return interface
-
 
 # ════════════════════════════════════════════════════════════
 # Gradio Interface 5: External Website Tab
@@ -203,24 +225,30 @@ def create_external_website_interface():
 def create_lyric_extraction_interface():
     with gr.Blocks() as interface:
         with gr.Row():
-            with gr.Column(scale=1):
-                gr.Markdown("### Upload Audio File")
-                audio_input = gr.Audio(type="filepath", label="Vocals Audio File", sources="upload")
-                extract_button = gr.Button("Extract Lyrics Metadata")
+            gr.Markdown("## Extract Lyrics for Karaoke")
 
         with gr.Row():
             with gr.Column(scale=1):
-                gr.Markdown("### Metadata Output")
+                gr.Markdown("### Upload `vocals` audio file.")
+                audio_input = gr.Audio(type="filepath", label="Vocals Audio File", sources="upload")
+                gr.Markdown("### Name the output file. (Example: `song_name`)")
+                name_file = gr.Textbox(label="Output File Name", placeholder="Enter a name for the file without an extension.")
+                extract_button = gr.Button("Extract Lyrics")
+
+        with gr.Row():
+            with gr.Column(scale=1):
+                gr.Markdown("### Lyric data saved file path.")
                 metadata_output = gr.Textbox(label="Raw Metadata File Path", interactive=False)
+                gr.Markdown("### Lyric data output.")
+                metadata_output_json = gr.JSON(label="Extracted Metadata")
 
         extract_button.click(
             process_audio_extract_lyric_timing,
-            inputs=[audio_input],
-            outputs=[metadata_output],
+            inputs=[audio_input, name_file],
+            outputs=[metadata_output, metadata_output_json],
         )
 
     return interface
-
 
 # ════════════════════════════════════════════════════════════
 # Gradio Interface 6 Sub-Interface 2: Modify Lyrics Metadata
@@ -228,24 +256,30 @@ def create_lyric_extraction_interface():
 def create_lyric_modification_interface():
     with gr.Blocks() as interface:
         with gr.Row():
+            gr.Markdown("## Modify Lyrics for Karaoke")
+
+        with gr.Row():
             with gr.Column(scale=1):
-                gr.Markdown("### Upload Metadata File")
+                gr.Markdown("### Upload `.json` lyrics metadata file.")
                 metadata_input = gr.File(label="Raw Metadata JSON", file_types=[".json"])
                 load_button = gr.Button("Load Metadata")
 
         with gr.Row():
             with gr.Column(scale=1):
-                gr.Markdown("### Edit Words")
+                gr.Markdown("### Edit words or timing of the lyrics in the metadata.")
                 words_table = gr.Dataframe(
                     headers=["Verse Number", "Word Number", "Word", "Start Time", "End Time", "Probability"],
                     datatype=["number", "number", "str", "number", "number", "number"],
                     interactive=True
                 )
+                save_button = gr.Button("Modifiy Lyrics")
 
         with gr.Row():
             with gr.Column(scale=1):
-                save_button = gr.Button("Save Modified Metadata")
+                gr.Markdown("### Modified lyric data saved file path.")
                 modified_metadata_output = gr.Textbox(label="Modified Metadata File Path", interactive=False)
+                gr.Markdown("### Modified lyric data output.")
+                metadata_output_json = gr.JSON(label="Extracted Metadata")
 
         # Actions
         def load_and_display_metadata(metadata_file):
@@ -263,7 +297,7 @@ def create_lyric_modification_interface():
         save_button.click(
             save_metadata,
             inputs=[metadata_input, words_table],
-            outputs=[modified_metadata_output],
+            outputs=[modified_metadata_output, metadata_output_json],
         )
 
     return interface
@@ -274,15 +308,26 @@ def create_lyric_modification_interface():
 def create_audio_merging_interface():
     with gr.Blocks() as interface:
         with gr.Row():
+            gr.Markdown("## Create Audio for Karaoke")
+            
+        with gr.Row():
+            gr.Markdown("### Merge `bass`, `drums`, and `other` audio stems.")
+
+        with gr.Row():
             with gr.Column(scale=1):
-                gr.Markdown("### Fuse Bass, Drums, and Other Stems")
                 bass_input = gr.Audio(type="filepath", label="Bass Stem", sources="upload")
-                drums_input = gr.Audio(type="filepath", label="Drums Stem", sources="upload")
-                other_input = gr.Audio(type="filepath", label="Other Stem", sources="upload")
-                fuse_button = gr.Button("Fuse Stems")
             with gr.Column(scale=1):
-                gr.Markdown("### Fused Output")
-                fused_output = gr.Audio(label="Fused Audio")
+                drums_input = gr.Audio(type="filepath", label="Drums Stem", sources="upload")
+            with gr.Column(scale=1):
+                other_input = gr.Audio(type="filepath", label="Other Stem", sources="upload")
+
+        with gr.Row():
+            fuse_button = gr.Button("Merge Stems")
+
+        with gr.Row():
+            with gr.Column(scale=1):
+                gr.Markdown("### Merged Audio Output")
+                fused_output = gr.Audio(label="Merged Audio")
 
         fuse_button.click(
             process_audio_merging,
@@ -301,19 +346,24 @@ def create_karaoke_creation_interface():
     """
     with gr.Blocks() as interface:
         with gr.Row():
+            gr.Markdown("## Create Karaoke Video")
+
+        with gr.Row():
             with gr.Column(scale=1):
-                gr.Markdown("### Input Files")
+                gr.Markdown("### Upload audio file for the karaoke video.")
                 instrumental_audio = gr.Audio(type="filepath", label="Instrumental Audio", sources="upload")
+                gr.Markdown("### Upload the lyrics metadata file for the karaoke video.")
                 lyrics_metadata = gr.File(label="Lyrics Metadata (JSON)", file_types=[".json"])
-                file_name = gr.Textbox(label="Output File Name", placeholder="Enter a file name without extension")
+                gr.Markdown("### Name the output file. (Example: `song_name`)")
+                file_name = gr.Textbox(label="Output File Name", placeholder="Enter a name for the file without an extension.")
 
             with gr.Column(scale=1):
-                gr.Markdown("### ASS File Parameters")
+                gr.Markdown("### Select parameters for the karaoke lyrics being displayed.")
                 font = gr.Textbox(label="Font", value="Arial", placeholder="Font for lyrics display")
                 fontsize = gr.Slider(minimum=8, maximum=36, step=1, value=10, label="Font Size")
                 title = gr.Textbox(label="Video Title", value="Karaoke Title", placeholder="Title of the video")
 
-                gr.Markdown("### Video Parameters")
+                gr.Markdown("### Select parameters for the karaoke video to be created.")
                 resolution = gr.Dropdown(
                     choices=["1280x720", "1920x1080", "640x480"],
                     value="1280x720",
@@ -335,7 +385,8 @@ def create_karaoke_creation_interface():
 
         with gr.Row():
             with gr.Column(scale=1):
-                output_video = gr.Textbox(label="Output Karaoke Video Path", interactive=False)
+                gr.Markdown("### Output Karaoke Video")
+                output_video = gr.Video(label="Karaoke Video", interactive=False)
 
         # Action: Process Karaoke Creation
         process_button.click(
@@ -384,7 +435,6 @@ def create_karaoke_subtabs():
         ],
     )
     return karaoke_subtabs
-
 
 # ════════════════════════════════════════════════════════════
 # Main Interface Setup
