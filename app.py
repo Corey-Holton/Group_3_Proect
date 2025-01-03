@@ -18,7 +18,6 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 # Imports
 # ════════════════════════════════════════════════════════════
 # Third-party Imports
-!pip install gradio
 import gradio as gr
 
 # Local Imports
