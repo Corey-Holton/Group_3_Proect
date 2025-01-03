@@ -1,7 +1,8 @@
 import subprocess
 import time
+import os
 from colorama import Fore, Style
-
+import matplotlib.font_manager as fm
 
 def extract_audio_duration(audio_path):
     """
@@ -67,4 +68,54 @@ def display_verses_with_timing(verses):
             while time.time() - start_time < word["end"]:
                 time.sleep(0.01)
 
-        print("\n")  # Move to a new line after the verse
+        # Move to a new line after the verse
+        print("\n")  
+
+
+def validate_file(path, file_type="file"):
+    """
+    Validates the existence of a file or directory.
+
+    Args:
+        path (str): Path to validate.
+        file_type (str): Type of validation ('file' or 'directory').
+
+    Returns:
+        bool: True if the file or directory exists, False otherwise.
+    """
+    if file_type == "file" and not os.path.isfile(path):
+        print(f"❌ {file_type.capitalize()} not found: {path}")
+        return False
+    
+    if file_type == "directory" and not os.path.isdir(path):
+        print(f"❌ {file_type.capitalize()} not found: {path}")
+        return False
+    
+    return True
+
+
+def get_font_list():
+    """Retrieve a list of unique font names."""
+    fonts = [f.name for f in fm.fontManager.ttflist]
+    unique_fonts = set(fonts)
+    return sorted(unique_fonts)
+
+def get_available_colors():
+    """Generate a dictionary of color names and their ASS-compatible codes."""
+    return {
+        "White": "&H00FFFFFF",
+        "Black": "&H00000000",
+        "Red": "&H000000FF",
+        "Green": "&H0000FF00",
+        "Blue": "&H00FF0000",
+        "Yellow": "&H0000FFFF",
+        "Cyan": "&H00FFFF00",
+        "Magenta": "&H00FF00FF",
+        "Gray": "&H00808080",
+        "Orange": "&H0000A5FF",
+        "Pink": "&H00CBC0FF",
+        "Purple": "&H00A020F0",
+        "Brown": "&H002A2AA5",
+        "Lime": "&H0000FF80",
+    }
+
