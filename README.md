@@ -12,6 +12,37 @@
 ![Gradio Badge](https://img.shields.io/badge/Gradio-F97316?logo=gradio&logoColor=fff&style=flat)
 </p>
 
+## 📖 **Table of Contents**
+
+1. [🎵 Overview](#overview)
+2. [🌟 Key Features](#key-features)
+    - [Audio Separation](#1-audio-separation)
+    - [Audio to MIDI Conversion](#2-audio-to-midi-conversion)
+    - [Modify MIDI Files](#3-modify-midi-files)
+    - [Lyrics Extraction and Translation](#4-lyrics-extraction-and-translation)
+    - [Karaoke Video Generation](#5-karaoke-video-generation)
+3. [🎸 Research on Guitar Notes](#research-on-guitar-notes)
+    - [Key Steps in the Research](#key-steps-in-the-research)
+    - [Visualizations and Results](#visualizations-and-results)
+    - [Why This Research Matters](#why-this-research-matters)
+4. [🖥️ How to Use the App](#how-to-use-the-app)
+    - [Audio Separation](#audio-separation)
+    - [Audio to MIDI Conversion](#audio-to-midi-conversion)
+    - [Modify MIDI Files](#modify-midi-files)
+    - [Lyrics Extraction and Translation](#lyrics-extraction-and-translation)
+    - [Karaoke Video Generation](#karaoke-video-generation)
+5. [🗂️ Project Structure](#project-structure)
+6. [📦 Installation Guide](#installation-guide)
+7. [📊 Technical Highlights](#technical-highlights)
+8. [🔧 Troubleshooting](#troubleshooting)
+9. [🚀 Future Enhancements](#future-enhancements)
+10. [👨‍💻 Team](#team)
+11. [📜 License](#license)
+
+
+---
+
+<a id="overview"></a>
 ## 🎵 **Overview**
 This application provides musicians, producers, and enthusiasts with a powerful yet intuitive interface for audio processing. Using advanced models like Demucs, Basic Pitch, and Whisper, the app offers:
 
@@ -23,6 +54,7 @@ This application provides musicians, producers, and enthusiasts with a powerful 
 
 ---
 
+<a id="key-features"></a>
 ## 🌟 **Key Features**
 
 ### 1. Audio Separation
@@ -51,6 +83,7 @@ This application provides musicians, producers, and enthusiasts with a powerful 
 - **Use Case**: Host karaoke sessions or share lyric videos online.
 ---
 
+<a id="research-on-guitar-notes"></a>
 ## 🎸 **Research on Guitar Notes**
 
 Before developing the comprehensive audio processing app, we conducted focused research on recognizing guitar notes using machine learning and signal processing. This foundational work guided our understanding of audio features and model capabilities.
@@ -120,6 +153,7 @@ This research proved instrumental in identifying the strengths and limitations o
 
 ---
 
+<a id="how-to-use-the-app"></a>
 ## 🖥️ **How to Use the App**
 
 ### Step-by-Step Instructions:
@@ -167,6 +201,7 @@ This research proved instrumental in identifying the strengths and limitations o
 
 ---
 
+<a id="project-structure"></a>
 ## 📂 **Project Structure**
 
 ```plaintext
@@ -184,6 +219,7 @@ audio_processing_app/
 ├── requirements.txt     # Python dependencies
 ```
 
+<a id="installation-guide"></a>
 ## 📦 **Installation Guide**
 
 ### Pre-Installation Steps
@@ -236,6 +272,7 @@ Before installing the required dependencies, make sure to install the correct ve
 
 ---
 
+<a id="technical-highlights"></a>
 ## 📊 **Technical Highlights**
 
 ### Models and Techniques
@@ -258,6 +295,8 @@ Before installing the required dependencies, make sure to install the correct ve
 > ![Spectrogram](./Resources/figures/spectrogram.png)
 
 ---
+
+<a id="troubleshooting"></a>
 ## 🔧 **Troubleshooting**
 
 - **Dependency Issues**: Ensure all libraries in `requirements.txt` are installed.
@@ -266,6 +305,7 @@ Before installing the required dependencies, make sure to install the correct ve
 
 ---
 
+<a id="future-enhancements"></a>
 ## 🚀 **Future Enhancements**
 
 1. Expand model compatibility for non-guitar instruments.
@@ -275,6 +315,7 @@ Before installing the required dependencies, make sure to install the correct ve
 
 ---
 
+<a id="team"></a>
 ## 👩‍💻 **Team**
 - Corey Holton
 - Christian Palacios
@@ -283,6 +324,7 @@ Before installing the required dependencies, make sure to install the correct ve
 
 ---
 
+<a id="license"></a>
 ## 📜 **License**
 This project is licensed under the **MIT License**.
 
