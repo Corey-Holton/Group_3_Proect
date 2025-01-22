@@ -91,27 +91,27 @@ Before developing the comprehensive audio processing app, we conducted focused r
 
 - **Feature Extraction Outputs**:  
    - MFCC visualization.  
-   ![MFCC visualization](./resources/figures/mfcc.png)
+   ![MFCC visualization](./Resources/figures/mfcc.png)
 
    - Mel Spectrogram comparison (before/after training).  
-   ![Mel Spectrogram](./resources/figures/mlspectrogram.png)
+   ![Mel Spectrogram](./Resources/figures/mlspectrogram.png)
 
    - Chroma features with labels of pitch classes.
-   ![Chroma](./resources/figures/chroma.png)
+   ![Chroma](./Resources/figures/chroma.png)
 
 - **Model Training Evaluation**:  
   - Validation loss and accuracy graphs over training epochs.  
-  ![Validation Loss and Accuracy](./resources/figures/val_loss_acc.png)
+  ![Validation Loss and Accuracy](./Resources/figures/val_loss_acc.png)
 
 - **Audio Processing Visuals**:  
   - Raw audio waveform.  
-  ![Audio Example](./resources/figures/raw_audio_example.png)
+  ![Audio Example](./Resources/figures/raw_audio_example.png)
 
   - FFT and CQT plots.  
-  ![CQT vs FFT](./resources/figures/cqt_vs_fft.png)
+  ![CQT vs FFT](./Resources/figures/cqt_vs_fft.png)
 
   - Predicted guitar notes.
-  ![Note Prediction](./resources/figures/note_prediction_2.png)
+  ![Note Prediction](./Resources/figures/note_prediction_2.png)
 
 ---
 
@@ -131,7 +131,7 @@ This research proved instrumental in identifying the strengths and limitations o
 4. Customize parameters (e.g., model version, bitrate).
 5. Click **Separate Audio** and download the stems.
 
-> ![Separate Audio](./resources/figures/split_audio.png)
+> ![Separate Audio](./Resources/figures/split_audio.png)
 
 #### **Audio to MIDI Conversion**
 1. Switch to the "Audio to MIDI" tab.
@@ -139,7 +139,7 @@ This research proved instrumental in identifying the strengths and limitations o
 3. Adjust MIDI generation settings (e.g., note threshold).
 4. Click **Convert to MIDI** to generate and download the file.
 
-> ![MIDI Conversion](./resources/figures/generate_midi.png)
+> ![MIDI Conversion](./Resources/figures/generate_midi.png)
 
 #### **Modify MIDI Files**
 1. Select the "Modify MIDI" tab.
@@ -147,7 +147,7 @@ This research proved instrumental in identifying the strengths and limitations o
 3. Enter a text prompt (e.g., "Change to jazz style").
 4. Click **Modify MIDI** to apply changes.
 
-> ![Modify MIDI](./resources/figures/modify_midi.png)
+> ![Modify MIDI](./Resources/figures/modify_midi.png)
 
 #### **Lyrics Extraction and Translation**
 1. Go to the "Lyrics Extraction" tab.
@@ -155,7 +155,7 @@ This research proved instrumental in identifying the strengths and limitations o
 3. Click **Extract Lyrics** to display text.
 4. Input a language code for translation (e.g., `en`, `es`, `fr`) and click **Translate**.
 
-> ![Extract Lyrics](./resources/figures/extract_lyrics.png)
+> ![Extract Lyrics](./Resources/figures/extract_lyrics.png)
 
 #### **Karaoke Video Generation**
 1. Upload instrumental and vocal stems.
@@ -163,7 +163,7 @@ This research proved instrumental in identifying the strengths and limitations o
 3. Customize lyrics and background image.
 4. Generate a karaoke video using FFmpeg.
 
-> ![Karaoke Output](./resources/figures/karaoke_output.png)
+> ![Karaoke Output](./Resources/figures/karaoke_output.png)
 
 ---
 
@@ -255,7 +255,7 @@ Before installing the required dependencies, make sure to install the correct ve
 - Time stretching/shifting.
 - Pitch shifting.
 
-> ![Spectrogram](./resources/figures/spectrogram.png)
+> ![Spectrogram](./Resources/figures/spectrogram.png)
 
 ---
 ## 🔧 **Troubleshooting**
