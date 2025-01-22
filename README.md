@@ -1,348 +1,289 @@
-# Gradio Audio Processing App
+# Harmonize: AI-Powered Audio Processing Suite
 
-This application provides an intuitive interface built with Gradio for processing audio files. It includes functionalities like audio separation, MIDI conversion, MIDI modification, and lyrics extraction and translation.
+<br> <p align="center"> 
+![Python Badge](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff&style=flat)
+![Anaconda Badge](https://img.shields.io/badge/Anaconda-44A833?logo=anaconda&logoColor=fff&style=flat)
+![pandas Badge](https://img.shields.io/badge/pandas-150458?logo=pandas&logoColor=fff&style=flat)
+![NumPy Badge](https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=fff&style=flat)
+![TensorFlow Badge](https://img.shields.io/badge/TensorFlow-FF6F00?logo=tensorflow&logoColor=fff&style=flat)
+![Keras Badge](https://img.shields.io/badge/Keras-D00000?logo=keras&logoColor=fff&style=flat)
+![.ENV Badge](https://img.shields.io/badge/.ENV-ECD53F?logo=dotenv&logoColor=000&style=flat)
+![OpenAI Badge](https://img.shields.io/badge/OpenAI-412991?logo=openai&logoColor=fff&style=flat)
+![Gradio Badge](https://img.shields.io/badge/Gradio-F97316?logo=gradio&logoColor=fff&style=flat)
+</p>
 
----
+## 🎵 **Overview**
+This application provides musicians, producers, and enthusiasts with a powerful yet intuitive interface for audio processing. Using advanced models like Demucs, Basic Pitch, and Whisper, the app offers:
 
-## Features
-
-1. **Audio Separation**  
-   - Separate an audio file into its components (vocals, bass, drums, etc.) using the Demucs model.
-
-2. **Audio to MIDI Conversion**  
-   - Convert audio files into MIDI format using the Basic Pitch model with customizable parameters.
-
-3. **Modify MIDI Files**  
-   - Upload a MIDI file and apply transformations based on user-defined prompts.
-
-4. **Lyrics Extraction and Translation**  
-   - Extract lyrics from an audio file and translate them into different languages.
-
----
-
-## Requirements
-
-### Software
-- Python 3.9 or above  
-- Conda for environment management
-
-### Python Libraries
-The app utilizes various Python libraries such as:
-- Gradio  
-- TensorFlow  
-- Coremltools (optional)  
-- Additional dependencies mentioned in `requirements.txt` (not provided here but recommended to generate)
-
-### Models
-- **Demucs**: For audio separation  
-- **Basic Pitch**: For MIDI generation  
-- **Custom Lyrics Extraction and Translation Models**
+- **Audio Separation**: Extract instrumental and vocal stems.
+- **MIDI Conversion**: Convert instrumental audio to editable MIDI files.
+- **MIDI Modification**: Customize MIDI files using AI-powered prompts.
+- **Lyrics Extraction and Translation**: Extract lyrics from songs and translate them into multiple languages.
+- **Karaoke Video Generation**: Create karaoke videos with synchronized lyrics and a custom background.
 
 ---
 
-## Installation Guide
+## 🌟 **Key Features**
 
-1. **Clone the Repository**
-    ```bash
-    git clone https://github.com/Corey-Holton/Group_3_Project.git
-    cd https://github.com/Corey-Holton/Group_3_Project.git
-    ```
+### 1. Audio Separation
+- **Description**: Extract individual components (e.g., vocals, bass, drums).
+- **Model Used**: [Demucs](https://github.com/facebookresearch/demucs).
+- **Use Case**: Isolate instrumental tracks for practice or remixing.
 
-2. **Set Up Conda Environment**  
-   Create and activate a Conda environment for the project:
-    ```bash
-    conda create -n audio_processing python=3.10 -y
-    conda activate audio_processing
-    ```
+### 2. Audio to MIDI Conversion
+- **Description**: Convert audio into MIDI format for further editing.
+- **Model Used**: [Basic Pitch](https://github.com/spotify/basic-pitch).
+- **Use Case**: Generate sheet music or integrate into DAWs.
 
-3. **Install Dependencies**  
-   Install all required dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
+### 3. Modify MIDI Files
+- **Description**: Apply transformations like changing the scale or style using AI-generated prompts.
+- **Model Used**: Google Gemini API.
+- **Use Case**: Create unique renditions of existing tracks.
 
-4. **Run the Application**  
-   Launch the Gradio interface:
-    ```bash
-    python app.py
-    ```
+### 4. Lyrics Extraction and Translation
+- **Description**: Extract and translate lyrics from vocal tracks.
+- **Model Used**: [Whisper](https://openai.com/whisper).
+- **Use Case**: Understand or re-purpose song lyrics.
+
+### 5. Karaoke Video Generation
+- **Description**: Create karaoke videos with synchronized lyrics and custom backgrounds.
+- **Tools Used**: FFmpeg for video processing.
+- **Use Case**: Host karaoke sessions or share lyric videos online.
+---
+
+## 🎸 **Research on Guitar Notes**
+
+Before developing the comprehensive audio processing app, we conducted focused research on recognizing guitar notes using machine learning and signal processing. This foundational work guided our understanding of audio features and model capabilities.
+
+### Key Steps in the Research:
+
+1. **Feature Extraction for Audio**  
+   - **MFCC (Mel-Frequency Cepstral Coefficients)**: Captures the spectral envelope of audio signals.  
+   - **Mel Spectrogram**: Provides a frequency-based visual representation.  
+   - **Chroma Features**: Highlights harmonic pitch content.  
+   - **Spectral Contrast**: Differentiates between peaks and valleys in the spectrum.
+
+2. **Model Training**  
+   - Used **Convolutional Neural Networks (CNNs)** with TensorFlow/Keras to classify guitar chords.  
+   - Trained on diverse datasets of `.wav` files containing guitar notes at varying pitches, tones, and durations.  
+   - Achieved high validation accuracy: **98.5%**.
+
+3. **Pitch Estimation and Signal Processing**  
+   - Applied FFT (Fast Fourier Transform) and CQT (Constant-Q Transform) for frequency analysis.  
+   - Estimated fundamental frequencies and converted them into MIDI notes.  
+   - Segmented audio into smaller chunks for chord prediction.
+
+4. **Data Augmentation**  
+   - Applied techniques such as white noise addition, time stretching, and pitch shifting to improve model robustness.
+
+5. **Outputs**  
+   - Visualized predictions with **CQT** and **FFT** to validate chord recognition accuracy.  
+   - Generated MIDI files for the predicted notes.  
+   - Created **music21 streams** and MIDI files for playback and analysis.  
+   - Example Output: `sweet_child_music21_with_chords.mid`.
+
+6. **Interactive UI for Fine-Tuning**  
+   - Implemented sliders to adjust CQT parameters for better flexibility and analysis.
 
 ---
 
-## How to Use
+### Visualizations and Results:
 
-### Audio Separation
-1. Navigate to the “Audio Separation” tab.  
-2. Upload an audio file and customize the parameters (e.g., model, output format, bitrate).  
-3. Click **Separate Audio** to process the file and download the separated stems.
+- **Feature Extraction Outputs**:  
+   - MFCC visualization.  
+   ![MFCC visualization](resources/figures/mfcc.png)
 
-### Audio to MIDI
-1. Switch to the “Audio to MIDI” tab.  
-2. Upload an audio file and configure the MIDI generation settings.  
-3. Click **Convert to MIDI** to generate the MIDI file.
+   - Mel Spectrogram comparison (before/after training).  
+   ![Mel Spectrogram](resources/figures/mlspectrogram.png)
 
-### Modify MIDI
-1. Select the “Modify MIDI” tab.  
-2. Upload a MIDI file and provide a prompt for modifications.  
-3. Click **Modify MIDI** to generate a new MIDI file.
+   - Chroma features with labels of pitch classes.
+   ![Chroma](resources/figures/chroma.png)
 
-### Lyrics Extraction
-1. Go to the “Lyrics Extraction” tab.  
-2. Upload an audio file and click **Extract Lyrics** to display the lyrics.  
-3. Optionally, input a language code (e.g., en, es, fr) and click **Translate** to translate the lyrics.
+- **Model Training Evaluation**:  
+  - Validation loss and accuracy graphs over training epochs.  
+  ![Validation Loss and Accuracy](resources/figures/val_loss_acc.png)
+
+- **Audio Processing Visuals**:  
+  - Raw audio waveform.  
+  ![Audio Example](resources/figures/raw_audio_example.png)
+
+  - FFT and CQT plots.  
+  ![CQT vs FFT](resources/figures/cqt_vs_fft.png)
+
+  - Predicted guitar notes.
+  ![Note Prediction](resources/figures/note_prediction_2.png)
 
 ---
 
-## File Structure Overview
+### Why This Research Matters:
+This research proved instrumental in identifying the strengths and limitations of CNNs for specific instruments. It informed our decision to later leverage pre-trained models like **Demucs** and **Basic Pitch** for broader functionality.
+
+---
+
+## 🖥️ **How to Use the App**
+
+### Step-by-Step Instructions:
+
+#### **Audio Separation**
+1. Run `python app.py` on the root directory. Open gradio on the browswer
+2. Go to the "Audio Separation" tab.
+3. Upload an audio file.
+4. Customize parameters (e.g., model version, bitrate).
+5. Click **Separate Audio** and download the stems.
+
+> ![Separate Audio](resources/figures/split_audio.png)
+
+#### **Audio to MIDI Conversion**
+1. Switch to the "Audio to MIDI" tab.
+2. Upload an instrumental audio file.
+3. Adjust MIDI generation settings (e.g., note threshold).
+4. Click **Convert to MIDI** to generate and download the file.
+
+> ![MIDI Conversion](resources/figures/generate_midi.png)
+
+#### **Modify MIDI Files**
+1. Select the "Modify MIDI" tab.
+2. Upload a MIDI file.
+3. Enter a text prompt (e.g., "Change to jazz style").
+4. Click **Modify MIDI** to apply changes.
+
+> ![Modify MIDI](resources/figures/modify_midi.png)
+
+#### **Lyrics Extraction and Translation**
+1. Go to the "Lyrics Extraction" tab.
+2. Upload a vocal stem.
+3. Click **Extract Lyrics** to display text.
+4. Input a language code for translation (e.g., `en`, `es`, `fr`) and click **Translate**.
+
+> ![Extract Lyrics](resources/figures/extract_lyrics.png)
+
+#### **Karaoke Video Generation**
+1. Upload instrumental and vocal stems.
+2. Use Whisper to synchronize lyrics.
+3. Customize lyrics and background image.
+4. Generate a karaoke video using FFmpeg.
+
+> ![Karaoke Output](resources/figures/karaoke_output.png)
+
+---
+
+## 📂 **Project Structure**
 
 ```plaintext
-audio_processing/
-├── output_stems/            # Directory for storing separated audio stems
-├── notebooks/               # Jupyter notebooks for development and testing
-├── utilities/               # Utility scripts for audio processing and MIDI generation
-│   ├── separate_audio.py    # Audio separation logic
-│   ├── audio_to_midi.py     # MIDI conversion functionality
-│   ├── extract_lyrics.py    # Lyrics extraction and translation functions
-├── app.py                   # Main script for the Gradio app
-├── requirements.txt         # Python dependencies
+audio_processing_app/
+├── output_stems/        # Processed audio stems
+├── output_midi/         # Generated MIDI files
+├── karaoke_videos/      # Karaoke video outputs
+├── notebooks/           # Development notebooks
+├── utilities/           # Helper scripts
+│   ├── separate_audio.py
+│   ├── audio_to_midi.py
+│   ├── modify_midi.py
+│   ├── lyrics_processing.py
+├── app.py               # Main Gradio application
+├── requirements.txt     # Python dependencies
 ```
 
+## 📦 **Installation Guide**
 
-### Customization Options
--  Audio Separation: Change the model name (default is htdemucs_ft) in the interface.
--  MIDI Conversion: Adjust thresholds, frequency ranges, and samplerate for optimal results.
--  Lyrics Translation: Update translation API or dictionaries as needed.
-
-### Troubleshooting
-- Coremltools Warning: If not required, the app will work fine without it.
-- TensorFlow Warning: Ensure TensorFlow is installed and compatible with your Python version.
-- Missing Outputs: Verify the output_stems/ and output_midi/ directories are writable.
-
-### Future Enhancements
-- Integration with cloud storage for saving outputs.
-- Support for more languages in lyrics translation.
-- Improved MIDI modification capabilities.
-
-# Guitar Chord Recognition with Audio Feature Extraction and CNN
-
-## 📚 **Project Overview**
-This project focuses on recognizing guitar chords using deep learning and audio signal processing techniques. By leveraging **Librosa** for feature extraction and a **Convolutional Neural Network (CNN)** for classification, the system identifies guitar chords from audio recordings.
+### Pre-Installation Steps
+Before installing the required dependencies, make sure to install the correct versions of PyTorch, torchvision, and torchaudio based on your system and CUDA version. Follow the instructions below:
 
 ---
 
-## 🚀 **Key Features**
-- **Audio Feature Extraction:** MFCC, Mel Spectrogram, Chroma, and Spectral Contrast.
-- **Data Augmentation:** Techniques such as white noise addition, time stretching, time shifting, and pitch shifting.
-- **Machine Learning Model:** CNN implemented using TensorFlow/Keras.
-- **Dataset Processing:** Handles large datasets of `.wav` files with preprocessing and normalization.
-- **Evaluation Metrics:** Accuracy, Confusion Matrix, and Loss Curves.
-
----
-
-## ⚙️ **Technologies Used**
-- **Python Libraries:**
-  - Librosa
-  - TensorFlow/Keras
-  - Scikit-learn
-  - Pandas
-  - NumPy
-  - Matplotlib
-  - Seaborn
-- **Machine Learning Techniques:**
-  - CNN (Convolutional Neural Network)
-  - Data Augmentation
-  - Feature Normalization
-- **Audio Processing Libraries:**
-  - Music21
-  - Pydub
-
----
-
-## 📊 **Audio Features Explained**
-- **MFCC (Mel-Frequency Cepstral Coefficients):** Captures the spectral envelope of an audio signal.
-- **Mel Spectrogram:** Converts frequencies into the Mel scale for better frequency resolution.
-- **Chroma Features:** Represents the energy content in each pitch class.
-- **Spectral Contrast:** Highlights differences in peaks and valleys of frequency spectra.
-
----
-
-## 🛠️ **Setup Instructions**
-1. **Clone the Repository:**
+1. **Clone the Repository**
    ```bash
-   git clone <repo_url>
-   cd <repo_directory>
+   git clone https://github.com/Corey-Holton/Group_3_Project.git
+   cd Group_3_Project
    ```
-2. **Install Dependencies:**
+
+2. **Set Up Conda Environment**
    ```bash
-   pip install -r requirements.txt
+   conda create -n audio_processing python=3.10 -y
+   conda activate audio_processing
    ```
-3. **Run the Script:**
+
+3. **Install Dependencies**  
+   - First install `torch`, `torchvision`, `torchaudio`  
+      - **For GPU Users:**
+         - Install the appropriate CUDA toolkit.
+         - Use the PyTorch installation guide to install the correct versions:
+           ```bash
+           pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cuXX
+           ```
+           Replace `cuXX` with your specific CUDA version (e.g., `cu118` for CUDA 11.8).
+
+      - **For CPU Users:**
+         - Install the CPU versions of PyTorch, torchvision, and torchaudio:
+           ```bash
+           pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+           ```
+
+      - **For macOS Users:**
+         - Use the CPU-only version of PyTorch as macOS does not support CUDA:
+           ```bash
+           pip install torch torchvision torchaudio
+           ```
+   - Second install `requirements.txt`
+      ```bash
+      pip install -r requirements.txt
+      ```
+
+4. **Run the Application**
    ```bash
-   python main.py
+   python app.py
    ```
-4. **Model Training and Evaluation:**
-   - Follow instructions in the notebook or script.
 
 ---
 
-## 🧪 **How it Works**
-1. **Audio Preprocessing:** Load `.wav` files and apply noise reduction, normalization, and augmentation.
-2. **Feature Extraction:** Extract MFCCs, Mel Spectrogram, Chroma, and Spectral Contrast features.
-3. **Data Splitting:** Train, validation, and test datasets.
-4. **CNN Training:** Train a CNN model to classify audio features.
-5. **Model Evaluation:** Evaluate accuracy and generate confusion matrices.
-6. **Save Model:** Export trained model and preprocessors (`encoder.pkl`, `scaler.pkl`).
+## 📊 **Technical Highlights**
+
+### Models and Techniques
+- **Demucs**: Audio stem separation.
+- **Basic Pitch**: Audio-to-MIDI conversion.
+- **Whisper**: Lyrics extraction and translation.
+- **Google Gemini API**: AI-based MIDI modification.
+
+### Key Audio Features:
+- **MFCC**: Mel-Frequency Cepstral Coefficients.
+- **Chroma Features**: Harmonic pitch representation.
+- **Spectral Contrast**: Timbre differentiation.
+- **Mel Spectrogram**: Frequency-based signal representation.
+
+### Data Augmentation:
+- White noise addition.
+- Time stretching/shifting.
+- Pitch shifting.
+
+> ![Spectrogram](resources/figures/spectrogram.png)
+
+---
+## 🔧 **Troubleshooting**
+
+- **Dependency Issues**: Ensure all libraries in `requirements.txt` are installed.
+- **Missing Outputs**: Verify write permissions for `output_stems/` and `output_midi/`.
+- **Model Compatibility**: Use Python 3.10+ for TensorFlow compatibility.
 
 ---
 
-## 📈 **Results and Evaluation**
-- **Validation Accuracy:** Displayed via confusion matrix.
-- **Model Loss Curve:** Graph showing training and validation loss over epochs.
+## 🚀 **Future Enhancements**
+
+1. Expand model compatibility for non-guitar instruments.
+2. Real-time audio processing.
+3. Cloud storage integration for outputs.
+4. Enhanced lyrics editing features.
 
 ---
 
-## 📦 **Outputs**
-- `guitar_chord_recognition_model.keras`: Trained model file.
-- `encoder.pkl`: Label encoder.
-- `scaler.pkl`: Feature scaler.
-- ** guitar_chord_recognition_model.keras is 1.5 gigs and too large to be added to the git repository so it is added to the gitignore file. This will have to be created to use the chord prediciton model.
+## 👩‍💻 **Team**
+- Corey Holton
+- Christian Palacios
+- Edwin Lovera
+- Montre Davis
 
 ---
 
-## 🤝 **Contributing**
-Contributions are welcome! Please submit a pull request or open an issue for feedback.
-
----
-
-## 📝 **License**
+## 📜 **License**
 This project is licensed under the **MIT License**.
 
-
-
-# Guitar Chord Recognition and Audio Processing
-
-## Overview
-
-This project focuses on analyzing and predicting guitar chords from audio files using advanced signal processing and machine learning techniques. The workflow integrates audio feature extraction, model-based chord prediction, and MIDI/music sheet generation.
-
-## Features
-
-Audio Processing: Extracts meaningful audio features using FFT (Fast Fourier Transform) and CQT (Constant-Q Transform).
-
-Chord Prediction: Uses a pre-trained Keras deep learning model for chord recognition.
-
-Pitch Estimation: Identifies fundamental frequencies and generates MIDI notes.
-
-Music Visualization: Generates music21 streams and MIDI files for playback and analysis.
-
-Interactive UI for Fine-Tuning: Sliders to adjust CQT parameters.
-
-Music Sheet Generation: Creates sheet music with predicted chords and notes.
-
-## Dependencies
-
-Ensure the following libraries are installed:
-
-numpy
-
-matplotlib
-
-seaborn
-
-joblib
-
-keras
-
-librosa
-
-midiutil
-
-music21
-
-IPython
-
-ipywidgets
-
-Install via pip:
-
-pip install numpy matplotlib seaborn joblib keras librosa midiutil music21 ipywidgets
-
-## Configuration
-
-- Audio Path: path = './audio/music/'
-
-- Sampling Frequency: fs = 44100
-
-- FFT Parameters: nfft = 2048, overlap = 0.5
-
-- CQT Parameters: n_bins = 72, mag_exp = 4, cqt_threshold = -61
-
-## Workflow
-
-1. Model and Audio Loading
-
-- Load a pre-trained Keras model (guitar_chord_recognition_model.keras).
-
-- Load encoder and scaler (encoder.pkl, scaler.pkl).
-
-- Load and preprocess the audio file using Librosa.
-
-2. Signal Processing
-
-- Apply FFT and CQT for frequency analysis.
-
-- Segment audio into smaller chunks for chord prediction.
-
-3. Chord Prediction
-
-- Predict chords using the trained model.
-
-- Decode predicted outputs into chord names.
-
-4. Music Sheet and MIDI Generation
-
-- Estimate pitch and generate sine waves.
-
-- Create MIDI notes and music21 streams.
-
-- Generate and save MIDI files.
-
-## Outputs
-
-- Audio Playback: Listen to processed audio.
-
-- Visual Plots: FFT and CQT spectrograms.
-
-- Music21 Stream: Play and display sheet music.
-
-- MIDI File: Saved as sweet_child_music21_with_chords.mid
-
-## Running the Code
-
-1. Place audio files in the specified path.
-
-2. Run the script in a Jupyter Notebook environment.
-
-3. Use the UI to fine-tune parameters.
-
-## Troubleshooting
-
-- Verify all dependencies are installed.
-
-- Ensure valid audio file paths.
-
-- Check model and encoder files are available.
-
-## Future Improvements
-
-- Expand model to recognize additional instruments.
-
-- Real-time chord prediction.
-
-## Authors
-
-- Group 3 Project Team (Corey Holton, Christian Palacios, Edwin Lovera, Montre Davis)
-License
-
-This project is licensed under the MIT License.
-
+---
